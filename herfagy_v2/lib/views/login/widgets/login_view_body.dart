@@ -81,7 +81,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           controller: _passwordController,
                           validator: (value) =>
                               Validators.validatePassword(value),
-                          prefixIcon: Icons.lock_outline,
+                          prefixIcon: Icons.security,
                           onSuffixIconPressed:
                               viewModel.togglePasswordVisibility,
                           suffixIcon: viewModel.obscurePassword
