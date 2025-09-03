@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:herfagy_v2/views/login/login_view.dart';
 import 'package:provider/provider.dart';
 import '../../../viewmodels/onboarding_view_model.dart';
 
@@ -10,7 +11,14 @@ class CustomButton extends StatelessWidget {
     final viewModel = context.read<OnboardingViewModel>();
     final width = MediaQuery.sizeOf(context).width;
     return ElevatedButton(
-      onPressed: viewModel.onNextPage,
+      onPressed: () {
+        viewModel.currentPageIndex == viewModel.pages.length - 1
+            ? Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => LoginView()),
+              )
+            : viewModel.onNextPage();
+      },
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.blue,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
