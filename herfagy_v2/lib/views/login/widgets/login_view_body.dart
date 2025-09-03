@@ -106,7 +106,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     SizedBox(height: screenHeight * 0.025),
                     RowCheckAccountWidget(
                       questionText: "ليس لديك حساب؟",
-                      buttonText: "  عمل حساب",
+                      buttonText: "  أنشأ حساب جديد",
                       onTap: () {
                         Navigator.push(
                           context,

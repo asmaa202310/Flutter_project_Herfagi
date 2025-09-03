@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:herfagy_v2/views/forget_password/forget_password_view.dart';
 
 class CustomForgetPasswordButton extends StatelessWidget {
   const CustomForgetPasswordButton({super.key});
@@ -9,10 +10,19 @@ class CustomForgetPasswordButton extends StatelessWidget {
     return Row(
       children: [
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ForgetPasswordView()),
+            );
+          },
           child: Text(
-            "نسيت حسابك؟",
-            style: TextStyle(color: Colors.blue, fontSize: screenWidth * 0.045),
+            "نسيت كلمة المرور؟",
+            style: TextStyle(
+              color: Colors.blue,
+              fontSize: screenWidth * 0.045,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ],
