@@ -1,32 +1,35 @@
 import 'package:flutter/material.dart';
-import '../../sign_up/sign_up_view.dart';
-import '/utils/validators.dart';
-import '/viewmodels/login_view_model.dart';
-import '/views/login/widgets/custom_forget_button.dart';
-import '/views/login/widgets/custom_login_signup_button.dart';
-import '/views/login/widgets/custom_socail_buttons_container.dart';
-import '/views/login/widgets/custom_text_field.dart';
-import '/views/login/widgets/or_divider.dart';
-import 'row_check_account_widget.dart';
-import '/views/login/widgets/image_widget.dart';
 import 'package:provider/provider.dart';
 
-class LoginViewBody extends StatefulWidget {
-  const LoginViewBody({super.key});
+import '../../../utils/validators.dart';
+import '../../../viewmodels/sign_up_view_model.dart';
+import '../../login/widgets/custom_login_signup_button.dart';
+import '../../login/widgets/custom_socail_buttons_container.dart';
+import '../../login/widgets/custom_text_field.dart';
+import '../../login/widgets/image_widget.dart';
+import '../../login/widgets/or_divider.dart';
+import '../../login/widgets/row_check_account_widget.dart';
+
+class SignUpViewBody extends StatefulWidget {
+  const SignUpViewBody({super.key});
 
   @override
-  State<LoginViewBody> createState() => _LoginViewBodyState();
+  State<SignUpViewBody> createState() => _SignUpViewBodyState();
 }
 
-class _LoginViewBodyState extends State<LoginViewBody> {
+class _SignUpViewBodyState extends State<SignUpViewBody> {
   final _formKey = GlobalKey<FormState>();
+  final _nameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
 
   @override
   void dispose() {
+    _nameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+    _confirmPasswordController.dispose();
     super.dispose();
   }
 
@@ -49,15 +52,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   children: [
                     SizedBox(height: screenHeight * 0.02),
                     Text(
-                      'مرحبا!',
-                      style: TextStyle(
-                        color: Colors.blue,
-                        fontSize: screenWidth * 0.08,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    Text(
-                      'تسجيل الدخول',
+                      'إنشاء حساب جديد',
                       style: TextStyle(
                         color: Colors.blue.shade700,
                         fontSize: screenWidth * 0.085,
@@ -65,6 +60,21 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                       ),
                     ),
                     SizedBox(height: screenHeight * 0.03),
+
+                    CustomTextField(
+                      label: "الاسم",
+                      hint: "ادخل الاسم بالكامل",
+                      controller: _nameController,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Name is required";
+                        }
+                        return null;
+                      },
+                      prefixIcon: Icons.person_outline,
+                    ),
+                    SizedBox(height: screenHeight * 0.025),
+
                     CustomTextField(
                       label: "البريد الالكترونى",
                       hint: "ادخل البريد الالكترونى",
@@ -73,7 +83,8 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                       prefixIcon: Icons.email_outlined,
                     ),
                     SizedBox(height: screenHeight * 0.025),
-                    Consumer<LoginViewModel>(
+
+                    Consumer<SignUpViewModel>(
                       builder: (context, viewModel, _) {
                         return CustomTextField(
                           obscureText: viewModel.obscurePassword,
@@ -91,13 +102,35 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         );
                       },
                     ),
-                    SizedBox(height: screenHeight * 0.005),
-                    const CustomForgetPasswordButton(),
-                    SizedBox(height: screenHeight * 0.001),
+                    SizedBox(height: screenHeight * 0.025),
+                    Consumer<SignUpViewModel>(
+                      builder: (context, viewModel, _) {
+                        return CustomTextField(
+                          obscureText: viewModel.obscureConfirmPassword,
+                          label: "تأكيد كلمة السر",
+                          hint: "اعد كتابة كلمة السر",
+                          controller: _confirmPasswordController,
+                          validator: (value) {
+                            if (value != _passwordController.text) {
+                              return "Passwords do not match";
+                            }
+                            return null;
+                          },
+                          prefixIcon: Icons.security,
+                          onSuffixIconPressed:
+                              viewModel.toggleConfirmPasswordVisibility,
+                          suffixIcon: viewModel.obscureConfirmPassword
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                        );
+                      },
+                    ),
+
+                    SizedBox(height: screenHeight * 0.03),
                     CustomLoginSignUpButton(
                       screenWidth: screenWidth,
                       screenHeight: screenHeight,
-                      text: "تسجيل الدخول",
+                      text: "إنشاء حساب",
                     ),
                     SizedBox(height: screenHeight * 0.025),
                     const OrDivider(),
@@ -105,16 +138,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     const CustomSocialButtonsContainer(),
                     SizedBox(height: screenHeight * 0.025),
                     RowCheckAccountWidget(
-                      questionText: "ليس لديك حساب؟",
-                      buttonText: "  عمل حساب",
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SignUpView(),
-                          ),
-                        );
-                      },
+                      questionText: "هل لديك حساب بالفعل؟",
+                      buttonText: "  تسجيل الدخول",
+                      onTap: () => Navigator.pop(context),
                     ),
                   ],
                 ),

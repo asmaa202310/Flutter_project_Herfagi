@@ -1,24 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../viewmodels/sign_up_view_model.dart';
+import 'widgets/sign_up_view_body.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: const SignUpViewBody());
-  }
-}
-
-class SignUpViewBody extends StatefulWidget {
-  const SignUpViewBody({super.key});
-
-  @override
-  State<SignUpViewBody> createState() => _SignUpViewBodyState();
-}
-
-class _SignUpViewBodyState extends State<SignUpViewBody> {
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: ChangeNotifierProvider(
+        create: (context) => SignUpViewModel(),
+        child: const SignUpViewBody(),
+      ),
+    );
   }
 }
