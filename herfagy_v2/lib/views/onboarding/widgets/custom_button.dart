@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:herfagy_v2/views/login/login_view.dart';
 import 'package:provider/provider.dart';
 import '../../../viewmodels/onboarding_view_model.dart';
+import '../../login/login_view.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({super.key});
