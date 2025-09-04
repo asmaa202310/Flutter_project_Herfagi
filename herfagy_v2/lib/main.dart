@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:herfagy_v2/views/home_for_user/home_user_view.dart';
 import '/generated/l10n.dart';
 import '/viewmodels/onboarding_view_model.dart';
 import '/views/onboarding/onboarding_view.dart';
@@ -36,7 +37,7 @@ class HerfagyApp extends StatelessWidget {
         fontFamily: 'NotoSansArabic_Condensed-Regular',
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: const OnboardingView(),
+      home: const HomeUserView(),
     );
   }
 }

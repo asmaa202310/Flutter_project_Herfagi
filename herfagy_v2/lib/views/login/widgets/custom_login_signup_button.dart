@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../home_for_user/home_user_view.dart';
+
 class CustomLoginSignUpButton extends StatelessWidget {
   const CustomLoginSignUpButton({
     super.key,
@@ -14,7 +16,12 @@ class CustomLoginSignUpButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => HomeUserView()),
+        );
+      },
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.blue,
         minimumSize: Size(screenWidth, screenHeight * 0.06),

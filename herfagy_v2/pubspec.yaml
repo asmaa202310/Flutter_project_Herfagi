@@ -39,6 +39,7 @@ dependencies:
   intl: any
   provider: ^6.1.5+1
   lottie: ^3.3.1
+  flutter_rating_bar: ^4.0.1
 
 dev_dependencies:
   flutter_test:

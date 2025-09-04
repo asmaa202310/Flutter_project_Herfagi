@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:herfagy_v2/viewmodels/onboarding_view_model.dart';
 import 'package:herfagy_v2/views/login/login_view.dart';
 import 'package:herfagy_v2/views/onboarding/widgets/custom_animated_skip_button.dart';
-import 'package:provider/provider.dart';
 import '../../../views/onboarding/widgets/page_view_builder_widget.dart';
 import '../../../views/onboarding/widgets/custom_button.dart';
 import '../../../views/onboarding/widgets/dot_indictaor_list_view_builder.dart';
