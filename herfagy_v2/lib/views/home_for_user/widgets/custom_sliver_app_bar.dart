@@ -23,6 +23,7 @@ class CustomSilverAppBar extends StatelessWidget {
         borderRadius: BorderRadius.vertical(bottom: Radius.circular(26)),
       ),
       flexibleSpace: FlexibleSpaceBar(
+        collapseMode: CollapseMode.parallax,
         background: AppBarBackgroundContent(
           screenWidth: screenWidth,
           screenHeight: screenHeight,
