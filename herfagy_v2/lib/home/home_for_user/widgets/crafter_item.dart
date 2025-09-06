@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
+import 'custom_order_button.dart';
+
 class CrafterItem extends StatelessWidget {
   const CrafterItem({
     super.key,
@@ -63,22 +65,12 @@ class CrafterItem extends StatelessWidget {
             itemSize: 20,
           ),
           const Spacer(),
-          ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              minimumSize: Size(double.infinity, 35),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
-              backgroundColor: Colors.blue,
-            ),
-            child: const Text(
-              'احجز الآن',
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+          SizedBox(
+            width: double.infinity,
+            child: CustomOrderButton(
+              borderRaduis: 12,
+              text: 'احجز الآن',
+              fontSize: 15,
             ),
           ),
         ],

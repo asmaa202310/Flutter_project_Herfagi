@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-
 import '../../../models/service_model.dart';
+import 'custom_order_button.dart';
 
 class ServiceItem extends StatelessWidget {
   const ServiceItem({
@@ -65,19 +65,37 @@ class ServiceItem extends StatelessWidget {
             ],
           ),
           const Spacer(),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-            decoration: BoxDecoration(
-              color: Colors.blue.shade50,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Text(
-              "${service.price} جنيه",
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.blue,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 6,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.blue.shade50,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Text(
+                  "${service.price} جنيه",
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.blue,
+                  ),
+                ),
               ),
-            ),
+              const SizedBox(height: 8),
+              SizedBox(
+                height: 32,
+                width: 77,
+                child: CustomOrderButton(
+                  borderRaduis: 47,
+                  text: 'احجز الآن',
+                  fontSize: 13,
+                ),
+              ),
+            ],
           ),
         ],
       ),
