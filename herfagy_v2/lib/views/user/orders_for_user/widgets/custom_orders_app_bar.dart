@@ -1,36 +1,40 @@
 import 'package:flutter/material.dart';
 
-class CustomOrdersAppBar extends StatelessWidget
-    implements PreferredSizeWidget {
-  final String title;
+class CustomOrdersAppBar extends StatelessWidget {
+  const CustomOrdersAppBar({super.key, required this.text});
 
-  const CustomOrdersAppBar({super.key, required this.title});
+  final String text;
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
+    return SliverAppBar(
+      pinned: true,
       elevation: 6,
-      flexibleSpace: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Color(0xFF2196F3), Color(0xFF64B5F6)],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
+      expandedHeight: 60,
+      automaticallyImplyLeading: false,
+      flexibleSpace: FlexibleSpaceBar(
+        title: Text(
+          text,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 15,
+            color: Colors.white,
           ),
         ),
-      ),
-      title: Text(
-        title,
-        style: const TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 20,
-          color: Colors.white,
+        background: Container(
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadiusGeometry.vertical(
+              bottom: Radius.circular(25),
+            ),
+            gradient: LinearGradient(
+              colors: [Color(0xFF2196F3), Color(0xFF64B5F6)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
         ),
+        centerTitle: true,
       ),
-      centerTitle: true,
     );
   }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(60);
 }

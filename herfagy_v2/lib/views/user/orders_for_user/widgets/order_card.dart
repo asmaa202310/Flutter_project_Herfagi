@@ -25,9 +25,8 @@ class OrderCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.white,
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      color: Colors.white.withValues(alpha: 0.89),
+      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
       elevation: 3,
       child: Padding(
         padding: const EdgeInsets.all(15),
@@ -51,10 +50,19 @@ class OrderCard extends StatelessWidget {
             const SizedBox(height: 12),
             Row(
               children: [
-                Text("الحالة: ", style: TextStyle(color: Colors.grey[800])),
+                Text(
+                  "الحالة: ",
+                  style: TextStyle(
+                    color: Colors.grey[800],
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 Text(
                   order.status,
-                  style: TextStyle(color: getStatusColor(order.status)),
+                  style: TextStyle(
+                    color: getStatusColor(order.status),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const Spacer(),
                 CustomOrderButton(

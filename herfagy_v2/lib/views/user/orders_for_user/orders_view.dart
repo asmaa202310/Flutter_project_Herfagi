@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../models/order_model.dart';
 import 'widgets/custom_orders_app_bar.dart';
-import 'widgets/orders_list_view_builder.dart';
+import 'widgets/orders_sliver_list_builder.dart';
 
 class OrdersView extends StatelessWidget {
   const OrdersView({super.key});
@@ -31,8 +31,12 @@ class OrdersView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: CustomOrdersAppBar(title: "الحجوزات"),
-      body: OrdersListViewBuilder(orders: orders),
+      body: CustomScrollView(
+        slivers: [
+          const CustomOrdersAppBar(text: "الحجوزات"),
+          OrdersSliverListBuilder(orders: orders),
+        ],
+      ),
     );
   }
 }
