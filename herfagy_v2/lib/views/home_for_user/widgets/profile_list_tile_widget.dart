@@ -23,24 +23,14 @@ class ProfileListTileWidget extends StatelessWidget {
         "كيف يمكننا مساعدتك اليوم؟",
         style: TextStyle(color: Colors.white70, fontSize: 13),
       ),
-      trailing: Row(
-        mainAxisSize: MainAxisSize.min,
+      trailing: Stack(
         children: [
-          IconButton(
-            icon: const Icon(
-              Icons.notifications_none,
-              color: Colors.white,
-              size: 26,
-            ),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: const Icon(
-              Icons.favorite_border,
-              color: Colors.white,
-              size: 26,
-            ),
-            onPressed: () {},
+          Icon(Icons.notifications_none, color: Colors.white, size: 33),
+          CircleAvatar(
+            foregroundColor: Colors.white,
+            backgroundColor: Colors.red,
+            radius: 10,
+            child: Text('1', style: TextStyle(fontSize: 14)),
           ),
         ],
       ),

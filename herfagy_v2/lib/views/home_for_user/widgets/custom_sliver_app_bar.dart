@@ -17,8 +17,9 @@ class CustomSilverAppBar extends StatelessWidget {
     return SliverAppBar(
       backgroundColor: Colors.blue,
       pinned: true,
-      // floating: true,
+      floating: true,
       expandedHeight: screenHeight * 0.18,
+      automaticallyImplyLeading: false,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(bottom: Radius.circular(26)),
       ),
