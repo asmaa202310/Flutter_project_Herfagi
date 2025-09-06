@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import 'widgets/home_user_view_body.dart';
+import 'package:herfagy_v2/views/user/orders_for_user/orders_view.dart';
+import 'home_for_user/home_user_view.dart';
 
-class HomeUserView extends StatefulWidget {
-  const HomeUserView({super.key});
+class UserView extends StatefulWidget {
+  const UserView({super.key});
 
   @override
-  State<HomeUserView> createState() => _HomeUserViewState();
+  State<UserView> createState() => _UserViewState();
 }
 
-class _HomeUserViewState extends State<HomeUserView> {
+class _UserViewState extends State<UserView> {
   int _selectedIndex = 0;
 
-  final List<Widget> _pages = const [
-    HomeUserViewBody(),
-    Center(child: Text("الحجوزات", style: TextStyle(fontSize: 22))),
-    Center(child: Text("الملف الشخصي", style: TextStyle(fontSize: 22))),
+  final List<Widget> _pages = [
+    const HomeUserView(),
+    const OrdersView(),
+    const Center(child: Text("الملف الشخصي", style: TextStyle(fontSize: 22))),
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

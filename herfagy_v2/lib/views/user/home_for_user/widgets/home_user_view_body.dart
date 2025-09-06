@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../../viewmodels/home_user_view_model.dart';
-import '../../../user/home_for_user/widgets/section_header.dart';
 import 'category_items_list_view_builder.dart';
 import 'custom_sliver_app_bar.dart';
+import 'section_header.dart';
 import 'service_sliver_list_builder.dart';
 import 'top_crafters_list_view_builder.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../user/home_for_user/widgets/app_bar_background_content.dart';
-import '../../../user/home_for_user/widgets/custom_search_bar.dart';
+import 'app_bar_background_content.dart';
+import 'custom_search_bar.dart';
 
 class CustomSilverAppBar extends StatelessWidget {
   const CustomSilverAppBar({
