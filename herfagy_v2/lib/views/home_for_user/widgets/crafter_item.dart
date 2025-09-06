@@ -17,7 +17,7 @@ class CrafterItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: screenWidth * 0.45,
-      height: screenHeight * 0.17,
+      height: screenHeight * 0.25,
       margin: EdgeInsets.only(
         left: screenWidth * 0.04,
         bottom: screenWidth * 0.04,
@@ -60,7 +60,26 @@ class CrafterItem extends StatelessWidget {
             itemBuilder: (context, _) =>
                 const Icon(Icons.star, color: Colors.amber),
             itemCount: 5,
-            itemSize: 22,
+            itemSize: 20,
+          ),
+          const Spacer(),
+          ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              minimumSize: Size(double.infinity, 35),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              backgroundColor: Colors.blue,
+            ),
+            child: const Text(
+              'احجز الآن',
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
           ),
         ],
       ),

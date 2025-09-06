@@ -17,7 +17,7 @@ class TopCraftersListViewBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: screenHeight * 0.20,
+      height: screenHeight * 0.26,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.04),
