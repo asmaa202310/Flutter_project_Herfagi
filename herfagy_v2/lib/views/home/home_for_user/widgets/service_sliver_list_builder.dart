@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../viewmodels/home_user_view_model.dart';
+import '../../../../viewmodels/home_user_view_model.dart';
 import 'service_item.dart';
 
 class ServiceSliverListBuilder extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../viewmodels/home_user_view_model.dart';
+import '../../../../viewmodels/home_user_view_model.dart';
 import 'category_items_list_view_builder.dart';
 import 'custom_sliver_app_bar.dart';
 import 'section_header.dart';

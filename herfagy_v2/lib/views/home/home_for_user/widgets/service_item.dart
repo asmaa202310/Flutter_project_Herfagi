@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import '../../../models/service_model.dart';
+import '../../../../models/service_model.dart';
 import 'custom_order_button.dart';
 
 class ServiceItem extends StatelessWidget {

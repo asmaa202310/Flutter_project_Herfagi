@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../home/home_for_user/home_user_view.dart';
+import '../../home/home_for_user/home_user_view.dart';
 
 class CustomLoginSignUpButton extends StatelessWidget {
   const CustomLoginSignUpButton({
