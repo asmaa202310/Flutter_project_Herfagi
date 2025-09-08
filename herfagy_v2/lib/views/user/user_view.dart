@@ -16,7 +16,7 @@ class _UserViewState extends State<UserView> {
   final List<Widget> _pages = [
     const HomeUserView(),
     const OrdersView(),
-    UserProfilePage(),
+    const UserProfileView(),
   ];
   @override
   Widget build(BuildContext context) {

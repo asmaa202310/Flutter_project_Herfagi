@@ -5,11 +5,8 @@ import 'widgets/menu_section.dart';
 import 'widgets/profile_header.dart';
 import 'widgets/settings_section.dart';
 
-class UserProfilePage extends StatelessWidget {
-  const UserProfilePage({super.key});
-
-  final String userName = 'محمد علي';
-  final String location = 'القاهرة، مصر';
+class UserProfileView extends StatelessWidget {
+  const UserProfileView({super.key});
 
   final bool notificationsEnabled = true;
   final bool darkModeEnabled = false;
@@ -24,7 +21,7 @@ class UserProfilePage extends StatelessWidget {
             padding: const EdgeInsets.all(20),
             sliver: SliverList.list(
               children: [
-                ProfileHeader(userName: userName, location: location),
+                ProfileHeader(userName: 'محمد علي', location: 'القاهرة، مصر'),
                 const SizedBox(height: 30),
                 const MenuSection(),
                 const SizedBox(height: 30),
