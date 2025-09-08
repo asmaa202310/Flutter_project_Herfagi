@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:herfagy_v2/views/user/orders_for_user/orders_view.dart';
 import 'home_for_user/home_user_view.dart';
+import 'profile_for_user/user_profile_view.dart';
 
 class UserView extends StatefulWidget {
   const UserView({super.key});
@@ -15,7 +16,7 @@ class _UserViewState extends State<UserView> {
   final List<Widget> _pages = [
     const HomeUserView(),
     const OrdersView(),
-    const Center(child: Text("الملف الشخصي", style: TextStyle(fontSize: 22))),
+    UserProfilePage(),
   ];
   @override
   Widget build(BuildContext context) {

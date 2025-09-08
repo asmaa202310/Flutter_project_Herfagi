@@ -67,7 +67,7 @@ class CrafterItem extends StatelessWidget {
           const Spacer(),
           SizedBox(
             width: double.infinity,
-            child: CustomOrderButton(
+            child: CustomUserButton(
               borderRaduis: 12,
               text: 'احجز الآن',
               fontSize: 15,

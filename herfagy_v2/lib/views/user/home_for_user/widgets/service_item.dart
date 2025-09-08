@@ -89,7 +89,7 @@ class ServiceItem extends StatelessWidget {
               SizedBox(
                 height: 32,
                 width: 77,
-                child: CustomOrderButton(
+                child: CustomUserButton(
                   borderRaduis: 47,
                   text: 'احجز الآن',
                   fontSize: 13,

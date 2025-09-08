@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 
-class CustomOrderButton extends StatelessWidget {
-  const CustomOrderButton({
+class CustomUserButton extends StatelessWidget {
+  const CustomUserButton({
     super.key,
     required this.borderRaduis,
     required this.text,
     required this.fontSize,
+    this.color,
   });
   final double borderRaduis;
   final String text;
+  final Color? color;
   final double fontSize;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {},
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.blue,
+        backgroundColor: color ?? Colors.blue,
         padding: const EdgeInsets.symmetric(horizontal: 14),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(borderRaduis),

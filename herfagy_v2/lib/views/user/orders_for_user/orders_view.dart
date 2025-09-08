@@ -25,6 +25,36 @@ class OrdersView extends StatelessWidget {
       date: "20/8/2025",
       status: "جديد",
     ),
+    OrderModel(
+      service: "نجارة",
+      person: "كريم محمود",
+      date: "20/8/2025",
+      status: "جديد",
+    ),
+    OrderModel(
+      service: "نجارة",
+      person: "كريم محمود",
+      date: "20/8/2025",
+      status: "جديد",
+    ),
+    OrderModel(
+      service: "نجارة",
+      person: "كريم محمود",
+      date: "20/8/2025",
+      status: "جديد",
+    ),
+    OrderModel(
+      service: "نجارة",
+      person: "كريم محمود",
+      date: "20/8/2025",
+      status: "جديد",
+    ),
+    OrderModel(
+      service: "نجارة",
+      person: "كريم محمود",
+      date: "20/8/2025",
+      status: "جديد",
+    ),
   ];
 
   @override

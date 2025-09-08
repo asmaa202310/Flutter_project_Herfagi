@@ -9,32 +9,31 @@ class CustomOrdersAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverAppBar(
       pinned: true,
-      elevation: 6,
-      expandedHeight: 60,
+      toolbarHeight: 60,
       automaticallyImplyLeading: false,
-      flexibleSpace: FlexibleSpaceBar(
-        title: Text(
-          text,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 15,
-            color: Colors.white,
+      backgroundColor: Colors.transparent,
+      flexibleSpace: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xFF1565C0), Color(0xFF42A5F5)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(26)),
         ),
-        background: Container(
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadiusGeometry.vertical(
-              bottom: Radius.circular(25),
-            ),
-            gradient: LinearGradient(
-              colors: [Color(0xFF2196F3), Color(0xFF64B5F6)],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-          ),
-        ),
-        centerTitle: true,
       ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(bottom: Radius.circular(26)),
+      ),
+      title: Text(
+        text,
+        style: const TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 24,
+          color: Colors.white,
+        ),
+      ),
+      centerTitle: true,
     );
   }
 }

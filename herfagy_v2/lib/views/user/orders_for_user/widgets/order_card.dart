@@ -65,7 +65,7 @@ class OrderCard extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                CustomOrderButton(
+                CustomUserButton(
                   borderRaduis: 16,
                   text: 'التفاصيل',
                   fontSize: 14,
