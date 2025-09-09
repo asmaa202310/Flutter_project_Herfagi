@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:herfagy_v2/views/login/login_view.dart';
 import 'package:herfagy_v2/views/onboarding/onboarding_view.dart';
-import 'package:herfagy_v2/views/user/user_view.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import '/generated/l10n.dart';
 import '/viewmodels/onboarding_view_model.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+const supabaseUrl = String.fromEnvironment('SUPABASE_URL');
+const supabaseKey = String.fromEnvironment('SUPABASE_KEY');
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Supabase.initialize(url: supabaseUrl, anonKey: supabaseKey);
+
   runApp(
     ChangeNotifierProvider(
       create: (context) => OnboardingViewModel(),
