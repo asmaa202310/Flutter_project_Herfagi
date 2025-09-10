@@ -1,4 +1,4 @@
-name: Build and Release APK
+name: Upload APK to GitHub
 
 on:
   push:
@@ -6,10 +6,11 @@ on:
       - main
 
 permissions:
-  contents: write
+  contents: read
+  actions: write
 
 jobs:
-  release-apk:
+  upload-apk:
     runs-on: ubuntu-latest
 
     defaults:
@@ -25,29 +26,13 @@ jobs:
         with:
           flutter-version: "3.29.3"
 
-      - name: Install dependencies
-        run: flutter pub get
-
       - name: Build APK
         run: flutter build apk --release
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
+      - name: Upload APK to GitHub
+        uses: actions/upload-artifact@v4
         with:
-          tag_name: v${{ github.run_number }}
-          release_name: Release ${{ github.run_number }}
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: build/app/outputs/flutter-apk/app-release.apk
-          asset_name: app-release.apk
-          asset_content_type: application/vnd.android.package-archive
+          name: app-release.apk
+          path: build/app/outputs/flutter-apk/app-release.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
