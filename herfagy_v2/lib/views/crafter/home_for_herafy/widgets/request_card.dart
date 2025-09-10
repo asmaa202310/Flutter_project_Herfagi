@@ -6,44 +6,43 @@ import 'custom_icon_button.dart';
 import 'request_details_bottom_sheet.dart';
 
 class RequestCard extends StatelessWidget {
-  const RequestCard({super.key, required this.request, required this.index});
+  const RequestCard({super.key, required this.request});
 
   final RequestModel request;
-  final int index;
 
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 3.0,
       color: Colors.white,
-      shadowColor: Colors.blue.withValues(alpha: 0.5),
+      shadowColor: Colors.blue.withAlpha(128),
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       clipBehavior: Clip.antiAlias,
       child: ListTile(
         leading: const Icon(Icons.assignment_outlined, color: Colors.blue),
-        title: Text(request.service),
+        title: Text(
+          request.service,
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
         subtitle: Text("العميل: ${request.customerName}\n${request.date}"),
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             CustomIconButton(
-              index: index,
               onTap: () => _showRequestDetails(context),
               icon: Icons.info_outline,
               color: Colors.orange,
             ),
             CustomIconButton(
-              index: index,
               onTap: () =>
-                  context.read<RequestsProvider>().acceptRequest(index),
+                  context.read<RequestsProvider>().acceptRequest(request),
               icon: Icons.check,
               color: Colors.green,
             ),
             CustomIconButton(
-              index: index,
               onTap: () =>
-                  context.read<RequestsProvider>().rejectRequest(index),
+                  context.read<RequestsProvider>().rejectRequest(request),
               icon: Icons.close,
               color: Colors.red,
             ),
@@ -54,7 +53,7 @@ class RequestCard extends StatelessWidget {
   }
 
   void _showRequestDetails(BuildContext context) {
-    final requestsProvider = context.read<RequestsProvider>();
+    final viewModel = context.read<RequestsProvider>();
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.white,
@@ -63,8 +62,8 @@ class RequestCard extends StatelessWidget {
       ),
       builder: (_) {
         return ChangeNotifierProvider.value(
-          value: requestsProvider,
-          child: RequestDetailsBottomSheet(request: request, index: index),
+          value: viewModel,
+          child: RequestDetailsBottomSheet(request: request),
         );
       },
     );

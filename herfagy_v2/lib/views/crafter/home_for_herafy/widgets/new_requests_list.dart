@@ -9,8 +9,8 @@ class NewRequestsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<RequestsProvider>(
-      builder: (context, requestsProvider, child) {
-        if (requestsProvider.requests.isEmpty) {
+      builder: (context, viewModel, child) {
+        if (viewModel.requests.isEmpty) {
           return const SliverToBoxAdapter(
             child: Center(
               child: Padding(
@@ -22,9 +22,9 @@ class NewRequestsList extends StatelessWidget {
         }
         return SliverList(
           delegate: SliverChildBuilderDelegate((context, index) {
-            final request = requestsProvider.requests[index];
-            return RequestCard(request: request, index: index);
-          }, childCount: requestsProvider.requests.length),
+            final request = viewModel.requests[index];
+            return RequestCard(key: ValueKey(request), request: request);
+          }, childCount: viewModel.requests.length),
         );
       },
     );

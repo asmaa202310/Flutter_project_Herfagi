@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:herfagy_v2/views/crafter/home_for_herafy/home_crafter_view.dart';
+import 'home_for_herafy/home_crafter_view.dart';
+import 'orders_for_crafter/orders_crafter_view.dart';
+import 'profile_for_crafter/profile_crafter_view.dart';
 
 class CrafterView extends StatefulWidget {
   const CrafterView({super.key});
@@ -13,8 +15,8 @@ class _CrafterViewState extends State<CrafterView> {
 
   final List<Widget> _pages = [
     const HomeCrafterView(),
-    const HomeCrafterView(),
-    const HomeCrafterView(),
+    const OrdersCrafterView(),
+    const ProfileCrafterView(),
   ];
   @override
   Widget build(BuildContext context) {

@@ -6,11 +6,9 @@ class RequestDetailsBottomSheet extends StatelessWidget {
   const RequestDetailsBottomSheet({
     super.key,
     required this.request,
-    required this.index,
   });
 
   final RequestModel request;
-  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +26,7 @@ class RequestDetailsBottomSheet extends StatelessWidget {
           const SizedBox(height: 10),
           Text("الوصف: ${request.details}"),
           const SizedBox(height: 20),
-          BottomSheetActionButtons(index: index),
+          BottomSheetActionButtons(request: request,),
         ],
       ),
     );

@@ -56,57 +56,51 @@ class CrafterServicesProvider extends ChangeNotifier {
 class RequestsProvider extends ChangeNotifier {
   final List<RequestModel> _requests = [
     RequestModel(
-      customerName: "أحمد علي",
+      customerName: "فاطمة الزهراء",
+      service: "سباكة",
+      date: "2025-09-12",
+      details: "يوجد تسريب مياه أسفل حوض المطبخ، يتطلب فحص وإصلاح فوري.",
+    ),
+    RequestModel(
+      customerName: "خالد المصري",
+      service: "دهان",
+      date: "2025-09-11",
+      details: "دهان جدران غرفة المعيشة بالكامل باللون الأبيض.",
+    ),
+    RequestModel(
+      customerName: "مريم عبد الرحمن",
+      service: "تكييف وتبريد",
+      date: "2025-09-11",
+      details: "صيانة دورية لوحدة التكييف وتنظيف الفلاتر قبل دخول الشتاء.",
+    ),
+    RequestModel(
+      customerName: "يوسف حمدي",
+      service: "كهرباء",
+      date: "2025-09-10",
+      details: "تركيب 3 نقاط كهرباء جديدة في الغرفة.",
+    ),
+    RequestModel(
+      customerName: "طارق شوقي",
       service: "نجارة",
-      date: "2025-09-09",
-      details: "تركيب مطبخ كامل من الخشب الطبيعي مع بعض التعديلات.",
-    ),
-    RequestModel(
-      customerName: "سارة محمد",
-      service: "كهرباء",
       date: "2025-09-10",
-      details: "صيانة أسلاك كهرباء + تركيب 5 لمبات LED.",
-    ),
-    RequestModel(
-      customerName: "سارة محمد",
-      service: "كهرباء",
-      date: "2025-09-10",
-      details: "صيانة أسلاك كهرباء + تركيب 5 لمبات LED.",
-    ),
-    RequestModel(
-      customerName: "سارة محمد",
-      service: "كهرباء",
-      date: "2025-09-10",
-      details: "صيانة أسلاك كهرباء + تركيب 5 لمبات LED.",
-    ),
-    RequestModel(
-      customerName: "سارة محمد",
-      service: "كهرباء",
-      date: "2025-09-10",
-      details: "صيانة أسلاك كهرباء + تركيب 5 لمبات LED.",
-    ),
-    RequestModel(
-      customerName: "سارة محمد",
-      service: "كهرباء",
-      date: "2025-09-10",
-      details: "صيانة أسلاك كهرباء + تركيب 5 لمبات LED.",
+      details: "إصلاح باب شرفة مكسور لا يغلق بإحكام.",
     ),
   ];
-
   List<RequestModel> get requests => _requests;
 
   void addNewRequest(RequestModel newRequest) {
-    _requests.insert(0, newRequest);
+    _requests.add(newRequest);
     notifyListeners();
   }
 
-  void acceptRequest(int index) {
-    _requests[index].isAccepted = true;
+  void acceptRequest(RequestModel newRequest) {
+    newRequest.isAccepted = true;
+    _requests.remove(newRequest);
     notifyListeners();
   }
 
-  void rejectRequest(int index) {
-    _requests.removeAt(index);
+  void rejectRequest(RequestModel newRequest) {
+    _requests.remove(newRequest);
     notifyListeners();
   }
 }

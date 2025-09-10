@@ -3,14 +3,12 @@ import 'package:flutter/material.dart';
 class RejectAcceptButton extends StatelessWidget {
   const RejectAcceptButton({
     super.key,
-    required this.index,
     required this.text,
     required this.icon,
     required this.onTap,
     required this.buttonColor,
   });
 
-  final int index;
   final String text;
   final IconData icon;
   final VoidCallback onTap;
