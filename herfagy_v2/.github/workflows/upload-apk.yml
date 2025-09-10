@@ -13,6 +13,10 @@ jobs:
   upload-apk:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: herfagy_v2
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
