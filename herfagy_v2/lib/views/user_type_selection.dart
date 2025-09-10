@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:herfagy_v2/viewmodels/supabase/auth_view_model.dart';
+import 'package:provider/provider.dart';
+import 'package:herfagy_v2/views/crafter/crafter_view.dart';
+import 'package:herfagy_v2/views/user/user_view.dart';
 
 class UserTypeSelection extends StatelessWidget {
   const UserTypeSelection({super.key});
@@ -8,7 +12,8 @@ class UserTypeSelection extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
-   
+    final authVM = Provider.of<AuthViewModel>(context);
+
     Widget accountCard({
       required String title,
       required String description,
@@ -22,21 +27,24 @@ class UserTypeSelection extends StatelessWidget {
         onTap: onTap,
         child: Container(
           width: double.infinity,
-          padding: EdgeInsets.all(screenWidth * 0.05),
+          padding: EdgeInsets.symmetric(
+            vertical: screenHeight * 0.025,
+            horizontal: screenWidth * 0.05,
+          ),
           decoration: BoxDecoration(
             color: bgColor,
             borderRadius: BorderRadius.circular(20),
             border: Border.all(color: borderColor, width: 2),
             boxShadow: [
               BoxShadow(
-                color: borderColor,
+                color: borderColor.withOpacity(0.3),
                 spreadRadius: 2,
                 blurRadius: 10,
                 offset: const Offset(0, 3),
               ),
             ],
           ),
-          child: Column(
+          child: Row(
             children: [
               Container(
                 width: screenWidth * 0.15,
@@ -45,34 +53,47 @@ class UserTypeSelection extends StatelessWidget {
                   color: bgColor,
                   borderRadius: BorderRadius.circular(15),
                 ),
-                child: Icon(
-                  icon,
-                  color: iconColor,
-                  size: screenWidth * 0.08,
-                ),
+                child: Icon(icon, color: iconColor, size: screenWidth * 0.08),
               ),
-              SizedBox(height: screenHeight * 0.02),
-              Text(
-                title,
-                style: TextStyle(
-                  color: iconColor,
-                  fontSize: screenWidth * 0.05,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: screenHeight * 0.01),
-              Text(
-                description,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: iconColor,
-                  fontSize: screenWidth * 0.035,
-                  height: 1.3,
+              SizedBox(width: screenWidth * 0.05),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: TextStyle(
+                        color: iconColor,
+                        fontSize: screenWidth * 0.045,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: screenHeight * 0.008),
+                    Text(
+                      description,
+                      style: TextStyle(
+                        color: iconColor,
+                        fontSize: screenWidth * 0.035,
+                        height: 1.3,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
           ),
         ),
+      );
+    }
+
+    Future<void> selectRoleAndNavigate(String role, Widget nextPage) async {
+      await authVM.updateUserRole(role);
+
+      if (!context.mounted) return;
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => nextPage),
       );
     }
 
@@ -82,89 +103,77 @@ class UserTypeSelection extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: screenHeight * 0.05),
-              Align(
-                alignment: Alignment.topLeft,
-                child: Image.asset(
-                  'images/signinnn.webp',
-                  width: screenWidth * 0.55,
-                  fit: BoxFit.cover,
-                  height: screenHeight * 0.18,
+
+              Center(
+                child: Container(
+                  width: screenWidth * 0.5,
+                  height: screenHeight * 0.2,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    image: const DecorationImage(
+                      image: AssetImage('assets/EiOMD.png'),
+                      fit: BoxFit.contain,
+                    ),
+                  ),
                 ),
               ),
               SizedBox(height: screenHeight * 0.03),
+
               Text(
-                'Choose',
+                'اختر نوع الحساب',
+                textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Colors.blue,
-                  fontSize: screenWidth * 0.075,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              Text(
-                'Account Type',
-                style: TextStyle(
-                  color: const Color.fromARGB(255, 59, 142, 205),
-                  fontSize: screenWidth * 0.11,
+                  color: Colors.blue.shade900,
+                  fontSize: screenWidth * 0.09,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: screenHeight * 0.08),
+              SizedBox(height: screenHeight * 0.02),
               Text(
-                'Please select your account type to continue',
+                'يرجى اختيار نوع الحساب للمتابعة',
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.blueGrey,
                   fontSize: screenWidth * 0.04,
                   height: 1.5,
                 ),
               ),
-              SizedBox(height: screenHeight * 0.06),
+              SizedBox(height: screenHeight * 0.05),
 
-              // Professional Account Card
+              // حساب الحرفي / المتخصص
               accountCard(
-                title: 'Professional Account',
-                description:
-                    'For craftsmen, professionals, and service providers',
+                title: 'حرفي / متخصص',
+                description: 'للحرفيين والمتخصصين ومقدمي الخدمات',
                 icon: Icons.work_outline,
-                bgColor: Colors.blue,
+                bgColor: Colors.blue.shade600,
                 iconColor: Colors.white,
-                borderColor: Colors.blue,
-                onTap: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Professional Account Selected!'),
-                    ),
-                  );
-                },
+                borderColor: Colors.blue.shade700,
+                onTap: () => selectRoleAndNavigate('Crafter', const CrafterView()),
               ),
 
-              SizedBox(height: screenHeight * 0.04),
+              SizedBox(height: screenHeight * 0.03),
 
-              // Regular User Card
+              // حساب المستخدم العادي / الزبون
               accountCard(
-                title: 'Regular User',
-                description: 'For customers looking for services',
+                title: 'مستخدم عادي / زبون',
+                description: 'للعملاء الذين يبحثون عن الخدمات',
                 icon: Icons.person_outline,
                 bgColor: Colors.white,
                 iconColor: Colors.blueGrey,
                 borderColor: Colors.grey.shade300,
-                onTap: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Regular User Selected!'),
-                    ),
-                  );
-                },
+                onTap: () => selectRoleAndNavigate('User', const UserView()),
               ),
 
-              SizedBox(height: screenHeight * 0.05),
+              SizedBox(height: screenHeight * 0.06),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Already have an account? ",
+                    "هل لديك حساب بالفعل؟ ",
                     style: TextStyle(
                       color: Colors.blueGrey,
                       fontSize: screenWidth * 0.04,
@@ -175,9 +184,9 @@ class UserTypeSelection extends StatelessWidget {
                       Navigator.pop(context);
                     },
                     child: Text(
-                      'Login',
+                      'تسجيل الدخول',
                       style: TextStyle(
-                        color: Colors.blue,
+                        color: Colors.blue.shade800,
                         fontSize: screenWidth * 0.04,
                         fontWeight: FontWeight.bold,
                         decoration: TextDecoration.underline,

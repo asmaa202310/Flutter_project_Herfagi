@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:herfagy_v2/models/profile.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class AuthViewModel extends ChangeNotifier {
@@ -82,6 +83,8 @@ class AuthViewModel extends ChangeNotifier {
     await _client.auth.signOut();
     _profile = null;
     notifyListeners();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove('handled_reset_link');
   }
 
   Future<Profile?> fetchUserData() async {
@@ -130,6 +133,38 @@ class AuthViewModel extends ChangeNotifier {
       return res.user == null ? "Failed to update password" : null;
     } catch (e) {
       return e.toString();
+    } finally {
+      _setLoading(false);
+    }
+  }
+
+  Future<void> updateUserRole(String role) async {
+    if (userId == null) return;
+
+    _setLoading(true);
+    try {
+      final res = await _client
+          .from('profiles')
+          .update({'role': role})
+          .eq('id', userId!);
+
+      if (res == null) {
+        debugPrint('Error updating role');
+        return;
+      }
+
+      if (_profile != null) {
+        _profile = Profile(
+          id: _profile!.id,
+          username: _profile!.username,
+          role: role,
+          serviceId: _profile!.serviceId,
+          price: _profile!.price,
+        );
+        notifyListeners();
+      }
+    } catch (e) {
+      debugPrint('Exception updating role: $e');
     } finally {
       _setLoading(false);
     }
