@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../home/home_for_user/widgets/custom_sliver_app_bar.dart';
+import '../../../user/home_for_user/widgets/custom_sliver_app_bar.dart';
 import '../../../user/home_for_user/widgets/section_header.dart';
 import 'crafter_services_builder.dart';
 import 'custom_progress_indicator.dart';
