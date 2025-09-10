@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../models/categoty_model.dart';
-import '../models/crafter_model.dart';
-import '../models/service_model.dart';
+import '../models/old/categoty_model.dart';
+import '../models/old/crafter_model.dart';
+import '../models/old/service_model.dart';
 
 class HomeUserViewModel {
   static final List<CategoryModel> categories = [

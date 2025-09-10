@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../models/order_model.dart';
+import '../../../../models/old/order_model.dart';
 import '../../home_for_user/widgets/custom_order_button.dart';
 
 class OrderCard extends StatelessWidget {

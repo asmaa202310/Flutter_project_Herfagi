@@ -7,3 +7,4 @@ class OnboardingModel {
     required this.description,
   });
 }
+ 

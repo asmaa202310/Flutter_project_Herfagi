@@ -52,7 +52,7 @@ class SwitchItem extends StatelessWidget {
         trailing: Switch(
           value: value,
           onChanged: onChanged,
-          activeColor: const Color(0xFF4285F4),
+          activeThumbColor: const Color(0xFF4285F4),
         ),
       ),
     );

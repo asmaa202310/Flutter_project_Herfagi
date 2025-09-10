@@ -102,7 +102,9 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                         );
                       },
                     ),
+
                     SizedBox(height: screenHeight * 0.025),
+
                     Consumer<SignUpViewModel>(
                       builder: (context, viewModel, _) {
                         return CustomTextField(
@@ -127,16 +129,26 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                     ),
 
                     SizedBox(height: screenHeight * 0.03),
+
                     CustomLoginSignUpButton(
                       screenWidth: screenWidth,
                       screenHeight: screenHeight,
                       text: "إنشاء حساب",
+                      isLogin: false,
+                      isResetPassword: false,
+                      username: _nameController.text,
+                      password: _passwordController.text,
+                      email: _emailController.text,
                     ),
+
                     SizedBox(height: screenHeight * 0.025),
                     const OrDivider(),
                     SizedBox(height: screenHeight * 0.025),
+
                     const CustomSocialButtonsContainer(),
+
                     SizedBox(height: screenHeight * 0.025),
+
                     RowCheckAccountWidget(
                       questionText: "هل لديك حساب بالفعل؟",
                       buttonText: "  تسجيل الدخول",

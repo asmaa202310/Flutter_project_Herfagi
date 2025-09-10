@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../models/order_model.dart';
+import '../../../../models/old/order_model.dart';
 import 'order_card.dart';
 
 class OrdersSliverListBuilder extends StatelessWidget {

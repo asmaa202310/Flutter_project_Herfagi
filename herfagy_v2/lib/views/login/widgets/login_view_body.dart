@@ -48,6 +48,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: screenHeight * 0.02),
+
                     Text(
                       'مرحبا!',
                       style: TextStyle(
@@ -56,6 +57,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
+
                     Text(
                       'تسجيل الدخول',
                       style: TextStyle(
@@ -64,7 +66,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+
                     SizedBox(height: screenHeight * 0.03),
+
                     CustomTextField(
                       label: "البريد الالكترونى",
                       hint: "ادخل البريد الالكترونى",
@@ -72,7 +76,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                       validator: (value) => Validators.validateEmail(value),
                       prefixIcon: Icons.email_outlined,
                     ),
+
                     SizedBox(height: screenHeight * 0.025),
+
                     Consumer<LoginViewModel>(
                       builder: (context, viewModel, _) {
                         return CustomTextField(
@@ -91,19 +97,32 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         );
                       },
                     ),
+
                     SizedBox(height: screenHeight * 0.005),
+
                     const CustomForgetPasswordButton(),
+
                     SizedBox(height: screenHeight * 0.001),
+
                     CustomLoginSignUpButton(
                       screenWidth: screenWidth,
                       screenHeight: screenHeight,
                       text: "تسجيل الدخول",
+                      isLogin: true,
+                      isResetPassword: false,
+                      password: _passwordController.text,
+                      email: _emailController.text,
                     ),
                     SizedBox(height: screenHeight * 0.025),
+
                     const OrDivider(),
+
                     SizedBox(height: screenHeight * 0.025),
+
                     const CustomSocialButtonsContainer(),
+
                     SizedBox(height: screenHeight * 0.025),
+
                     RowCheckAccountWidget(
                       questionText: "ليس لديك حساب؟",
                       buttonText: "  أنشأ حساب جديد",
