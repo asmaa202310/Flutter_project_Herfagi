@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:herfagy_v2/views/login/login_view.dart';
 import 'package:herfagy_v2/views/onboarding/onboarding_view.dart';
-import 'package:herfagy_v2/views/user/user_view.dart';
 import '/generated/l10n.dart';
 import '/viewmodels/onboarding_view_model.dart';
 import 'package:provider/provider.dart';
+
+import 'views/crafter/crafter_view.dart';
 
 void main() {
   runApp(
@@ -38,7 +38,7 @@ class HerfagyApp extends StatelessWidget {
         fontFamily: 'NotoSansArabic_Condensed-Regular',
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: const OnboardingView(),
+      home: const CrafterView(),
     );
   }
 }
