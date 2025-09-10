@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import '../../../../models/order_model.dart';
 import '../../home_for_user/widgets/custom_order_button.dart';
+import 'order_details_bottom_sheet.dart';
 
 class OrderCard extends StatelessWidget {
   final OrderModel order;
 
   const OrderCard({super.key, required this.order});
 
-  Color getStatusColor(String status) {
+  Color _getStatusColor(String status) {
     switch (status) {
       case "مكتمل":
         return Colors.green;
@@ -28,6 +29,7 @@ class OrderCard extends StatelessWidget {
       color: Colors.white.withValues(alpha: 0.89),
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
       elevation: 3,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.all(15),
         child: Column(
@@ -60,7 +62,7 @@ class OrderCard extends StatelessWidget {
                 Text(
                   order.status,
                   style: TextStyle(
-                    color: getStatusColor(order.status),
+                    color: _getStatusColor(order.status),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -69,12 +71,26 @@ class OrderCard extends StatelessWidget {
                   borderRaduis: 16,
                   text: 'التفاصيل',
                   fontSize: 14,
+                  onTap: () => _showOrderDetails(context),
                 ),
               ],
             ),
           ],
         ),
       ),
+    );
+  }
+
+  void _showOrderDetails(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (_) {
+        return OrderDetailsBottomSheet(order: order);
+      },
     );
   }
 }

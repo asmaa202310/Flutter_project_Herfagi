@@ -13,11 +13,11 @@ class CustomUserButton extends StatelessWidget {
   final String text;
   final Color? color;
   final double fontSize;
-  final VoidCallback? onTap;
+  final Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () => onTap,
+      onPressed: onTap,
       style: ElevatedButton.styleFrom(
         backgroundColor: color ?? Colors.blue,
         padding: const EdgeInsets.symmetric(horizontal: 14),
