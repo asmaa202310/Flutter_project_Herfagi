@@ -6,16 +6,23 @@ class CustomUserButton extends StatelessWidget {
     required this.borderRaduis,
     required this.text,
     required this.fontSize,
+    required this.onTap,
     this.color,
   });
   final double borderRaduis;
   final String text;
   final Color? color;
   final double fontSize;
+  final Function() onTap;
+
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      // --- THE FIX IS HERE ---
+      // Pass the onTap function directly.
+      // If onTap is null, onPressed will be null, and the button will be disabled (gray).
+      // If onTap is a valid function, onPressed will be that function, and the button will be enabled (blue).
+      onPressed: onTap,
       style: ElevatedButton.styleFrom(
         backgroundColor: color ?? Colors.blue,
         padding: const EdgeInsets.symmetric(horizontal: 14),

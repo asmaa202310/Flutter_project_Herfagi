@@ -93,6 +93,7 @@ class ServiceItem extends StatelessWidget {
                   borderRaduis: 47,
                   text: 'احجز الآن',
                   fontSize: 13,
+                  onTap: () {},
                 ),
               ),
             ],

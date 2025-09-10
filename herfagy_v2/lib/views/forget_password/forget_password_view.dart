@@ -87,7 +87,7 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
                       text: "إرسال الرابط",
                       isLogin: false,
                       isResetPassword: true,
-                      email: _emailController.text,
+                      email: _emailController,
                     ),
                     SizedBox(height: screenHeight * 0.025),
                     RowCheckAccountWidget(

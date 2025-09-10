@@ -110,8 +110,8 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                       text: "تسجيل الدخول",
                       isLogin: true,
                       isResetPassword: false,
-                      password: _passwordController.text,
-                      email: _emailController.text,
+                      email: _emailController,
+                      password: _passwordController,
                     ),
                     SizedBox(height: screenHeight * 0.025),
 

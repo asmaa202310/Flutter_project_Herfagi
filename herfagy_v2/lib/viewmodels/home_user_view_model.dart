@@ -5,9 +5,9 @@ import '../models/old/service_model.dart';
 
 class HomeUserViewModel {
   static final List<CategoryModel> categories = [
+    CategoryModel(title: "كهربائي", icon: Icons.flash_on, color: Colors.yellow),
     CategoryModel(title: "نجار", icon: Icons.handyman, color: Colors.orange),
     CategoryModel(title: "سباك", icon: Icons.water_damage, color: Colors.blue),
-    CategoryModel(title: "كهربائي", icon: Icons.flash_on, color: Colors.yellow),
     CategoryModel(
       title: "دهان",
       icon: Icons.format_paint,

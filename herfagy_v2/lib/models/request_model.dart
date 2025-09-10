@@ -1,15 +1,15 @@
-class OrderModel {
+class RequestModel {
+  final String customerName;
   final String service;
-  final String person;
   final String date;
-  final String status;
   final String details;
+  bool isAccepted;
 
-  const OrderModel({
+  RequestModel({
+    required this.customerName,
     required this.service,
-    required this.person,
     required this.date,
-    required this.status,
     required this.details,
+    this.isAccepted = false,
   });
 }

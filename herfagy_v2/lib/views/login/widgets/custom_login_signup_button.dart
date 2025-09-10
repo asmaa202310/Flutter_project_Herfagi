@@ -24,39 +24,72 @@ class CustomLoginSignUpButton extends StatelessWidget {
   final double screenHeight;
   final bool isLogin;
   final bool isResetPassword;
-  final String? email;
-  final String? password;
-  final String? username;
+  final TextEditingController? email;
+  final TextEditingController? password;
+  final TextEditingController? username;
+
+  void _checkFieldAndShow(BuildContext context, String? value, String message) {
+    if (value == null || value.isEmpty) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(message)));
+      throw Exception("Field validation failed");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    final authMv = Provider.of<AuthViewModel>(context, listen: false);
+    final authMv = Provider.of<AuthViewModel>(context);
     return ElevatedButton(
       onPressed: () async {
-        if (isLogin) {
-          AuthHandler.handleAuth(
-            context: context,
-            action: () => authMv.signIn(email: email!, password: password!),
-            onSuccessScreen: () => UserView(),
-          );
-        } else if (!isLogin && !isResetPassword) {
-          AuthHandler.handleAuth(
-            context: context,
-            action: () => authMv.signUp(
-              username: username!,
-              email: email!,
-              password: password!,
-            ),
-            onSuccessScreen: () => UserTypeSelection(),
-          );
-        } else if (isResetPassword) {
-          AuthHandler.handleAuth(
-            context: context,
-            action: () => authMv.resetPassword(email!),
-            onSuccessScreen: () =>
-                ForgetPasswordView(),
-          );
-        }
+        try {
+          if (!isResetPassword) {
+            _checkFieldAndShow(
+              context,
+              email!.text,
+              "الرجاء إدخال البريد الإلكتروني",
+            );
+            _checkFieldAndShow(context, password?.text, "الرجاء إدخال كلمة المرور");
+
+            if (!isLogin) {
+              _checkFieldAndShow(
+                context,
+                username?.text,
+                "الرجاء إدخال اسم المستخدم",
+              );
+            }
+          } else {
+            _checkFieldAndShow(
+              context,
+              email?.text,
+              "الرجاء إدخال البريد الإلكتروني",
+            );
+          }
+
+          if (isLogin) {
+            AuthHandler.handleAuth(
+              context: context,
+              action: () => authMv.signIn(email: email!.text, password: password!.text),
+              onSuccessScreen: () => UserView(),
+            );
+          } else if (!isLogin && !isResetPassword) {
+            AuthHandler.handleAuth(
+              context: context,
+              action: () => authMv.signUp(
+                username: username!.text,
+                email: email!.text,
+                password: password!.text,
+              ),
+              onSuccessScreen: () => UserTypeSelection(),
+            );
+          } else if (isResetPassword) {
+            AuthHandler.handleAuth(
+              context: context,
+              action: () => authMv.resetPassword(email!.text),
+              onSuccessScreen: () => ForgetPasswordView(),
+            );
+          }
+        } catch (_) {}
       },
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.blue,

@@ -71,6 +71,7 @@ class CrafterItem extends StatelessWidget {
               borderRaduis: 12,
               text: 'احجز الآن',
               fontSize: 15,
+              onTap: () {},
             ),
           ),
         ],

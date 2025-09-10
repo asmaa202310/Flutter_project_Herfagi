@@ -136,9 +136,9 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                       text: "إنشاء حساب",
                       isLogin: false,
                       isResetPassword: false,
-                      username: _nameController.text,
-                      password: _passwordController.text,
-                      email: _emailController.text,
+                      username: _nameController,
+                      password: _passwordController,
+                      email: _emailController,
                     ),
 
                     SizedBox(height: screenHeight * 0.025),
