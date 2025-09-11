@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import '../../../../models/old/service_model.dart';
+import '../../../../utils/get_localize_title.dart';
 import 'custom_order_button.dart';
 
 class ServiceItem extends StatelessWidget {
@@ -46,7 +47,7 @@ class ServiceItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                service.service,
+                GetLocalizeTitle.getLocalizedTitle(context, service.serviceKey),
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,

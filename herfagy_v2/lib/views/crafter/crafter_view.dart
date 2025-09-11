@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../generated/l10n.dart';
 import 'home_for_herafy/home_crafter_view.dart';
 import 'orders_for_crafter/orders_crafter_view.dart';
 import 'profile_for_crafter/profile_crafter_view.dart';
@@ -31,15 +32,18 @@ class _CrafterViewState extends State<CrafterView> {
             _selectedIndex = index;
           });
         },
-        destinations: const [
-          NavigationDestination(icon: Icon(Icons.home), label: "الرئيسية"),
+        destinations: [
           NavigationDestination(
-            icon: Icon(Icons.calendar_today),
-            label: "الحجوزات",
+            icon: const Icon(Icons.home),
+            label: S.of(context).home_crafter,
           ),
           NavigationDestination(
-            icon: Icon(Icons.person),
-            label: "الملف الشخصي",
+            icon: const Icon(Icons.calendar_today),
+            label: S.of(context).bookings_crafter,
+          ),
+          NavigationDestination(
+            icon: const Icon(Icons.person),
+            label: S.of(context).profile_crafter,
           ),
         ],
       ),

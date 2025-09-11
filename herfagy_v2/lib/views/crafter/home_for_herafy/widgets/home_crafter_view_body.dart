@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/utils/localization_extension.dart';
 import '../../../user/home_for_user/widgets/custom_sliver_app_bar.dart';
 import '../../../user/home_for_user/widgets/section_header.dart';
 import 'crafter_services_builder.dart';
@@ -22,7 +23,10 @@ class HomeCrafterViewBody extends StatelessWidget {
           child: CustomProgressIndicator(screenWidth: screenWidth),
         ),
         SliverToBoxAdapter(
-          child: SectionHeader(screenWidth: screenWidth, title: "خدماتى"),
+          child: SectionHeader(
+            screenWidth: screenWidth,
+            title: context.localization.myServices,
+          ),
         ),
         SliverToBoxAdapter(
           child: CrafterServicesBuilder(screenWidth: screenWidth),
@@ -30,7 +34,7 @@ class HomeCrafterViewBody extends StatelessWidget {
         SliverToBoxAdapter(
           child: SectionHeader(
             screenWidth: screenWidth,
-            title: "الطلبات الجديدة",
+            title: context.localization.newRequests,
           ),
         ),
         const NewRequestsList(),

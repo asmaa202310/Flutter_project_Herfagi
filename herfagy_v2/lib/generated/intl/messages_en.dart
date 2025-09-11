@@ -20,8 +20,37 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(count) => "Completed Projects: ${count}";
+
+  static String m1(percent) => "${percent}%";
+
+  static String m2(count) => "Uncompleted Projects: ${count}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-    "type": MessageLookupByLibrary.simpleMessage("data"),
+    "accept": MessageLookupByLibrary.simpleMessage("Accept"),
+    "airConditioning": MessageLookupByLibrary.simpleMessage("Air Conditioning"),
+    "blacksmith": MessageLookupByLibrary.simpleMessage("Blacksmith"),
+    "bookings_crafter": MessageLookupByLibrary.simpleMessage("Bookings"),
+    "carpenter": MessageLookupByLibrary.simpleMessage("Carpenter"),
+    "changeLanguage": MessageLookupByLibrary.simpleMessage("Change Language"),
+    "completedProjects": m0,
+    "customer": MessageLookupByLibrary.simpleMessage("Customer"),
+    "date": MessageLookupByLibrary.simpleMessage("Date"),
+    "description": MessageLookupByLibrary.simpleMessage("Description"),
+    "electrician": MessageLookupByLibrary.simpleMessage("Electrician"),
+    "home_crafter": MessageLookupByLibrary.simpleMessage("Home"),
+    "myServices": MessageLookupByLibrary.simpleMessage("My Services"),
+    "newRequests": MessageLookupByLibrary.simpleMessage("New Requests"),
+    "noNewRequests": MessageLookupByLibrary.simpleMessage("No new requests."),
+    "painter": MessageLookupByLibrary.simpleMessage("Painter"),
+    "plumber": MessageLookupByLibrary.simpleMessage("Plumber"),
+    "profile_crafter": MessageLookupByLibrary.simpleMessage("Profile"),
+    "progressPercent": m1,
+    "reject": MessageLookupByLibrary.simpleMessage("Reject"),
+    "service": MessageLookupByLibrary.simpleMessage("Service"),
+    "serviceDetails": MessageLookupByLibrary.simpleMessage("Service Details"),
+    "uncompletedProjects": m2,
+    "yourProgress": MessageLookupByLibrary.simpleMessage("Your Progress"),
   };
 }

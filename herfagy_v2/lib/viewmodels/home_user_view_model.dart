@@ -5,43 +5,49 @@ import '../models/old/service_model.dart';
 
 class HomeUserViewModel {
   static final List<CategoryModel> categories = [
-    CategoryModel(title: "كهربائي", icon: Icons.flash_on, color: Colors.yellow),
-    CategoryModel(title: "نجار", icon: Icons.handyman, color: Colors.orange),
-    CategoryModel(title: "سباك", icon: Icons.water_damage, color: Colors.blue),
     CategoryModel(
-      title: "دهان",
+      key: "electrician",
+      icon: Icons.flash_on,
+      color: Colors.yellow,
+    ),
+    CategoryModel(key: "carpenter", icon: Icons.handyman, color: Colors.orange),
+    CategoryModel(key: "plumber", icon: Icons.water_damage, color: Colors.blue),
+    CategoryModel(
+      key: "painter",
       icon: Icons.format_paint,
       color: Colors.purple,
     ),
-    CategoryModel(title: "حداد", icon: Icons.build, color: Colors.green),
+    CategoryModel(key: "blacksmith", icon: Icons.build, color: Colors.green),
   ];
+
   static final List<CrafterModel> topCrafters = [
     CrafterModel(
       name: "أحمد النجار",
-      service: "نجار",
+      serviceKey: "carpenter",
       rating: 4.8,
       icon: Icons.handyman,
       color: Colors.orange,
     ),
     CrafterModel(
       name: "محمد السباك",
-      service: "سباك",
+      serviceKey: "plumber",
       rating: 4.6,
       icon: Icons.water_damage,
       color: Colors.blue,
     ),
     CrafterModel(
       name: "خالد الكهربائي",
-      service: "كهربائي",
+      serviceKey: "electrician",
       rating: 4.9,
       icon: Icons.flash_on,
       color: Colors.yellow,
     ),
   ];
-  static List<ServiceModel> servicesList = [
+
+  static final List<ServiceModel> servicesList = [
     ServiceModel(
       name: "أحمد النجار",
-      service: "نجارة",
+      serviceKey: "carpenter",
       rating: 4.7,
       price: "200",
       icon: Icons.handyman,
@@ -49,7 +55,7 @@ class HomeUserViewModel {
     ),
     ServiceModel(
       name: "محمد السباك",
-      service: "سباكة",
+      serviceKey: "plumber",
       rating: 4.5,
       price: "180",
       icon: Icons.water_damage,
@@ -57,15 +63,15 @@ class HomeUserViewModel {
     ),
     ServiceModel(
       name: "خالد الكهربائي",
-      service: "كهرباء",
+      serviceKey: "electrician",
       rating: 4.9,
       price: "250",
       icon: Icons.flash_on,
-      color: Colors.yellow.shade700,
+      color: Colors.yellow,
     ),
     ServiceModel(
       name: "علي الدهان",
-      service: "دهانات",
+      serviceKey: "painter",
       rating: 4.6,
       price: "220",
       icon: Icons.format_paint,
@@ -73,51 +79,11 @@ class HomeUserViewModel {
     ),
     ServiceModel(
       name: "محمود الحداد",
-      service: "حدادة",
+      serviceKey: "blacksmith",
       rating: 4.4,
       price: "300",
       icon: Icons.construction,
-      color: Colors.grey.shade800,
-    ),
-    ServiceModel(
-      name: "يوسف المبلط",
-      service: "تشطيبات سيراميك",
-      rating: 4.3,
-      price: "150",
-      icon: Icons.grid_on,
-      color: Colors.brown,
-    ),
-    ServiceModel(
-      name: "إبراهيم التكييف",
-      service: "صيانة تكييف",
-      rating: 4.8,
-      price: "400",
-      icon: Icons.ac_unit,
-      color: Colors.lightBlue,
-    ),
-    ServiceModel(
-      name: "سامي الزجاج",
-      service: "تركيب زجاج",
-      rating: 4.2,
-      price: "180",
-      icon: Icons.window,
-      color: Colors.cyan,
-    ),
-    ServiceModel(
-      name: "طارق الألوميتال",
-      service: "شبابيك ألوميتال",
-      rating: 4.6,
-      price: "350",
-      icon: Icons.apartment,
-      color: Colors.teal,
-    ),
-    ServiceModel(
-      name: "مروان السباك",
-      service: "إصلاح مواسير",
-      rating: 4.7,
-      price: "170",
-      icon: Icons.plumbing,
-      color: Colors.indigo,
+      color: Colors.grey,
     ),
   ];
 }

@@ -54,9 +54,174 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `data`
-  String get type {
-    return Intl.message('data', name: 'type', desc: '', args: []);
+  /// `Change Language`
+  String get changeLanguage {
+    return Intl.message(
+      'Change Language',
+      name: 'changeLanguage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Home`
+  String get home_crafter {
+    return Intl.message('Home', name: 'home_crafter', desc: '', args: []);
+  }
+
+  /// `Bookings`
+  String get bookings_crafter {
+    return Intl.message(
+      'Bookings',
+      name: 'bookings_crafter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile`
+  String get profile_crafter {
+    return Intl.message('Profile', name: 'profile_crafter', desc: '', args: []);
+  }
+
+  /// `Your Progress`
+  String get yourProgress {
+    return Intl.message(
+      'Your Progress',
+      name: 'yourProgress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{percent}%`
+  String progressPercent(Object percent) {
+    return Intl.message(
+      '$percent%',
+      name: 'progressPercent',
+      desc: '',
+      args: [percent],
+    );
+  }
+
+  /// `Completed Projects: {count}`
+  String completedProjects(Object count) {
+    return Intl.message(
+      'Completed Projects: $count',
+      name: 'completedProjects',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `Uncompleted Projects: {count}`
+  String uncompletedProjects(Object count) {
+    return Intl.message(
+      'Uncompleted Projects: $count',
+      name: 'uncompletedProjects',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `Electrician`
+  String get electrician {
+    return Intl.message('Electrician', name: 'electrician', desc: '', args: []);
+  }
+
+  /// `Carpenter`
+  String get carpenter {
+    return Intl.message('Carpenter', name: 'carpenter', desc: '', args: []);
+  }
+
+  /// `Plumber`
+  String get plumber {
+    return Intl.message('Plumber', name: 'plumber', desc: '', args: []);
+  }
+
+  /// `Painter`
+  String get painter {
+    return Intl.message('Painter', name: 'painter', desc: '', args: []);
+  }
+
+  /// `Air Conditioning`
+  String get airConditioning {
+    return Intl.message(
+      'Air Conditioning',
+      name: 'airConditioning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Blacksmith`
+  String get blacksmith {
+    return Intl.message('Blacksmith', name: 'blacksmith', desc: '', args: []);
+  }
+
+  /// `Accept`
+  String get accept {
+    return Intl.message('Accept', name: 'accept', desc: '', args: []);
+  }
+
+  /// `Reject`
+  String get reject {
+    return Intl.message('Reject', name: 'reject', desc: '', args: []);
+  }
+
+  /// `My Services`
+  String get myServices {
+    return Intl.message('My Services', name: 'myServices', desc: '', args: []);
+  }
+
+  /// `New Requests`
+  String get newRequests {
+    return Intl.message(
+      'New Requests',
+      name: 'newRequests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No new requests.`
+  String get noNewRequests {
+    return Intl.message(
+      'No new requests.',
+      name: 'noNewRequests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Service Details`
+  String get serviceDetails {
+    return Intl.message(
+      'Service Details',
+      name: 'serviceDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Service`
+  String get service {
+    return Intl.message('Service', name: 'service', desc: '', args: []);
+  }
+
+  /// `Customer`
+  String get customer {
+    return Intl.message('Customer', name: 'customer', desc: '', args: []);
+  }
+
+  /// `Date`
+  String get date {
+    return Intl.message('Date', name: 'date', desc: '', args: []);
+  }
+
+  /// `Description`
+  String get description {
+    return Intl.message('Description', name: 'description', desc: '', args: []);
   }
 }
 

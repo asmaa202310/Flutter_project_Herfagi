@@ -1,3 +1,26 @@
-{
-    "type": "data"
-}
+    {
+        "changeLanguage": "Change Language",
+        "home_crafter": "Home",
+        "bookings_crafter": "Bookings",
+        "profile_crafter": "Profile",
+        "yourProgress": "Your Progress",
+        "progressPercent": "{percent}%",
+        "completedProjects": "Completed Projects: {count}",
+        "uncompletedProjects": "Uncompleted Projects: {count}",
+        "electrician": "Electrician",
+        "carpenter": "Carpenter",
+        "plumber": "Plumber",
+        "painter": "Painter",
+        "airConditioning": "Air Conditioning",
+        "blacksmith": "Blacksmith",
+        "accept": "Accept",
+        "reject": "Reject",
+        "myServices": "My Services",
+        "newRequests": "New Requests",
+        "noNewRequests": "No new requests.",
+        "serviceDetails": "Service Details",
+        "service": "Service",
+        "customer": "Customer",
+        "date": "Date",
+        "description": "Description"
+    }

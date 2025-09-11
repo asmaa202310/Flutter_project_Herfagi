@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:herfagy_v2/utils/deep_link_handler.dart';
+import 'package:herfagy_v2/viewmodels/language_view_model.dart';
 import 'package:herfagy_v2/viewmodels/supabase/auth_view_model.dart';
+import 'package:herfagy_v2/views/crafter/crafter_view.dart';
 import 'package:herfagy_v2/views/onboarding/onboarding_view.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '/generated/l10n.dart';
@@ -22,6 +24,7 @@ Future<void> main() async {
       providers: [
         ChangeNotifierProvider(create: (_) => OnboardingViewModel()),
         ChangeNotifierProvider(create: (_) => AuthViewModel()),
+        ChangeNotifierProvider(create: (_) => LanguageViewModel()),
       ],
       child: const HerfagyApp(),
     ),
@@ -33,6 +36,7 @@ class HerfagyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final languageProvider = Provider.of<LanguageViewModel>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'حرفجى',
@@ -45,12 +49,12 @@ class HerfagyApp extends StatelessWidget {
       supportedLocales: S.delegate.supportedLocales,
 
       /// to change local language || Locale('en'),
-      locale: Locale('ar'),
+      locale: languageProvider.locale,
       theme: ThemeData(
         fontFamily: 'NotoSansArabic_Condensed-Regular',
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: Stack(children: const [OnboardingView(), DeepLinkHandler()]),
+      home: Stack(children: const [CrafterView(), DeepLinkHandler()]),
     );
   }
 }

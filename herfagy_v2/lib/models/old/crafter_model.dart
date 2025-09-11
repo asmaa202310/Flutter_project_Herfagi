@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CrafterModel {
-  final String service;
+  final String serviceKey;
   final String name;
   final double rating;
   final IconData icon;
@@ -9,10 +9,9 @@ class CrafterModel {
 
   CrafterModel({
     required this.name,
-    required this.service,
+    required this.serviceKey,
     required this.rating,
     required this.icon,
     required this.color,
   });
 }
-

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:herfagy_v2/views/user/orders_for_user/widgets/custom_orders_app_bar.dart';
 
+import '../../../models/old/menu_items_model.dart';
 import 'widgets/menu_section.dart';
 import 'widgets/profile_header.dart';
 import 'widgets/settings_section.dart';
@@ -10,20 +11,38 @@ class UserProfileView extends StatelessWidget {
 
   final bool notificationsEnabled = true;
   final bool darkModeEnabled = false;
+  final List<MenuItemModel> menuItems = const [
+    MenuItemModel(
+      icon: Icons.help_outline,
+      title: 'المساعدة والدعم',
+      color: Colors.teal,
+    ),
+    MenuItemModel(
+      icon: Icons.security,
+      title: 'الخصوصية والأمان',
+      color: Colors.indigo,
+    ),
+    MenuItemModel(icon: Icons.language, title: 'اللغة', color: Colors.brown),
+  ];
 
   @override
   Widget build(BuildContext context) {
+    final screemWidth = MediaQuery.sizeOf(context).width;
+    final screemHeight = MediaQuery.sizeOf(context).height;
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          const CustomOrdersAppBar(text: 'حسابي'),
+          const CustomGeneralSliverAppBar(text: 'حسابي'),
           SliverPadding(
             padding: const EdgeInsets.all(20),
             sliver: SliverList.list(
               children: [
-                ProfileHeader(userName: 'محمد علي', location: 'القاهرة، مصر'),
-                const SizedBox(height: 30),
-                const MenuSection(),
+                ProfileHeader(
+                  userName: 'محمد علي',
+                  location: 'القاهرة، مصر',
+                  screenWidth: screemWidth,
+                ),
+                MenuSection(items: menuItems),
                 const SizedBox(height: 30),
                 SettingsSection(
                   notificationsEnabled: notificationsEnabled,

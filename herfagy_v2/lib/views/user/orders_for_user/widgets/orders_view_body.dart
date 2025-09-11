@@ -14,7 +14,7 @@ class OrdersViewBody extends StatelessWidget {
       builder: (context, viewModel, child) {
         return CustomScrollView(
           slivers: [
-            const CustomOrdersAppBar(text: "الحجوزات"),
+            const CustomGeneralSliverAppBar(text: "الحجوزات"),
             OrdersSliverListBuilder(orders: viewModel.ordersList),
           ],
         );

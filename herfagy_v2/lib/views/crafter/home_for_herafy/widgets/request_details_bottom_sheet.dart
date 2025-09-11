@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import '/utils/localization_extension.dart';
+import '/utils/get_localize_title.dart';
 import '../../../../models/request_model.dart';
 import 'buttom_sheet_action_buttons.dart';
 
 class RequestDetailsBottomSheet extends StatelessWidget {
-  const RequestDetailsBottomSheet({
-    super.key,
-    required this.request,
-  });
+  const RequestDetailsBottomSheet({super.key, required this.request});
 
   final RequestModel request;
 
@@ -18,15 +17,20 @@ class RequestDetailsBottomSheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("تفاصيل الخدمة", style: Theme.of(context).textTheme.titleLarge),
+          Text(
+            context.localization.serviceDetails,
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
           const SizedBox(height: 12),
-          Text("الخدمة: ${request.service}"),
-          Text("العميل: ${request.customerName}"),
-          Text("التاريخ: ${request.date}"),
+          Text(
+            "${context.localization.service}: ${GetLocalizeTitle.getLocalizedTitle(context, request.serviceKey)}",
+          ),
+          Text("${context.localization.customer}: ${request.customerName}"),
+          Text("${context.localization.date}: ${request.date}"),
           const SizedBox(height: 10),
-          Text("الوصف: ${request.details}"),
+          Text("${context.localization.description}: ${request.details}"),
           const SizedBox(height: 20),
-          BottomSheetActionButtons(request: request,),
+          BottomSheetActionButtons(request: request),
         ],
       ),
     );

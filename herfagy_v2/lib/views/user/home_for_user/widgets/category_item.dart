@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../models/old/categoty_model.dart';
+import '../../../../utils/get_localize_title.dart';
 
 class CategoryItem extends StatelessWidget {
   const CategoryItem({
@@ -34,7 +35,7 @@ class CategoryItem extends StatelessWidget {
           Icon(category.icon, size: 32, color: category.color),
           const SizedBox(height: 6),
           Text(
-            category.title,
+            GetLocalizeTitle.getLocalizedTitle(context, category.key),
             style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
           ),
         ],

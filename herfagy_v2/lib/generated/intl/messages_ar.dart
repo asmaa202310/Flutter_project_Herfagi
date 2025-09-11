@@ -20,8 +20,39 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
+  static String m0(count) => "مشاريع مكتملة: ${count}";
+
+  static String m1(percent) => "%${percent}";
+
+  static String m2(count) => "غير مكتملة: ${count}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-    "type": MessageLookupByLibrary.simpleMessage("بيانات"),
+    "accept": MessageLookupByLibrary.simpleMessage("قبول"),
+    "airConditioning": MessageLookupByLibrary.simpleMessage("تكييف وتبريد"),
+    "blacksmith": MessageLookupByLibrary.simpleMessage("حدادة"),
+    "bookings_crafter": MessageLookupByLibrary.simpleMessage("الحجوزات"),
+    "carpenter": MessageLookupByLibrary.simpleMessage("نجارة"),
+    "changeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
+    "completedProjects": m0,
+    "customer": MessageLookupByLibrary.simpleMessage("العميل"),
+    "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
+    "description": MessageLookupByLibrary.simpleMessage("الوصف"),
+    "electrician": MessageLookupByLibrary.simpleMessage("كهرباء"),
+    "home_crafter": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+    "myServices": MessageLookupByLibrary.simpleMessage("خدماتي"),
+    "newRequests": MessageLookupByLibrary.simpleMessage("الطلبات الجديدة"),
+    "noNewRequests": MessageLookupByLibrary.simpleMessage(
+      "لا توجد طلبات جديدة.",
+    ),
+    "painter": MessageLookupByLibrary.simpleMessage("دهانات"),
+    "plumber": MessageLookupByLibrary.simpleMessage("سباكة"),
+    "profile_crafter": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+    "progressPercent": m1,
+    "reject": MessageLookupByLibrary.simpleMessage("رفض"),
+    "service": MessageLookupByLibrary.simpleMessage("الخدمة"),
+    "serviceDetails": MessageLookupByLibrary.simpleMessage("تفاصيل الخدمة"),
+    "uncompletedProjects": m2,
+    "yourProgress": MessageLookupByLibrary.simpleMessage("تقدمك"),
   };
 }

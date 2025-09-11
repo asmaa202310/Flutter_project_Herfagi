@@ -4,12 +4,13 @@ class MenuItem extends StatelessWidget {
   final IconData icon;
   final String title;
   final Color color;
-
+  final VoidCallback? onTap;
   const MenuItem({
     super.key,
     required this.icon,
     required this.title,
     required this.color,
+    this.onTap,
   });
 
   @override
@@ -39,8 +40,9 @@ class MenuItem extends StatelessWidget {
         title: Text(
           title,
           style: const TextStyle(
+            fontSize: 18,
             fontWeight: FontWeight.w500,
-            color: Colors.black87,
+            color: Colors.black,
           ),
         ),
         trailing: Icon(
@@ -48,9 +50,7 @@ class MenuItem extends StatelessWidget {
           size: 16,
           color: Colors.grey[400],
         ),
-        onTap: () => ScaffoldMessenger.of(context)
-          ..hideCurrentSnackBar()
-          ..showSnackBar(SnackBar(content: Text('تم النقر على: $title'))),
+        onTap: onTap,
       ),
     );
   }

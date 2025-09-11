@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '/utils/get_localize_title.dart';
+import '/utils/localization_extension.dart';
 import 'package:provider/provider.dart';
 import '../../../../models/request_model.dart';
 import '../../../../viewmodels/home_crafter_view_model.dart';
@@ -22,10 +24,12 @@ class RequestCard extends StatelessWidget {
       child: ListTile(
         leading: const Icon(Icons.assignment_outlined, color: Colors.blue),
         title: Text(
-          request.service,
+          GetLocalizeTitle.getLocalizedTitle(context, request.serviceKey),
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
-        subtitle: Text("العميل: ${request.customerName}\n${request.date}"),
+        subtitle: Text(
+          "${context.localization.customer}: ${request.customerName}\n${request.date}",
+        ),
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [

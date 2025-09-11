@@ -1,3 +1,26 @@
 {
-    "type": "بيانات"
+    "changeLanguage": "تغيير اللغة",
+    "home_crafter": "الرئيسية",
+    "bookings_crafter": "الحجوزات",
+    "profile_crafter": "الملف الشخصي",
+    "yourProgress": "تقدمك",
+    "progressPercent": "%{percent}",
+    "completedProjects": "مشاريع مكتملة: {count}",
+    "uncompletedProjects": "غير مكتملة: {count}",
+    "electrician": "كهرباء",
+    "carpenter": "نجارة",
+    "plumber": "سباكة",
+    "painter": "دهانات",
+    "blacksmith": "حدادة",
+    "airConditioning": "تكييف وتبريد",
+    "accept": "قبول",
+    "reject": "رفض",
+    "myServices": "خدماتي",
+    "newRequests": "الطلبات الجديدة",
+    "noNewRequests": "لا توجد طلبات جديدة.",
+    "serviceDetails": "تفاصيل الخدمة",
+    "service": "الخدمة",
+    "customer": "العميل",
+    "date": "التاريخ",
+    "description": "الوصف"
 }
