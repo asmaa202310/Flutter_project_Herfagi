@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'package:herfagy_v2/utils/get_localize_title.dart';
+
 class CrafterModel {
-  final String serviceKey;
+  final ServiceKey service;
   final String name;
   final double rating;
   final IconData icon;
@@ -9,7 +11,7 @@ class CrafterModel {
 
   CrafterModel({
     required this.name,
-    required this.serviceKey,
+    required this.service,
     required this.rating,
     required this.icon,
     required this.color,

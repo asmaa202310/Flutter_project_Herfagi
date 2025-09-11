@@ -47,7 +47,7 @@ class ServiceItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                GetLocalizeTitle.getLocalizedTitle(context, service.serviceKey),
+                GetLocalizeTitle.getLocalizedTitle(context, service.service),
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -90,7 +90,7 @@ class ServiceItem extends StatelessWidget {
               SizedBox(
                 height: 32,
                 width: 77,
-                child: CustomUserButton(
+                child: CustomDetailsButton(
                   borderRaduis: 47,
                   text: 'احجز الآن',
                   fontSize: 13,

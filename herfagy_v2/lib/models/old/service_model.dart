@@ -6,7 +6,7 @@ class ServiceModel extends CrafterModel {
   ServiceModel({
     required this.price,
     required super.name,
-    required super.serviceKey,
+    required super.service,
     required super.rating,
     required super.icon,
     required super.color,

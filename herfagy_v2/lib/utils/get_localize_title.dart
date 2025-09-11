@@ -1,24 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:herfagy_v2/utils/localization_extension.dart';
-import '../generated/l10n.dart';
+import '/utils/localization_extension.dart';
+
+enum ServiceKey {
+  electrician,
+  carpenter,
+  plumber,
+  painter,
+  blacksmith,
+  airConditioning,
+}
 
 class GetLocalizeTitle {
-  static String getLocalizedTitle(BuildContext context, String key) {
+  static String getLocalizedTitle(BuildContext context, ServiceKey key) {
+    final localization = context.localization;
     switch (key) {
-      case "electrician":
-        return context.localization.electrician;
-      case "carpenter":
-        return context.localization.carpenter;
-      case "plumber":
-        return context.localization.plumber;
-      case "painter":
-        return context.localization.painter;
-      case "blacksmith":
-        return S.of(context).blacksmith;
-      case "airConditioning":
-        return context.localization.airConditioning;
-      default:
-        return key;
+      case ServiceKey.electrician:
+        return localization.electrician;
+      case ServiceKey.carpenter:
+        return localization.carpenter;
+      case ServiceKey.plumber:
+        return localization.plumber;
+      case ServiceKey.painter:
+        return localization.painter;
+      case ServiceKey.blacksmith:
+        return localization.blacksmith;
+      case ServiceKey.airConditioning:
+        return localization.airConditioning;
     }
   }
 }

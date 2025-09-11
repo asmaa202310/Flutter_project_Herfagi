@@ -1,30 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:herfagy_v2/utils/get_localize_title.dart';
+import '../../../crafter/orders_for_crafter/widgets/order_status_widget.dart';
+import '/utils/localization_extension.dart';
 import '../../../../models/old/order_model.dart';
 import '../../home_for_user/widgets/custom_order_button.dart';
 import 'order_details_bottom_sheet.dart';
 
-class OrderCard extends StatelessWidget {
+class OrderCardForUser extends StatelessWidget {
   final OrderModel order;
 
-  const OrderCard({super.key, required this.order});
-
-  Color _getStatusColor(String status) {
-    switch (status) {
-      case "مكتمل":
-        return Colors.green;
-      case "قيد التنفيذ":
-        return Colors.orange;
-      case "جديد":
-        return Colors.blue;
-      case "مرفوض":
-        return Colors.red;
-      default:
-        return Colors.grey;
-    }
-  }
+  const OrderCardForUser({super.key, required this.order});
 
   @override
   Widget build(BuildContext context) {
+    final localization = context.localization;
+
     return Card(
       color: Colors.white.withValues(alpha: 0.89),
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
@@ -36,40 +26,27 @@ class OrderCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "الخدمة: ${order.service}",
+              "${localization.service}: ${GetLocalizeTitle.getLocalizedTitle(context, order.service)}",
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
             Text(
-              "الحرفى: ${order.person}",
+              "${localization.customer}: ${order.person}",
               style: const TextStyle(fontSize: 14),
             ),
             const SizedBox(height: 8),
             Text(
-              "📅 التاريخ: ${order.date}",
+              "${localization.date}: ${order.date}",
               style: TextStyle(color: Colors.grey[700]),
             ),
             const SizedBox(height: 12),
             Row(
               children: [
-                Text(
-                  "الحالة: ",
-                  style: TextStyle(
-                    color: Colors.grey[800],
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  order.status,
-                  style: TextStyle(
-                    color: _getStatusColor(order.status),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                OrderStatusWidget(order: order),
                 const Spacer(),
-                CustomUserButton(
+                CustomDetailsButton(
                   borderRaduis: 16,
-                  text: 'التفاصيل',
+                  text: localization.details,
                   fontSize: 14,
                   onTap: () => _showOrderDetails(context),
                 ),
@@ -89,7 +66,7 @@ class OrderCard extends StatelessWidget {
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
       builder: (_) {
-        return OrderDetailsBottomSheet(order: order);
+        return OrderDetailsBottomSheetForUser(order: order);
       },
     );
   }

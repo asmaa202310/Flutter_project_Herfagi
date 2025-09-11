@@ -1,6 +1,8 @@
+import '/utils/get_localize_title.dart';
+
 class RequestModel {
   final String customerName;
-  final String serviceKey;
+  final ServiceKey serviceKey;
   final String date;
   final String details;
   bool isAccepted;

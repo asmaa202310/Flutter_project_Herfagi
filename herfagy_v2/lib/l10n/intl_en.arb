@@ -22,5 +22,15 @@
         "service": "Service",
         "customer": "Customer",
         "date": "Date",
-        "description": "Description"
+        "description": "Description",
+        "completed": "Completed",
+        "inProgress": "In Progress",
+        "newOrder": "New",
+        "rejected": "Rejected",
+        "status": "Status",
+        "orders": "Orders",
+        "craftsman": "Craftsman",
+        "dateWithCalenderIcon": "📅 Date",
+        "details": "Details",
+        "close": "Close"
     }

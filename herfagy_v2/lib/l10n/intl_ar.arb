@@ -22,5 +22,15 @@
     "service": "الخدمة",
     "customer": "العميل",
     "date": "التاريخ",
-    "description": "الوصف"
+    "description": "الوصف",
+    "completed": "مكتمل",
+    "inProgress": "قيد التنفيذ",
+    "newOrder": "جديد",
+    "rejected": "مرفوض",
+    "status": "الحالة",
+    "orders": "الطلبات",
+    "craftsman": "الحرفي",
+    "dateWithCalenderIcon": "التاريخ 📅",
+    "details": "التفاصيل",
+    "close": "إغلاق"
 }

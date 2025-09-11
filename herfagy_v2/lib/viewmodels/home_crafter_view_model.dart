@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/utils/get_localize_title.dart';
 
 import '../models/old/categoty_model.dart';
 import '../models/request_model.dart';
@@ -31,12 +32,20 @@ class ProgressProvider extends ChangeNotifier {
 class CrafterServicesProvider extends ChangeNotifier {
   final List<CategoryModel> _services = [
     CategoryModel(
-      key: "electrician",
+      key: ServiceKey.electrician,
       icon: Icons.flash_on,
       color: Colors.yellow,
     ),
-    CategoryModel(key: "carpenter", icon: Icons.handyman, color: Colors.orange),
-    CategoryModel(key: "plumber", icon: Icons.water_damage, color: Colors.blue),
+    CategoryModel(
+      key: ServiceKey.carpenter,
+      icon: Icons.handyman,
+      color: Colors.orange,
+    ),
+    CategoryModel(
+      key: ServiceKey.plumber,
+      icon: Icons.water_damage,
+      color: Colors.blue,
+    ),
   ];
 
   List<CategoryModel> get services => List.unmodifiable(_services);
@@ -61,31 +70,31 @@ class RequestsProvider extends ChangeNotifier {
   final List<RequestModel> _requests = [
     RequestModel(
       customerName: "فاطمة الزهراء",
-      serviceKey: "plumber",
+      serviceKey: ServiceKey.plumber,
       date: "2025-09-12",
       details: "يوجد تسريب مياه أسفل حوض المطبخ، يتطلب فحص وإصلاح فوري.",
     ),
     RequestModel(
       customerName: "خالد المصري",
-      serviceKey: "painter",
+      serviceKey: ServiceKey.painter,
       date: "2025-09-11",
       details: "دهان جدران غرفة المعيشة بالكامل باللون الأبيض.",
     ),
     RequestModel(
       customerName: "مريم عبد الرحمن",
-      serviceKey: "airConditioning",
+      serviceKey: ServiceKey.airConditioning,
       date: "2025-09-11",
       details: "صيانة دورية لوحدة التكييف وتنظيف الفلاتر قبل دخول الشتاء.",
     ),
     RequestModel(
       customerName: "يوسف حمدي",
-      serviceKey: "electrician",
+      serviceKey: ServiceKey.electrician,
       date: "2025-09-10",
       details: "تركيب 3 نقاط كهرباء جديدة في الغرفة.",
     ),
     RequestModel(
       customerName: "طارق شوقي",
-      serviceKey: "carpenter",
+      serviceKey: ServiceKey.carpenter,
       date: "2025-09-10",
       details: "إصلاح باب شرفة مكسور لا يغلق بإحكام.",
     ),

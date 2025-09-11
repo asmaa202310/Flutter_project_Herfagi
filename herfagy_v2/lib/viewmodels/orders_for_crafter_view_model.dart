@@ -1,33 +1,37 @@
 import 'package:flutter/material.dart';
-import '../models/old/order_model.dart'; 
+import '../models/old/order_model.dart';
+import '../utils/get_localize_title.dart';
+import '../utils/get_order_status_extension.dart';
+
+
 class OrdersForCrafterViewModel extends ChangeNotifier {
   final List<OrderModel> _orders = [
     OrderModel(
-      service: "سباكة",
-      person: "أحمد علي", 
+      service: ServiceKey.plumber,
+      person: "أحمد علي",
       date: "1/9/2025",
-      status: "قيد التنفيذ",
+      status: OrderStatus.inProgress,
       details: 'إصلاح تسريب في حوض المطبخ.',
     ),
     OrderModel(
-      service: "كهرباء",
+      service: ServiceKey.electrician,
       person: "سارة محمد",
       date: "25/8/2025",
-      status: "مكتمل",
+      status: OrderStatus.completed,
       details: 'تركيب 5 لمبات LED جديدة في غرفة المعيشة.',
     ),
     OrderModel(
-      service: "نجارة",
+      service: ServiceKey.carpenter,
       person: "كريم محمود",
       date: "20/8/2025",
-      status: "جديد",
+      status: OrderStatus.newOrder,
       details: 'تصنيع وتركيب رفوف خشبية.',
     ),
     OrderModel(
-      service: "دهان",
+      service: ServiceKey.painter,
       person: "علي إبراهيم",
       date: "15/8/2025",
-      status: "مرفوض",
+      status: OrderStatus.rejected,
       details: 'دهان حائط غرفة النوم باللون الأزرق.',
     ),
   ];
