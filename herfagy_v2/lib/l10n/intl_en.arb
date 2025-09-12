@@ -32,5 +32,7 @@
         "craftsman": "Craftsman",
         "dateWithCalenderIcon": "📅 Date",
         "details": "Details",
-        "close": "Close"
+        "close": "Close",
+        "greetingMessage": "Hello {name} 👋",
+        "helpMessage": "How can we help you today?"
     }

@@ -22,9 +22,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m0(count) => "Completed Projects: ${count}";
 
-  static String m1(percent) => "${percent}%";
+  static String m1(name) => "Hello ${name} 👋";
 
-  static String m2(count) => "Uncompleted Projects: ${count}";
+  static String m2(percent) => "${percent}%";
+
+  static String m3(count) => "Uncompleted Projects: ${count}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -44,6 +46,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "description": MessageLookupByLibrary.simpleMessage("Description"),
     "details": MessageLookupByLibrary.simpleMessage("Details"),
     "electrician": MessageLookupByLibrary.simpleMessage("Electrician"),
+    "greetingMessage": m1,
+    "helpMessage": MessageLookupByLibrary.simpleMessage(
+      "How can we help you today?",
+    ),
     "home_crafter": MessageLookupByLibrary.simpleMessage("Home"),
     "inProgress": MessageLookupByLibrary.simpleMessage("In Progress"),
     "myServices": MessageLookupByLibrary.simpleMessage("My Services"),
@@ -54,13 +60,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "painter": MessageLookupByLibrary.simpleMessage("Painter"),
     "plumber": MessageLookupByLibrary.simpleMessage("Plumber"),
     "profile_crafter": MessageLookupByLibrary.simpleMessage("Profile"),
-    "progressPercent": m1,
+    "progressPercent": m2,
     "reject": MessageLookupByLibrary.simpleMessage("Reject"),
     "rejected": MessageLookupByLibrary.simpleMessage("Rejected"),
     "service": MessageLookupByLibrary.simpleMessage("Service"),
     "serviceDetails": MessageLookupByLibrary.simpleMessage("Service Details"),
     "status": MessageLookupByLibrary.simpleMessage("Status"),
-    "uncompletedProjects": m2,
+    "uncompletedProjects": m3,
     "yourProgress": MessageLookupByLibrary.simpleMessage("Your Progress"),
   };
 }

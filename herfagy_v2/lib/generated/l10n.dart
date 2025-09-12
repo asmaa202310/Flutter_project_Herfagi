@@ -278,6 +278,26 @@ class S {
   String get close {
     return Intl.message('Close', name: 'close', desc: '', args: []);
   }
+
+  /// `Hello {name} 👋`
+  String greetingMessage(Object name) {
+    return Intl.message(
+      'Hello $name 👋',
+      name: 'greetingMessage',
+      desc: '',
+      args: [name],
+    );
+  }
+
+  /// `How can we help you today?`
+  String get helpMessage {
+    return Intl.message(
+      'How can we help you today?',
+      name: 'helpMessage',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

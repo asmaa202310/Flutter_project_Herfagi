@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../generated/l10n.dart';
+import 'package:herfagy_v2/utils/localization_extension.dart';
 import 'home_for_herafy/home_crafter_view.dart';
 import 'orders_for_crafter/orders_crafter_view.dart';
 import 'profile_for_crafter/profile_crafter_view.dart';
@@ -21,6 +21,7 @@ class _CrafterViewState extends State<CrafterView> {
   ];
   @override
   Widget build(BuildContext context) {
+    final localization = context.localization;
     return Scaffold(
       body: IndexedStack(index: _selectedIndex, children: _pages),
       bottomNavigationBar: NavigationBar(
@@ -35,15 +36,15 @@ class _CrafterViewState extends State<CrafterView> {
         destinations: [
           NavigationDestination(
             icon: const Icon(Icons.home),
-            label: S.of(context).home_crafter,
+            label: localization.home_crafter,
           ),
           NavigationDestination(
             icon: const Icon(Icons.calendar_today),
-            label: S.of(context).bookings_crafter,
+            label: localization.bookings_crafter,
           ),
           NavigationDestination(
             icon: const Icon(Icons.person),
-            label: S.of(context).profile_crafter,
+            label: localization.profile_crafter,
           ),
         ],
       ),

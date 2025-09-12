@@ -1,30 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
+import '../../../../utils/size_config.dart';
 import 'custom_order_button.dart';
 
 class CrafterItem extends StatelessWidget {
-  const CrafterItem({
-    super.key,
-    required this.screenWidth,
-    required this.screenHeight,
-    required this.crafter,
-  });
+  const CrafterItem({super.key, required this.crafter});
 
-  final double screenWidth;
-  final double screenHeight;
   final dynamic crafter;
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return Container(
-      width: screenWidth * 0.45,
-      height: screenHeight * 0.25,
+      width: SizeConfig.width(fraction: 0.45),
+      height: SizeConfig.height(fraction: 0.25),
       margin: EdgeInsets.only(
-        left: screenWidth * 0.04,
-        bottom: screenWidth * 0.04,
+        left: SizeConfig.width(fraction: 0.04),
+        bottom: SizeConfig.width(fraction: 0.04),
       ),
-      padding: EdgeInsets.all(screenWidth * 0.04),
+      padding: EdgeInsets.all(SizeConfig.width(fraction: 0.04)),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(18),

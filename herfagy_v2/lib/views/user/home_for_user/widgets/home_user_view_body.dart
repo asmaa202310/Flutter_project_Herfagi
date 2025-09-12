@@ -11,48 +11,25 @@ class HomeUserViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
     return CustomScrollView(
       slivers: [
-        CustomSilverAppBar(
-          screenHeight: screenHeight,
-          screenWidth: screenWidth,
-        ),
-        SliverToBoxAdapter(
-          child: SectionHeader(screenWidth: screenWidth, title: "الفئات"),
-        ),
+        const CustomSilverAppBar(),
+        const SliverToBoxAdapter(child: SectionHeader(title: "الفئات")),
         SliverToBoxAdapter(
           child: CategoryItemsListViewBuilder(
-            screenWidth: screenWidth,
-            screenHeight: screenHeight,
             categories: HomeUserViewModel.categories,
           ),
         ),
-        SliverToBoxAdapter(
-          child: SectionHeader(
-            screenWidth: screenWidth,
-            title: "الأعلى تقييماً",
-          ),
-        ),
+        const SliverToBoxAdapter(child: SectionHeader(title: "الأعلى تقييماً")),
         SliverToBoxAdapter(
           child: TopCraftersListViewBuilder(
-            screenWidth: screenWidth,
-            screenHeight: screenHeight,
             crafters: HomeUserViewModel.topCrafters,
           ),
         ),
-        SliverToBoxAdapter(
-          child: SectionHeader(
-            screenWidth: screenWidth,
-            title: "الخدمات الشائعة",
-          ),
+        const SliverToBoxAdapter(
+          child: SectionHeader(title: "الخدمات الشائعة"),
         ),
-        ServiceSliverListBuilder(
-          screenWidth: screenWidth,
-          screenHeight: screenHeight,
-        ),
+        const ServiceSliverListBuilder(),
       ],
     );
   }

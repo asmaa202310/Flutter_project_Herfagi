@@ -2,28 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import '../../../../models/old/service_model.dart';
 import '../../../../utils/get_localize_title.dart';
+import '../../../../utils/size_config.dart';
 import 'custom_order_button.dart';
 
 class ServiceItem extends StatelessWidget {
-  const ServiceItem({
-    super.key,
-    required this.screenWidth,
-    required this.screenHeight,
-    required this.service,
-  });
+  const ServiceItem({super.key, required this.service});
 
-  final double screenWidth;
-  final double screenHeight;
   final ServiceModel service;
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return Container(
       margin: EdgeInsets.symmetric(
-        horizontal: screenWidth * 0.05,
-        vertical: screenHeight * 0.01,
+        horizontal: SizeConfig.width(fraction: 0.05),
+        vertical: SizeConfig.height(fraction: 0.01),
       ),
-      padding: EdgeInsets.all(screenWidth * 0.04),
+      padding: EdgeInsets.all(SizeConfig.width(fraction: 0.04)),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(18),
@@ -42,7 +37,7 @@ class ServiceItem extends StatelessWidget {
             backgroundColor: service.color.withValues(alpha: 0.15),
             child: Icon(service.icon, size: 28, color: service.color),
           ),
-          SizedBox(width: screenWidth * 0.04),
+          SizedBox(width: SizeConfig.width(fraction: 0.04)),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

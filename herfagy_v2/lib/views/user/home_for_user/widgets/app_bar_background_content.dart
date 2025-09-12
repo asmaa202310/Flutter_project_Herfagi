@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
+import '../../../../utils/size_config.dart';
 import 'profile_list_tile_widget.dart';
 
 class AppBarBackgroundContent extends StatelessWidget {
-  const AppBarBackgroundContent({
-    super.key,
-    required this.screenWidth,
-    required this.screenHeight,
-  });
-
-  final double screenWidth;
-  final double screenHeight;
+  const AppBarBackgroundContent({super.key});
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return Container(
       padding: EdgeInsetsGeometry.only(
-        left: screenWidth * 0.05,
-        top: screenHeight * 0.07,
-        right: screenWidth * 0.05,
-        bottom: screenHeight * 0.02,
+        left: SizeConfig.width(fraction: 0.05),
+        top: SizeConfig.height(fraction: 0.07),
+        right: SizeConfig.width(fraction: 0.05),
+        bottom: SizeConfig.height(fraction: 0.02),
       ),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -28,7 +23,7 @@ class AppBarBackgroundContent extends StatelessWidget {
         ),
         borderRadius: BorderRadius.vertical(bottom: Radius.circular(26)),
       ),
-      child: ProfileListTileWidget(),
+      child: const ProfileListTileWidget(),
     );
   }
 }

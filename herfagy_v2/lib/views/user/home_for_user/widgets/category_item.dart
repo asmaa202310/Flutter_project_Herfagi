@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
-
+import '/utils/size_config.dart';
 import '../../../../models/old/categoty_model.dart';
 import '../../../../utils/get_localize_title.dart';
 
 class CategoryItem extends StatelessWidget {
   const CategoryItem({
     super.key,
-    required this.screenWidth,
     required this.category,
     this.paddingAll,
     this.marginRight,
   });
 
-  final double screenWidth;
   final CategoryModel category;
   final double? paddingAll;
   final double? marginRight;
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return Container(
-      width: screenWidth * 0.25,
-      padding: EdgeInsets.all(paddingAll ?? screenWidth * 0.03),
-      margin: EdgeInsets.only(right: marginRight ?? screenWidth * 0.04),
+      width: SizeConfig.width(fraction: 0.25),
+      padding: EdgeInsets.all(paddingAll ?? SizeConfig.width(fraction: 0.03)),
+      margin: EdgeInsets.only(
+        right: marginRight ?? SizeConfig.width(fraction: 0.04),
+      ),
       decoration: BoxDecoration(
         color: category.color.withValues(alpha: 0.15),
         borderRadius: BorderRadius.circular(18),

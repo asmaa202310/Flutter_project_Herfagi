@@ -20,11 +20,7 @@ class CrafterServicesBuilder extends StatelessWidget {
                 final service = provider.services[index];
                 return GestureDetector(
                   onTap: () {},
-                  child: CategoryItem(
-                    screenWidth: screenWidth,
-                    category: service,
-                    marginRight: 0,
-                  ),
+                  child: CategoryItem(category: service, marginRight: 0),
                 );
               }),
             ),

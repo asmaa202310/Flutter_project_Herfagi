@@ -22,9 +22,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m0(count) => "مشاريع مكتملة: ${count}";
 
-  static String m1(percent) => "%${percent}";
+  static String m1(name) => "مرحباً ${name} 👋";
 
-  static String m2(count) => "غير مكتملة: ${count}";
+  static String m2(percent) => "%${percent}";
+
+  static String m3(count) => "غير مكتملة: ${count}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -44,6 +46,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "description": MessageLookupByLibrary.simpleMessage("الوصف"),
     "details": MessageLookupByLibrary.simpleMessage("التفاصيل"),
     "electrician": MessageLookupByLibrary.simpleMessage("كهرباء"),
+    "greetingMessage": m1,
+    "helpMessage": MessageLookupByLibrary.simpleMessage(
+      "كيف يمكننا مساعدتك اليوم؟",
+    ),
     "home_crafter": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "inProgress": MessageLookupByLibrary.simpleMessage("قيد التنفيذ"),
     "myServices": MessageLookupByLibrary.simpleMessage("خدماتي"),
@@ -56,13 +62,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "painter": MessageLookupByLibrary.simpleMessage("دهانات"),
     "plumber": MessageLookupByLibrary.simpleMessage("سباكة"),
     "profile_crafter": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
-    "progressPercent": m1,
+    "progressPercent": m2,
     "reject": MessageLookupByLibrary.simpleMessage("رفض"),
     "rejected": MessageLookupByLibrary.simpleMessage("مرفوض"),
     "service": MessageLookupByLibrary.simpleMessage("الخدمة"),
     "serviceDetails": MessageLookupByLibrary.simpleMessage("تفاصيل الخدمة"),
     "status": MessageLookupByLibrary.simpleMessage("الحالة"),
-    "uncompletedProjects": m2,
+    "uncompletedProjects": m3,
     "yourProgress": MessageLookupByLibrary.simpleMessage("تقدمك"),
   };
 }
