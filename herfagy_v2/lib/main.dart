@@ -3,7 +3,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:herfagy_v2/utils/deep_link_handler.dart';
 import 'package:herfagy_v2/viewmodels/language_view_model.dart';
 import 'package:herfagy_v2/viewmodels/supabase/auth_view_model.dart';
-import 'package:herfagy_v2/views/crafter/crafter_view.dart';
 import 'package:herfagy_v2/views/onboarding/onboarding_view.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '/generated/l10n.dart';
@@ -54,7 +53,7 @@ class HerfagyApp extends StatelessWidget {
         fontFamily: 'NotoSansArabic_Condensed-Regular',
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: Stack(children: const [CrafterView(), DeepLinkHandler()]),
+      home: Stack(children: const [OnboardingView(), DeepLinkHandler()]),
     );
   }
 }

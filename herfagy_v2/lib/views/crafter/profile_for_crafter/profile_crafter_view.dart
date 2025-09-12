@@ -40,7 +40,6 @@ class ProfileCrafterViewBody extends StatelessWidget {
               const CrafterGallerySection(),
               const SizedBox(height: 30),
               SettingsSection(
-                notificationsEnabled: true,
                 darkModeEnabled: true,
                 onNotificationsChanged: (_) {},
                 onDarkModeChanged: (_) {},

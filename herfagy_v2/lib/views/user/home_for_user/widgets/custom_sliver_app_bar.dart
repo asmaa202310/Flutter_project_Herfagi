@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import '/utils/size_config.dart';
 import 'app_bar_background_content.dart';
+import 'custom_search_bar.dart';
 
 class CustomSilverAppBar extends StatelessWidget {
-  const CustomSilverAppBar({super.key});
-
+  const CustomSilverAppBar({super.key, required this.searchHintText});
+  final String searchHintText;
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
@@ -21,13 +22,10 @@ class CustomSilverAppBar extends StatelessWidget {
         collapseMode: CollapseMode.parallax,
         background: const AppBarBackgroundContent(),
       ),
-      // bottom: PreferredSize(
-      //   preferredSize: Size.fromHeight(screenHeight * 0.09),
-      //   child: CustomSearchBar(
-      //     screenWidth: screenWidth,
-      //     screenHeight: screenHeight,
-      //   ),
-      // ),
+      bottom: PreferredSize(
+        preferredSize: Size.fromHeight(SizeConfig.height(fraction: 0.11)),
+        child: CustomSearchBar(hintText: searchHintText),
+      ),
     );
   }
 }

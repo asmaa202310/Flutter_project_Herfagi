@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'switch_item.dart';
 
 class SettingsSection extends StatelessWidget {
-  final bool notificationsEnabled;
   final bool darkModeEnabled;
   final Function(bool) onNotificationsChanged;
   final Function(bool) onDarkModeChanged;
@@ -11,7 +10,6 @@ class SettingsSection extends StatelessWidget {
 
   const SettingsSection({
     super.key,
-    required this.notificationsEnabled,
     required this.darkModeEnabled,
     required this.onNotificationsChanged,
     required this.onDarkModeChanged,

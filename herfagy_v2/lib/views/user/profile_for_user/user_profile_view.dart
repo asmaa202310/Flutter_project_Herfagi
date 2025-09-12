@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:herfagy_v2/views/user/orders_for_user/widgets/custom_orders_app_bar.dart';
 
-import '../../../models/old/menu_items_model.dart';
+import '../../../viewmodels/profile_user_view_model.dart';
 import 'widgets/menu_section.dart';
 import 'widgets/profile_header.dart';
 import 'widgets/settings_section.dart';
@@ -9,21 +9,7 @@ import 'widgets/settings_section.dart';
 class UserProfileView extends StatelessWidget {
   const UserProfileView({super.key});
 
-  final bool notificationsEnabled = true;
   final bool darkModeEnabled = false;
-  final List<MenuItemModel> menuItems = const [
-    MenuItemModel(
-      icon: Icons.help_outline,
-      title: 'المساعدة والدعم',
-      color: Colors.teal,
-    ),
-    MenuItemModel(
-      icon: Icons.security,
-      title: 'الخصوصية والأمان',
-      color: Colors.indigo,
-    ),
-    MenuItemModel(icon: Icons.language, title: 'اللغة', color: Colors.brown),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -42,10 +28,9 @@ class UserProfileView extends StatelessWidget {
                   location: 'القاهرة، مصر',
                   screenWidth: screemWidth,
                 ),
-                MenuSection(items: menuItems),
+                MenuSection(items: ProfileUserViewModel.menuItems(context)),
                 const SizedBox(height: 30),
                 SettingsSection(
-                  notificationsEnabled: notificationsEnabled,
                   darkModeEnabled: darkModeEnabled,
                   onNotificationsChanged: (_) {},
                   onDarkModeChanged: (_) {},

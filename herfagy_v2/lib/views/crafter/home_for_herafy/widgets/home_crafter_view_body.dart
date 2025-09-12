@@ -15,7 +15,9 @@ class HomeCrafterViewBody extends StatelessWidget {
     final localization = context.localization;
     return CustomScrollView(
       slivers: [
-        const CustomSilverAppBar(),
+        CustomSilverAppBar(
+          searchHintText: context.localization.searchForCustomerPlaceholder,
+        ),
         SliverToBoxAdapter(
           child: CustomProgressIndicator(screenWidth: screenWidth),
         ),

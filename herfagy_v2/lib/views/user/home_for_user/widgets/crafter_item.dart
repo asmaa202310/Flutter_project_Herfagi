@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:herfagy_v2/utils/get_localize_title.dart';
+import '/models/old/crafter_model.dart';
 
 import '../../../../utils/size_config.dart';
 import 'custom_order_button.dart';
@@ -7,16 +9,17 @@ import 'custom_order_button.dart';
 class CrafterItem extends StatelessWidget {
   const CrafterItem({super.key, required this.crafter});
 
-  final dynamic crafter;
+  final CrafterModel crafter;
 
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
     return Container(
       width: SizeConfig.width(fraction: 0.45),
-      height: SizeConfig.height(fraction: 0.25),
+      height: SizeConfig.height(fraction: 0.26),
       margin: EdgeInsets.only(
-        left: SizeConfig.width(fraction: 0.04),
+        left: SizeConfig.width(fraction: 0.01),
+        right: SizeConfig.width(fraction: 0.01),
         bottom: SizeConfig.width(fraction: 0.04),
       ),
       padding: EdgeInsets.all(SizeConfig.width(fraction: 0.04)),
@@ -36,12 +39,12 @@ class CrafterItem extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 24,
-            backgroundColor: crafter.color.withOpacity(0.15),
+            backgroundColor: crafter.color.withValues(alpha: 0.15),
             child: Icon(crafter.icon, size: 24, color: crafter.color),
           ),
           const SizedBox(height: 8),
           Text(
-            crafter.service,
+            GetLocalizeTitle.getLocalizedTitle(context, crafter.service),
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 16,

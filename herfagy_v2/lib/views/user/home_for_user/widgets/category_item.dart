@@ -19,7 +19,7 @@ class CategoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig.init(context);
     return Container(
-      width: SizeConfig.width(fraction: 0.25),
+      width: SizeConfig.width(fraction: 0.27),
       padding: EdgeInsets.all(paddingAll ?? SizeConfig.width(fraction: 0.03)),
       margin: EdgeInsets.only(
         right: marginRight ?? SizeConfig.width(fraction: 0.04),

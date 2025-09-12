@@ -298,6 +298,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Search for a service or crafter...`
+  String get searchForCrafterPlaceholder {
+    return Intl.message(
+      'Search for a service or crafter...',
+      name: 'searchForCrafterPlaceholder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search for a client or explore the crafters...`
+  String get searchForCustomerPlaceholder {
+    return Intl.message(
+      'Search for a client or explore the crafters...',
+      name: 'searchForCustomerPlaceholder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Categories`
+  String get sectionCategories {
+    return Intl.message(
+      'Categories',
+      name: 'sectionCategories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Top Rated`
+  String get sectionTopRated {
+    return Intl.message(
+      'Top Rated',
+      name: 'sectionTopRated',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Popular Services`
+  String get sectionPopularServices {
+    return Intl.message(
+      'Popular Services',
+      name: 'sectionPopularServices',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Next`
+  String get next {
+    return Intl.message('Next', name: 'next', desc: '', args: []);
+  }
+
+  /// `Skip`
+  String get skip {
+    return Intl.message('Skip', name: 'skip', desc: '', args: []);
+  }
+
+  /// `Make your life easier with the Herfagy app`
+  String get onboardingDesc1 {
+    return Intl.message(
+      'Make your life easier with the Herfagy app',
+      name: 'onboardingDesc1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trusted services - ratings and reviews build confidence`
+  String get onboardingDesc2 {
+    return Intl.message(
+      'Trusted services - ratings and reviews build confidence',
+      name: 'onboardingDesc2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `All crafters in one place - request or provide your service easily`
+  String get onboardingDesc3 {
+    return Intl.message(
+      'All crafters in one place - request or provide your service easily',
+      name: 'onboardingDesc3',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

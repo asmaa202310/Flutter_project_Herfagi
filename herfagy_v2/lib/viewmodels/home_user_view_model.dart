@@ -4,8 +4,8 @@ import '../models/old/crafter_model.dart';
 import '../models/old/service_model.dart';
 import '../utils/get_localize_title.dart';
 
-class HomeUserViewModel {
-  static final List<CategoryModel> categories = [
+class HomeUserViewModel extends ChangeNotifier {
+  final List<CategoryModel> categories = [
     CategoryModel(
       key: ServiceKey.electrician,
       icon: Icons.flash_on,
@@ -33,7 +33,7 @@ class HomeUserViewModel {
     ),
   ];
 
-  static final List<CrafterModel> topCrafters = [
+  final List<CrafterModel> topCrafters = [
     CrafterModel(
       name: "أحمد النجار",
       service: ServiceKey.carpenter,

@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import '../models/old/onboarding_model.dart';
 
+enum OnboardingDescription { onboardingDesc1, onboardingDesc2, onboardingDesc3 }
+
 class OnboardingViewModel extends ChangeNotifier {
   final pageController = PageController();
 
   final List<OnboardingModel> pages = const [
     OnboardingModel(
-      description: "ابن دخلك أو خلى حياتك أسهل مع تطبيق حرفجى",
+      description: OnboardingDescription.onboardingDesc1,
       animation: "assets/lottie/Relax.json",
     ),
     OnboardingModel(
-      description: "خدمات موثوقة - تقييمات و مراجعات تبنى الثقة",
+      description: OnboardingDescription.onboardingDesc2,
       animation: "assets/lottie/RatingCharacter.json",
     ),
     OnboardingModel(
-      description: "كل الحرفيين فى مكان واحد - اطلب او قدم خدمتك بسهولة",
+      description: OnboardingDescription.onboardingDesc3,
       animation: "assets/lottie/checklist.json",
     ),
   ];

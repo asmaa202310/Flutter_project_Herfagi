@@ -34,5 +34,15 @@
         "details": "Details",
         "close": "Close",
         "greetingMessage": "Hello {name} 👋",
-        "helpMessage": "How can we help you today?"
+        "helpMessage": "How can we help you today?",
+        "searchForCrafterPlaceholder": "Search for a service or crafter...",
+        "searchForCustomerPlaceholder": "Search for a client or explore the crafters...",
+        "sectionCategories": "Categories",
+        "sectionTopRated": "Top Rated",
+        "sectionPopularServices": "Popular Services",
+        "next": "Next",
+        "skip": "Skip",
+        "onboardingDesc1": "Make your life easier with the Herfagy app",
+        "onboardingDesc2": "Trusted services - ratings and reviews build confidence",
+        "onboardingDesc3": "All crafters in one place - request or provide your service easily"
     }

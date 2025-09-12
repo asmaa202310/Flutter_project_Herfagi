@@ -55,7 +55,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "myServices": MessageLookupByLibrary.simpleMessage("My Services"),
     "newOrder": MessageLookupByLibrary.simpleMessage("New"),
     "newRequests": MessageLookupByLibrary.simpleMessage("New Requests"),
+    "next": MessageLookupByLibrary.simpleMessage("Next"),
     "noNewRequests": MessageLookupByLibrary.simpleMessage("No new requests."),
+    "onboardingDesc1": MessageLookupByLibrary.simpleMessage(
+      "Make your life easier with the Herfagy app",
+    ),
+    "onboardingDesc2": MessageLookupByLibrary.simpleMessage(
+      "Trusted services - ratings and reviews build confidence",
+    ),
+    "onboardingDesc3": MessageLookupByLibrary.simpleMessage(
+      "All crafters in one place - request or provide your service easily",
+    ),
     "orders": MessageLookupByLibrary.simpleMessage("Orders"),
     "painter": MessageLookupByLibrary.simpleMessage("Painter"),
     "plumber": MessageLookupByLibrary.simpleMessage("Plumber"),
@@ -63,8 +73,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "progressPercent": m2,
     "reject": MessageLookupByLibrary.simpleMessage("Reject"),
     "rejected": MessageLookupByLibrary.simpleMessage("Rejected"),
+    "searchForCrafterPlaceholder": MessageLookupByLibrary.simpleMessage(
+      "Search for a service or crafter...",
+    ),
+    "searchForCustomerPlaceholder": MessageLookupByLibrary.simpleMessage(
+      "Search for a client or explore the crafters...",
+    ),
+    "sectionCategories": MessageLookupByLibrary.simpleMessage("Categories"),
+    "sectionPopularServices": MessageLookupByLibrary.simpleMessage(
+      "Popular Services",
+    ),
+    "sectionTopRated": MessageLookupByLibrary.simpleMessage("Top Rated"),
     "service": MessageLookupByLibrary.simpleMessage("Service"),
     "serviceDetails": MessageLookupByLibrary.simpleMessage("Service Details"),
+    "skip": MessageLookupByLibrary.simpleMessage("Skip"),
     "status": MessageLookupByLibrary.simpleMessage("Status"),
     "uncompletedProjects": m3,
     "yourProgress": MessageLookupByLibrary.simpleMessage("Your Progress"),

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../../../viewmodels/home_user_view_model.dart';
 import '/utils/size_config.dart';
-import '../../../../models/old/categoty_model.dart';
 import 'category_item.dart';
 
 class CategoryItemsListViewBuilder extends StatelessWidget {
-  const CategoryItemsListViewBuilder({super.key, required this.categories});
-
-  final List<CategoryModel> categories;
+  const CategoryItemsListViewBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final categories = context.watch<HomeUserViewModel>().categories;
     SizeConfig.init(context);
     return SizedBox(
       height: SizeConfig.height(fraction: 0.12),

@@ -55,8 +55,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "myServices": MessageLookupByLibrary.simpleMessage("خدماتي"),
     "newOrder": MessageLookupByLibrary.simpleMessage("جديد"),
     "newRequests": MessageLookupByLibrary.simpleMessage("الطلبات الجديدة"),
+    "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "noNewRequests": MessageLookupByLibrary.simpleMessage(
       "لا توجد طلبات جديدة.",
+    ),
+    "onboardingDesc1": MessageLookupByLibrary.simpleMessage(
+      "ابن دخلك أو خلى حياتك أسهل مع تطبيق حرفجى",
+    ),
+    "onboardingDesc2": MessageLookupByLibrary.simpleMessage(
+      "خدمات موثوقة - تقييمات و مراجعات تبنى الثقة",
+    ),
+    "onboardingDesc3": MessageLookupByLibrary.simpleMessage(
+      "كل الحرفيين فى مكان واحد - اطلب او قدم خدمتك بسهولة",
     ),
     "orders": MessageLookupByLibrary.simpleMessage("الطلبات"),
     "painter": MessageLookupByLibrary.simpleMessage("دهانات"),
@@ -65,8 +75,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "progressPercent": m2,
     "reject": MessageLookupByLibrary.simpleMessage("رفض"),
     "rejected": MessageLookupByLibrary.simpleMessage("مرفوض"),
+    "searchForCrafterPlaceholder": MessageLookupByLibrary.simpleMessage(
+      "ابحث عن خدمة أو حرفي...",
+    ),
+    "searchForCustomerPlaceholder": MessageLookupByLibrary.simpleMessage(
+      "ابحث عن عميل او استكشف الحرفيين...",
+    ),
+    "sectionCategories": MessageLookupByLibrary.simpleMessage("الفئات"),
+    "sectionPopularServices": MessageLookupByLibrary.simpleMessage(
+      "الخدمات الشائعة",
+    ),
+    "sectionTopRated": MessageLookupByLibrary.simpleMessage("الأعلى تقييماً"),
     "service": MessageLookupByLibrary.simpleMessage("الخدمة"),
     "serviceDetails": MessageLookupByLibrary.simpleMessage("تفاصيل الخدمة"),
+    "skip": MessageLookupByLibrary.simpleMessage("تخطى"),
     "status": MessageLookupByLibrary.simpleMessage("الحالة"),
     "uncompletedProjects": m3,
     "yourProgress": MessageLookupByLibrary.simpleMessage("تقدمك"),
