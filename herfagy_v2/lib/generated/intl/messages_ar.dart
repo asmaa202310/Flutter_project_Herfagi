@@ -24,36 +24,93 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m1(name) => "مرحباً ${name} 👋";
 
-  static String m2(percent) => "%${percent}";
+  static String m2(errors) => "يجب أن تحتوي كلمة المرور على ${errors}";
 
-  static String m3(count) => "غير مكتملة: ${count}";
+  static String m3(percent) => "%${percent}";
+
+  static String m4(count) => "غير مكتملة: ${count}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "accept": MessageLookupByLibrary.simpleMessage("قبول"),
     "airConditioning": MessageLookupByLibrary.simpleMessage("تكييف وتبريد"),
+    "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
+      "هل لديك حساب بالفعل؟",
+    ),
     "blacksmith": MessageLookupByLibrary.simpleMessage("حدادة"),
     "bookings_crafter": MessageLookupByLibrary.simpleMessage("الحجوزات"),
     "carpenter": MessageLookupByLibrary.simpleMessage("نجارة"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
+    "chooseAccountType": MessageLookupByLibrary.simpleMessage(
+      "اختر نوع الحساب",
+    ),
     "close": MessageLookupByLibrary.simpleMessage("إغلاق"),
     "completed": MessageLookupByLibrary.simpleMessage("مكتمل"),
     "completedProjects": m0,
+    "confirmButton": MessageLookupByLibrary.simpleMessage("تأكيد"),
+    "confirmPasswordHint": MessageLookupByLibrary.simpleMessage(
+      "اعد كتابة كلمة السر",
+    ),
+    "confirmPasswordLabel": MessageLookupByLibrary.simpleMessage(
+      "تأكيد كلمة السر",
+    ),
+    "crafterAccount": MessageLookupByLibrary.simpleMessage("حرفي / متخصص"),
+    "crafterAccountDescription": MessageLookupByLibrary.simpleMessage(
+      "للحرفيين والمتخصصين ومقدمي الخدمات",
+    ),
     "craftsman": MessageLookupByLibrary.simpleMessage("الحرفي"),
+    "createAccountButton": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "customer": MessageLookupByLibrary.simpleMessage("العميل"),
     "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
     "dateWithCalenderIcon": MessageLookupByLibrary.simpleMessage("التاريخ 📅"),
     "description": MessageLookupByLibrary.simpleMessage("الوصف"),
     "details": MessageLookupByLibrary.simpleMessage("التفاصيل"),
+    "dontHaveAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
     "electrician": MessageLookupByLibrary.simpleMessage("كهرباء"),
+    "emailHint": MessageLookupByLibrary.simpleMessage("ادخل البريد الالكترونى"),
+    "emailLabel": MessageLookupByLibrary.simpleMessage("البريد الالكترونى"),
+    "emailRequired": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إدخال البريد الإلكتروني",
+    ),
+    "enterEmail": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إدخال البريد الإلكتروني",
+    ),
+    "enterPassword": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إدخال كلمة المرور",
+    ),
+    "enterUsername": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إدخال اسم المستخدم",
+    ),
+    "forgetPasswordDesc": MessageLookupByLibrary.simpleMessage(
+      "من فضلك أدخل بريدك الإلكتروني وسنرسل لك رابط لإعادة تعيين كلمة السر.",
+    ),
+    "forgetPasswordTitle": MessageLookupByLibrary.simpleMessage(
+      "هل نسيت كلمة السر ؟",
+    ),
+    "forgotPassword": MessageLookupByLibrary.simpleMessage("نسيت كلمة السر ؟"),
     "greetingMessage": m1,
     "helpMessage": MessageLookupByLibrary.simpleMessage(
       "كيف يمكننا مساعدتك اليوم؟",
     ),
     "home_crafter": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "inProgress": MessageLookupByLibrary.simpleMessage("قيد التنفيذ"),
+    "invalidEmailFormat": MessageLookupByLibrary.simpleMessage(
+      "صيغة البريد الإلكتروني غير صحيحة",
+    ),
+    "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+    "loginButton": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+    "loginTitle": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "myServices": MessageLookupByLibrary.simpleMessage("خدماتي"),
+    "nameHint": MessageLookupByLibrary.simpleMessage("ادخل الاسم بالكامل"),
+    "nameLabel": MessageLookupByLibrary.simpleMessage("الاسم"),
+    "nameRequired": MessageLookupByLibrary.simpleMessage("الرجاء إدخال الاسم"),
     "newOrder": MessageLookupByLibrary.simpleMessage("جديد"),
+    "newPasswordHint": MessageLookupByLibrary.simpleMessage(
+      "ادخل كلمة السر الجديدة",
+    ),
+    "newPasswordLabel": MessageLookupByLibrary.simpleMessage(
+      "كلمة السر الجديدة",
+    ),
     "newRequests": MessageLookupByLibrary.simpleMessage("الطلبات الجديدة"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "noNewRequests": MessageLookupByLibrary.simpleMessage(
@@ -68,13 +125,47 @@ class MessageLookup extends MessageLookupByLibrary {
     "onboardingDesc3": MessageLookupByLibrary.simpleMessage(
       "كل الحرفيين فى مكان واحد - اطلب او قدم خدمتك بسهولة",
     ),
+    "orSignInWith": MessageLookupByLibrary.simpleMessage("أو سجل من خلال"),
     "orders": MessageLookupByLibrary.simpleMessage("الطلبات"),
     "painter": MessageLookupByLibrary.simpleMessage("دهانات"),
+    "passwordChangedSuccess": MessageLookupByLibrary.simpleMessage(
+      "تم تغيير كلمة السر بنجاح",
+    ),
+    "passwordHint": MessageLookupByLibrary.simpleMessage("ادخل كلمة السر"),
+    "passwordLabel": MessageLookupByLibrary.simpleMessage("كلمة السر"),
+    "passwordLowercase": MessageLookupByLibrary.simpleMessage(
+      "حرف صغير واحد على الأقل",
+    ),
+    "passwordMinChars": MessageLookupByLibrary.simpleMessage(
+      "يجب أن تحتوي على ٨ أحرف على الأقل",
+    ),
+    "passwordMustContain": m2,
+    "passwordNumber": MessageLookupByLibrary.simpleMessage(
+      "رقم واحد على الأقل",
+    ),
+    "passwordRequired": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إدخال كلمة المرور",
+    ),
+    "passwordSpecialChar": MessageLookupByLibrary.simpleMessage(
+      "رمز خاص واحد على الأقل",
+    ),
+    "passwordUppercase": MessageLookupByLibrary.simpleMessage(
+      "حرف كبير واحد على الأقل",
+    ),
+    "passwordsDoNotMatch": MessageLookupByLibrary.simpleMessage(
+      "كلمات المرور غير متطابقة",
+    ),
+    "pleaseChooseAccountType": MessageLookupByLibrary.simpleMessage(
+      "يرجى اختيار نوع الحساب للمتابعة",
+    ),
     "plumber": MessageLookupByLibrary.simpleMessage("سباكة"),
     "profile_crafter": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
-    "progressPercent": m2,
+    "progressPercent": m3,
     "reject": MessageLookupByLibrary.simpleMessage("رفض"),
     "rejected": MessageLookupByLibrary.simpleMessage("مرفوض"),
+    "rememberPassword": MessageLookupByLibrary.simpleMessage(
+      "تذكرت كلمة المرور ؟",
+    ),
     "searchForCrafterPlaceholder": MessageLookupByLibrary.simpleMessage(
       "ابحث عن خدمة أو حرفي...",
     ),
@@ -86,11 +177,25 @@ class MessageLookup extends MessageLookupByLibrary {
       "الخدمات الشائعة",
     ),
     "sectionTopRated": MessageLookupByLibrary.simpleMessage("الأعلى تقييماً"),
+    "sendResetLinkButton": MessageLookupByLibrary.simpleMessage("إرسال الرابط"),
     "service": MessageLookupByLibrary.simpleMessage("الخدمة"),
     "serviceDetails": MessageLookupByLibrary.simpleMessage("تفاصيل الخدمة"),
+    "signUp": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+    "signUpTitle": MessageLookupByLibrary.simpleMessage("إنشاء حساب جديد"),
     "skip": MessageLookupByLibrary.simpleMessage("تخطى"),
     "status": MessageLookupByLibrary.simpleMessage("الحالة"),
-    "uncompletedProjects": m3,
+    "uncompletedProjects": m4,
+    "updatePasswordDesc": MessageLookupByLibrary.simpleMessage(
+      "من فضلك أدخل كلمة السر الجديدة الخاصة بك.",
+    ),
+    "updatePasswordTitle": MessageLookupByLibrary.simpleMessage(
+      "تغيير كلمة السر",
+    ),
+    "userAccount": MessageLookupByLibrary.simpleMessage("مستخدم عادي / زبون"),
+    "userAccountDescription": MessageLookupByLibrary.simpleMessage(
+      "للعملاء الذين يبحثون عن الخدمات",
+    ),
+    "welcome": MessageLookupByLibrary.simpleMessage("مرحبا!"),
     "yourProgress": MessageLookupByLibrary.simpleMessage("تقدمك"),
   };
 }

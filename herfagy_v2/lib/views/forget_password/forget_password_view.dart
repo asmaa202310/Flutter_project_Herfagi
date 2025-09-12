@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:herfagy_v2/utils/size_config.dart';
+import '/utils/localization_extension.dart';
 import 'package:provider/provider.dart';
 import '../../viewmodels/forget_password_view_model.dart';
 import '../login/widgets/row_check_account_widget.dart';
@@ -40,65 +43,69 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
-    return SafeArea(
-      child: Form(
-        key: _formKey,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              ImageWidget(screenWidth: screenWidth),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: screenHeight * 0.02),
-                    Text(
-                      'هل نسيت كلمة السر؟',
-                      style: TextStyle(
-                        color: Colors.blue.shade700,
-                        fontSize: screenWidth * 0.08,
-                        fontWeight: FontWeight.bold,
+    final localization = context.localization;
+    SizeConfig.init(context);
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle.dark.copyWith(
+        statusBarColor: Colors.transparent,
+      ),
+      child: SafeArea(
+        child: Form(
+          key: _formKey,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const ImageWidget(),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.width(fraction: 0.05),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: SizeConfig.height(fraction: 0.02)),
+                      Text(
+                        localization.forgetPasswordTitle,
+                        style: TextStyle(
+                          color: Colors.blue.shade700,
+                          fontSize: SizeConfig.width(fraction: 0.08),
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: screenHeight * 0.015),
-                    Text(
-                      'من فضلك أدخل بريدك الإلكتروني وسنرسل لك رابط لإعادة تعيين كلمة السر.',
-                      style: TextStyle(
-                        color: Colors.blueGrey,
-                        fontSize: screenWidth * 0.045,
+                      SizedBox(height: SizeConfig.height(fraction: 0.015)),
+                      Text(
+                        localization.forgetPasswordDesc,
+                        style: TextStyle(
+                          color: Colors.blueGrey,
+                          fontSize: SizeConfig.width(fraction: 0.045),
+                        ),
                       ),
-                    ),
-                    SizedBox(height: screenHeight * 0.03),
-                    CustomTextField(
-                      label: "البريد الإلكتروني",
-                      hint: "ادخل بريدك الإلكتروني",
-                      controller: _emailController,
-                      validator: (value) => Validators.validateEmail(value),
-                      prefixIcon: Icons.email_outlined,
-                    ),
-                    SizedBox(height: screenHeight * 0.03),
-                    CustomLoginSignUpButton(
-                      screenWidth: screenWidth,
-                      screenHeight: screenHeight,
-                      text: "إرسال الرابط",
-                      isLogin: false,
-                      isResetPassword: true,
-                      email: _emailController,
-                    ),
-                    SizedBox(height: screenHeight * 0.025),
-                    RowCheckAccountWidget(
-                      questionText: "تذكرت كلمة المرور؟",
-                      buttonText: "  تسجيل الدخول",
-                      onTap: () => Navigator.pop(context),
-                    ),
-                  ],
+                      SizedBox(height: SizeConfig.height(fraction: 0.03)),
+                      CustomTextField(
+                        label: localization.emailLabel,
+                        hint: localization.emailHint,
+                        controller: _emailController,
+                        validator: (value) => Validators.validateEmail(value),
+                        prefixIcon: Icons.email_outlined,
+                      ),
+                      SizedBox(height: SizeConfig.height(fraction: 0.03)),
+                      CustomLoginSignUpButton(
+                        text: localization.sendResetLinkButton,
+                        isLogin: false,
+                        isResetPassword: true,
+                        email: _emailController,
+                      ),
+                      SizedBox(height: SizeConfig.height(fraction: 0.025)),
+                      RowCheckAccountWidget(
+                        questionText: localization.rememberPassword,
+                        buttonText: localization.login,
+                        onTap: () => Navigator.pop(context),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

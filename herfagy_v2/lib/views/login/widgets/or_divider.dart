@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/utils/localization_extension.dart';
 import '/views/login/widgets/custom_divider.dart';
 
 class OrDivider extends StatelessWidget {
@@ -11,7 +12,7 @@ class OrDivider extends StatelessWidget {
       children: [
         Expanded(child: CustomDivider(screenWidth: screenWidth)),
         Text(
-          "أو سجل من خلال",
+          context.localization.orSignInWith,
           style: TextStyle(
             fontSize: screenWidth * 0.045,
             // fontWeight: FontWeight.w500,
