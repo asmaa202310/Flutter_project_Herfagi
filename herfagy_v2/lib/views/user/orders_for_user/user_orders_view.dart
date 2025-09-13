@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 import '../../../viewmodels/orders_for_user_view_model.dart';
 import 'widgets/orders_view_body.dart';
 
-class OrdersView extends StatelessWidget {
-  const OrdersView({super.key});
+class UserOrdersView extends StatelessWidget {
+  const UserOrdersView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class OrdersView extends StatelessWidget {
       create: (BuildContext context) => OrdersForUserViewModel(),
       child: Scaffold(
         backgroundColor: Colors.white,
-        body: const OrdersViewBody(),
+        body: const UserOrdersViewBody(),
       ),
     );
   }

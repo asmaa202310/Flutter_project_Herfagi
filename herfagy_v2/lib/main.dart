@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:herfagy_v2/setup.dart';
 import 'package:herfagy_v2/utils/deep_link_handler.dart';
+
 import 'package:herfagy_v2/viewmodels/language_view_model.dart';
 import 'package:herfagy_v2/viewmodels/supabase/auth_view_model.dart';
 import 'package:herfagy_v2/views/crafter/crafter_view.dart';
@@ -36,24 +37,26 @@ class HerfagyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final supabaseClient = sl<SupabaseClient>();
-    return Consumer<LanguageViewModel>(
-      builder: (context, languageProvider, _) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'حرفجى',
-          localizationsDelegates: const [
-            S.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: S.delegate.supportedLocales,
-          locale: languageProvider.locale,
-          theme: ThemeData(
-            fontFamily: 'NotoSansArabic_Condensed-Regular',
-            scaffoldBackgroundColor: Colors.white,
-          ),
-          home: StreamBuilder<AuthState>(
+    final languageProvider = Provider.of<LanguageViewModel>(context);
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'حرفجى',
+      localizationsDelegates: const [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
+      locale: languageProvider.locale,
+
+      theme: ThemeData(
+        fontFamily: 'NotoSansArabic_Condensed-Regular',
+        scaffoldBackgroundColor: Colors.white,
+        dialogTheme: DialogThemeData(backgroundColor: Colors.white),
+      ),
+
+      home: StreamBuilder<AuthState>(
             stream: supabaseClient.auth.onAuthStateChange,
             builder: (context, snapshot) {
               if (snapshot.data?.session != null) {
@@ -67,8 +70,11 @@ class HerfagyApp extends StatelessWidget {
               }
             },
           ),
-        );
-      },
     );
   }
 }
+
+// theme: ThemeData(
+//         fontFamily: 'NotoSansArabic_Condensed-Regular',
+//         scaffoldBackgroundColor: Colors.white,
+//       ),

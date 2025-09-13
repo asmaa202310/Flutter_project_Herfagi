@@ -1,43 +1,61 @@
 import 'package:flutter/material.dart';
 import 'package:herfagy_v2/utils/get_localize_title.dart';
+import 'package:herfagy_v2/utils/size_config.dart';
 import '../../../crafter/orders_for_crafter/widgets/order_status_widget.dart';
+import '../../../user/home_for_user/widgets/custom_order_button.dart';
 import '/utils/localization_extension.dart';
 import '../../../../models/old/order_model.dart';
-import '../../home_for_user/widgets/custom_order_button.dart';
 import 'order_details_bottom_sheet.dart';
 
-class OrderCardForUser extends StatelessWidget {
+class OrderCard extends StatelessWidget {
   final OrderModel order;
+  final OrderViewerType viewerType;
 
-  const OrderCardForUser({super.key, required this.order});
+  const OrderCard({super.key, required this.order, required this.viewerType});
 
   @override
   Widget build(BuildContext context) {
     final localization = context.localization;
+    SizeConfig.init(context);
+
+    final String personLabel = viewerType == OrderViewerType.user
+        ? localization.craftsman
+        : localization.customer;
 
     return Card(
       color: Colors.white.withValues(alpha: 0.89),
-      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+      margin: EdgeInsets.symmetric(
+        vertical: SizeConfig.height(fraction: 0.01),
+        horizontal: SizeConfig.width(fraction: 0.035),
+      ),
       elevation: 3,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(SizeConfig.width(fraction: 0.035)),
+      ),
       child: Padding(
-        padding: const EdgeInsets.all(15),
+        padding: EdgeInsets.all(SizeConfig.width(fraction: 0.035)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               "${localization.service}: ${GetLocalizeTitle.getLocalizedTitle(context, order.service)}",
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: SizeConfig.width(fraction: 0.05),
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const SizedBox(height: 8),
             Text(
-              "${localization.customer}: ${order.person}",
-              style: const TextStyle(fontSize: 14),
+              "$personLabel: ${order.person}",
+              style: TextStyle(fontSize: SizeConfig.width(fraction: 0.04)),
             ),
             const SizedBox(height: 8),
             Text(
               "${localization.date}: ${order.date}",
-              style: TextStyle(color: Colors.grey[700]),
+              style: TextStyle(
+                color: Colors.grey[700],
+                fontSize: SizeConfig.width(fraction: 0.04),
+              ),
             ),
             const SizedBox(height: 12),
             Row(
@@ -47,7 +65,7 @@ class OrderCardForUser extends StatelessWidget {
                 CustomDetailsButton(
                   borderRaduis: 16,
                   text: localization.details,
-                  fontSize: 14,
+                  fontSize: SizeConfig.width(fraction: 0.04),
                   onTap: () => _showOrderDetails(context),
                 ),
               ],
@@ -61,12 +79,13 @@ class OrderCardForUser extends StatelessWidget {
   void _showOrderDetails(BuildContext context) {
     showModalBottomSheet(
       context: context,
+      isScrollControlled: true,
       backgroundColor: Colors.white,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
       builder: (_) {
-        return OrderDetailsBottomSheetForUser(order: order);
+        return OrderDetailsBottomSheet(order: order, viewerType: viewerType);
       },
     );
   }

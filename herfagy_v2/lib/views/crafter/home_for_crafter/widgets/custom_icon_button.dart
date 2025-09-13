@@ -7,16 +7,18 @@ class CustomIconButton extends StatelessWidget {
     required this.onTap,
     required this.icon,
     required this.color,
+    this.iconSize,
   });
   // final int index;
   final VoidCallback onTap;
   final IconData icon;
   final Color color;
+  final double? iconSize;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: Icon(icon, color: color),
+      child: Icon(icon, color: color, size: iconSize),
     );
   }
 }

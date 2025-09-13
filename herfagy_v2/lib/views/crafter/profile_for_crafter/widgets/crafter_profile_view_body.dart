@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '/utils/localization_extension.dart';
 import '../../../../utils/show_logout_dialogue.dart';
 import '../../../../utils/size_config.dart';
 import '../../../../viewmodels/profile_crafter_view_model.dart';
-import '../../../user/orders_for_user/widgets/custom_orders_app_bar.dart';
+import '../../../user/orders_for_user/widgets/custom_general_app_bar.dart';
 import '../../../user/profile_for_user/widgets/menu_section.dart';
 import '../../../user/profile_for_user/widgets/profile_header.dart';
 import '../../../user/profile_for_user/widgets/settings_section.dart';
@@ -35,7 +36,7 @@ class CrafterProfileViewBody extends StatelessWidget {
               SettingsSection(
                 darkModeEnabled: true,
                 onNotificationsChanged: (_) {},
-                onDarkModeChanged: (_) {},
+                onDarkModeChanged: (value) {},
                 onLogout: () => showLogoutDialog(context),
               ),
             ],

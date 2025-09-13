@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:herfagy_v2/utils/localization_extension.dart';
+import 'package:herfagy_v2/utils/size_config.dart';
 import 'package:herfagy_v2/views/login/login_view.dart';
 import 'package:provider/provider.dart';
 import 'package:herfagy_v2/viewmodels/supabase/auth_view_model.dart';
@@ -9,6 +10,7 @@ void showLogoutDialog(BuildContext context) {
     context: context,
     builder: (context) {
       final localization = context.localization;
+      SizeConfig.init(context);
       return AlertDialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         title: Text(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:herfagy_v2/utils/localization_extension.dart';
 import 'package:herfagy_v2/utils/size_config.dart';
-import 'package:herfagy_v2/views/user/orders_for_user/widgets/custom_orders_app_bar.dart';
+import 'package:herfagy_v2/views/user/orders_for_user/widgets/custom_general_app_bar.dart';
 
 import '../../../utils/show_logout_dialogue.dart';
 import '../../../viewmodels/profile_user_view_model.dart';

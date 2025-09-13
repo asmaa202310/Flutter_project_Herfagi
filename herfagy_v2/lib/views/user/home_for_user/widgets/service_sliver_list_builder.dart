@@ -14,7 +14,6 @@ class ServiceSliverListBuilder extends StatelessWidget {
         (context, index) {
           var service = HomeUserViewModel.servicesList[index];
           return ServiceItem(
-           
             service: service,
           );
         },

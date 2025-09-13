@@ -10,28 +10,26 @@ class CustomSearchBar extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(
         left: SizeConfig.width(fraction: 0.05),
-        top: 10,
         right: SizeConfig.width(fraction: 0.05),
         bottom: SizeConfig.height(fraction: 0.015),
       ),
       child: Material(
         elevation: 4,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(SizeConfig.width(fraction: 0.04)),
         child: TextField(
           onTapOutside: (event) =>
               FocusManager.instance.primaryFocus?.unfocus(),
           decoration: InputDecoration(
             hintText: hintText,
-            hintStyle: TextStyle(fontSize: 13),
+            hintStyle: TextStyle(fontSize: SizeConfig.width(fraction: 0.04)),
             prefixIcon: const Icon(Icons.search, color: Colors.blue),
             filled: true,
             fillColor: Colors.white,
-            contentPadding: const EdgeInsets.symmetric(
-              vertical: 12,
-              horizontal: 8,
-            ),
+            contentPadding: EdgeInsets.zero,
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(14),
+              borderRadius: BorderRadius.circular(
+                SizeConfig.width(fraction: 0.05),
+              ),
               borderSide: BorderSide.none,
             ),
           ),

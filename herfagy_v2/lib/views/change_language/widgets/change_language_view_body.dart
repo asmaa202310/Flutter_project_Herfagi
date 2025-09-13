@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../generated/l10n.dart';
 import '../../../viewmodels/language_view_model.dart';
-import '../../user/orders_for_user/widgets/custom_orders_app_bar.dart';
+import '../../user/orders_for_user/widgets/custom_general_app_bar.dart';
 import 'language_tile.dart';
 
 class ChangeLanguageViewBody extends StatelessWidget {
