@@ -3,11 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:herfagy_v2/utils/deep_link_handler.dart';
 import 'package:herfagy_v2/viewmodels/language_view_model.dart';
 import 'package:herfagy_v2/viewmodels/supabase/auth_view_model.dart';
-import 'package:herfagy_v2/views/forget_password/forget_password_view.dart';
-import 'package:herfagy_v2/views/forget_password/update_password_view.dart';
-import 'package:herfagy_v2/views/login/login_view.dart';
-import 'package:herfagy_v2/views/onboarding/onboarding_view.dart';
-import 'package:herfagy_v2/views/sign_up/sign_up_view.dart';
+import 'package:herfagy_v2/views/crafter/crafter_view.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '/generated/l10n.dart';
 import '/viewmodels/onboarding_view_model.dart';
@@ -39,25 +35,26 @@ class HerfagyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final languageProvider = Provider.of<LanguageViewModel>(context);
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'حرفجى',
-      localizationsDelegates: const [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: S.delegate.supportedLocales,
-
-      /// to change local language || Locale('en'),
-      locale: Locale('en'),
-      theme: ThemeData(
-        fontFamily: 'NotoSansArabic_Condensed-Regular',
-        scaffoldBackgroundColor: Colors.white,
-      ),
-      home: Stack(children: const [UpdatePasswordView(), DeepLinkHandler()]),
+    return Consumer<LanguageViewModel>(
+      builder: (context, languageProvider, _) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'حرفجى',
+          localizationsDelegates: const [
+            S.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: S.delegate.supportedLocales,
+          locale: languageProvider.locale,
+          theme: ThemeData(
+            fontFamily: 'NotoSansArabic_Condensed-Regular',
+            scaffoldBackgroundColor: Colors.white,
+          ),
+          home: Stack(children: const [CrafterView(), DeepLinkHandler()]),
+        );
+      },
     );
   }
 }

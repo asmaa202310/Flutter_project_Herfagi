@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:herfagy_v2/utils/localization_extension.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'avatar_widget.dart';
@@ -35,22 +36,25 @@ class _ProfileHeaderState extends State<ProfileHeader> {
   void _showImageSourceSheet() {
     showModalBottomSheet(
       context: context,
-      builder: (context) => SafeArea(
-        child: Wrap(
-          children: [
-            ListTile(
-              leading: const Icon(Icons.camera_alt),
-              title: const Text('التقاط صورة بالكاميرا'),
-              onTap: () => _pickImage(ImageSource.camera),
-            ),
-            ListTile(
-              leading: const Icon(Icons.photo_library),
-              title: const Text('اختيار صورة من المعرض'),
-              onTap: () => _pickImage(ImageSource.gallery),
-            ),
-          ],
-        ),
-      ),
+      builder: (context) {
+        final localization = context.localization;
+        return SafeArea(
+          child: Wrap(
+            children: [
+              ListTile(
+                leading: const Icon(Icons.camera_alt),
+                title: Text(localization.takePhoto),
+                onTap: () => _pickImage(ImageSource.camera),
+              ),
+              ListTile(
+                leading: const Icon(Icons.photo_library),
+                title: Text(localization.chooseFromGallery),
+                onTap: () => _pickImage(ImageSource.gallery),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 

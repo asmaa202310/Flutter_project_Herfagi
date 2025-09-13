@@ -12,7 +12,7 @@ class OrdersSliverListBuilderForCrafter extends StatelessWidget {
     return SliverList(
       delegate: SliverChildBuilderDelegate((context, index) {
         final order = orders[index];
-        return OrderCardForCrafter(order: order);
+        return OrderCard(order: order);
       }, childCount: orders.length),
     );
   }

@@ -11,22 +11,17 @@ class HomeCrafterViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.sizeOf(context).width;
     final localization = context.localization;
     return CustomScrollView(
       slivers: [
         CustomSilverAppBar(
-          searchHintText: context.localization.searchForCustomerPlaceholder,
+          searchHintText: localization.searchForCustomerPlaceholder,
         ),
-        SliverToBoxAdapter(
-          child: CustomProgressIndicator(screenWidth: screenWidth),
-        ),
+        const SliverToBoxAdapter(child: CustomProgressIndicator()),
         SliverToBoxAdapter(
           child: SectionHeader(title: localization.myServices),
         ),
-        SliverToBoxAdapter(
-          child: CrafterServicesBuilder(screenWidth: screenWidth),
-        ),
+        const SliverToBoxAdapter(child: CrafterServicesBuilder()),
         SliverToBoxAdapter(
           child: SectionHeader(title: localization.newRequests),
         ),

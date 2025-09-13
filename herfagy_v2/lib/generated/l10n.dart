@@ -65,23 +65,18 @@ class S {
   }
 
   /// `Home`
-  String get home_crafter {
-    return Intl.message('Home', name: 'home_crafter', desc: '', args: []);
+  String get home {
+    return Intl.message('Home', name: 'home', desc: '', args: []);
   }
 
   /// `Bookings`
-  String get bookings_crafter {
-    return Intl.message(
-      'Bookings',
-      name: 'bookings_crafter',
-      desc: '',
-      args: [],
-    );
+  String get bookings {
+    return Intl.message('Bookings', name: 'bookings', desc: '', args: []);
   }
 
   /// `Profile`
-  String get profile_crafter {
-    return Intl.message('Profile', name: 'profile_crafter', desc: '', args: []);
+  String get profile {
+    return Intl.message('Profile', name: 'profile', desc: '', args: []);
   }
 
   /// `Your Progress`
@@ -829,6 +824,171 @@ class S {
     return Intl.message(
       'Password changed successfully',
       name: 'passwordChangedSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Book Now`
+  String get bookNow {
+    return Intl.message('Book Now', name: 'bookNow', desc: '', args: []);
+  }
+
+  /// `{price} EGP`
+  String priceWithCurrency(Object price) {
+    return Intl.message(
+      '$price EGP',
+      name: 'priceWithCurrency',
+      desc: '',
+      args: [price],
+    );
+  }
+
+  /// `My Account`
+  String get myAccount {
+    return Intl.message('My Account', name: 'myAccount', desc: '', args: []);
+  }
+
+  /// `Logout`
+  String get logout {
+    return Intl.message('Logout', name: 'logout', desc: '', args: []);
+  }
+
+  /// `Are you sure you want to log out of your account?`
+  String get logoutConfirmation {
+    return Intl.message(
+      'Are you sure you want to log out of your account?',
+      name: 'logoutConfirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
+  }
+
+  /// `Confirm`
+  String get confirm {
+    return Intl.message('Confirm', name: 'confirm', desc: '', args: []);
+  }
+
+  /// `You have logged out successfully`
+  String get logoutSuccess {
+    return Intl.message(
+      'You have logged out successfully',
+      name: 'logoutSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Help & Support`
+  String get helpSupport {
+    return Intl.message(
+      'Help & Support',
+      name: 'helpSupport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Privacy & Security`
+  String get privacySecurity {
+    return Intl.message(
+      'Privacy & Security',
+      name: 'privacySecurity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message('Language', name: 'language', desc: '', args: []);
+  }
+
+  /// `Reviews`
+  String get reviews {
+    return Intl.message('Reviews', name: 'reviews', desc: '', args: []);
+  }
+
+  /// `General Settings`
+  String get generalSettings {
+    return Intl.message(
+      'General Settings',
+      name: 'generalSettings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dark Mode`
+  String get darkMode {
+    return Intl.message('Dark Mode', name: 'darkMode', desc: '', args: []);
+  }
+
+  /// `All Works`
+  String get allWorks {
+    return Intl.message('All Works', name: 'allWorks', desc: '', args: []);
+  }
+
+  /// `Gallery`
+  String get galleryTitle {
+    return Intl.message('Gallery', name: 'galleryTitle', desc: '', args: []);
+  }
+
+  /// `No works added yet`
+  String get noWorksYet {
+    return Intl.message(
+      'No works added yet',
+      name: 'noWorksYet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add images now`
+  String get addImagesNow {
+    return Intl.message(
+      'Add images now',
+      name: 'addImagesNow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Take a photo`
+  String get takePhoto {
+    return Intl.message('Take a photo', name: 'takePhoto', desc: '', args: []);
+  }
+
+  /// `Choose from gallery`
+  String get chooseFromGallery {
+    return Intl.message(
+      'Choose from gallery',
+      name: 'chooseFromGallery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reviews & Ratings`
+  String get reviewsAndRatings {
+    return Intl.message(
+      'Reviews & Ratings',
+      name: 'reviewsAndRatings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No Reviews Yet`
+  String get noReviewsYet {
+    return Intl.message(
+      'No Reviews Yet',
+      name: 'noReviewsYet',
       desc: '',
       args: [],
     );

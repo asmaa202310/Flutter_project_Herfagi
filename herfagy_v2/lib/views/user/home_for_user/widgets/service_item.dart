@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:herfagy_v2/utils/localization_extension.dart';
 import '../../../../models/old/service_model.dart';
 import '../../../../utils/get_localize_title.dart';
 import '../../../../utils/size_config.dart';
-import 'custom_order_button.dart';
+import '../../../onboarding/widgets/custom_elevated_button.dart';
 
 class ServiceItem extends StatelessWidget {
   const ServiceItem({super.key, required this.service});
@@ -74,7 +75,7 @@ class ServiceItem extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
-                  "${service.price} جنيه",
+                  context.localization.priceWithCurrency(service.price),
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.blue,
@@ -84,11 +85,12 @@ class ServiceItem extends StatelessWidget {
               const SizedBox(height: 8),
               SizedBox(
                 height: 32,
-                width: 77,
-                child: CustomDetailsButton(
+                width: 73,
+                child: CustomElevatedButton(
+                  text: context.localization.bookNow,
                   borderRaduis: 47,
-                  text: 'احجز الآن',
-                  fontSize: 13,
+                  fontSize: 12,
+                  padding: 0,
                   onTap: () {},
                 ),
               ),

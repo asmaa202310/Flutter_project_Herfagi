@@ -7,10 +7,17 @@ class CustomElevatedButton extends StatelessWidget {
     required this.onTap,
     required this.text,
     required this.fontSize,
+    this.height,
+    this.borderRaduis,
+    this.padding,
   });
   final VoidCallback onTap;
   final String text;
   final double fontSize;
+  final double? height;
+  final double? borderRaduis;
+  final double? padding;
+
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
@@ -18,9 +25,12 @@ class CustomElevatedButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onTap,
       style: ElevatedButton.styleFrom(
+        padding: padding == null ? null : EdgeInsets.all(padding!),
         backgroundColor: Colors.blue,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        minimumSize: Size(SizeConfig.screenWidth, 50),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(borderRaduis ?? 12),
+        ),
+        minimumSize: Size(SizeConfig.screenWidth, height ?? 50),
       ),
       child: Text(
         text,

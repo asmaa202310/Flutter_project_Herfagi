@@ -26,27 +26,37 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m2(errors) => "Password must contain ${errors}";
 
-  static String m3(percent) => "${percent}%";
+  static String m3(price) => "${price} EGP";
 
-  static String m4(count) => "Uncompleted Projects: ${count}";
+  static String m4(percent) => "${percent}%";
+
+  static String m5(count) => "Uncompleted Projects: ${count}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "accept": MessageLookupByLibrary.simpleMessage("Accept"),
+    "addImagesNow": MessageLookupByLibrary.simpleMessage("Add images now"),
     "airConditioning": MessageLookupByLibrary.simpleMessage("Air Conditioning"),
+    "allWorks": MessageLookupByLibrary.simpleMessage("All Works"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account?",
     ),
     "blacksmith": MessageLookupByLibrary.simpleMessage("Blacksmith"),
-    "bookings_crafter": MessageLookupByLibrary.simpleMessage("Bookings"),
+    "bookNow": MessageLookupByLibrary.simpleMessage("Book Now"),
+    "bookings": MessageLookupByLibrary.simpleMessage("Bookings"),
+    "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "carpenter": MessageLookupByLibrary.simpleMessage("Carpenter"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("Change Language"),
     "chooseAccountType": MessageLookupByLibrary.simpleMessage(
       "Choose account type",
     ),
+    "chooseFromGallery": MessageLookupByLibrary.simpleMessage(
+      "Choose from gallery",
+    ),
     "close": MessageLookupByLibrary.simpleMessage("Close"),
     "completed": MessageLookupByLibrary.simpleMessage("Completed"),
     "completedProjects": m0,
+    "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
     "confirmButton": MessageLookupByLibrary.simpleMessage("Confirm"),
     "confirmPasswordHint": MessageLookupByLibrary.simpleMessage(
       "Re-enter your password",
@@ -63,6 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "craftsman": MessageLookupByLibrary.simpleMessage("Craftsman"),
     "createAccountButton": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "customer": MessageLookupByLibrary.simpleMessage("Customer"),
+    "darkMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
     "date": MessageLookupByLibrary.simpleMessage("Date"),
     "dateWithCalenderIcon": MessageLookupByLibrary.simpleMessage("📅 Date"),
     "description": MessageLookupByLibrary.simpleMessage("Description"),
@@ -90,18 +101,30 @@ class MessageLookup extends MessageLookupByLibrary {
       "Forgot your password ?",
     ),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password ?"),
+    "galleryTitle": MessageLookupByLibrary.simpleMessage("Gallery"),
+    "generalSettings": MessageLookupByLibrary.simpleMessage("General Settings"),
     "greetingMessage": m1,
     "helpMessage": MessageLookupByLibrary.simpleMessage(
       "How can we help you today?",
     ),
-    "home_crafter": MessageLookupByLibrary.simpleMessage("Home"),
+    "helpSupport": MessageLookupByLibrary.simpleMessage("Help & Support"),
+    "home": MessageLookupByLibrary.simpleMessage("Home"),
     "inProgress": MessageLookupByLibrary.simpleMessage("In Progress"),
     "invalidEmailFormat": MessageLookupByLibrary.simpleMessage(
       "Invalid email format",
     ),
+    "language": MessageLookupByLibrary.simpleMessage("Language"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "loginButton": MessageLookupByLibrary.simpleMessage("Login"),
     "loginTitle": MessageLookupByLibrary.simpleMessage("Login"),
+    "logout": MessageLookupByLibrary.simpleMessage("Logout"),
+    "logoutConfirmation": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to log out of your account?",
+    ),
+    "logoutSuccess": MessageLookupByLibrary.simpleMessage(
+      "You have logged out successfully",
+    ),
+    "myAccount": MessageLookupByLibrary.simpleMessage("My Account"),
     "myServices": MessageLookupByLibrary.simpleMessage("My Services"),
     "nameHint": MessageLookupByLibrary.simpleMessage("Enter your full name"),
     "nameLabel": MessageLookupByLibrary.simpleMessage("Name"),
@@ -114,6 +137,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "newRequests": MessageLookupByLibrary.simpleMessage("New Requests"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
     "noNewRequests": MessageLookupByLibrary.simpleMessage("No new requests."),
+    "noReviewsYet": MessageLookupByLibrary.simpleMessage("No Reviews Yet"),
+    "noWorksYet": MessageLookupByLibrary.simpleMessage("No works added yet"),
     "onboardingDesc1": MessageLookupByLibrary.simpleMessage(
       "Make your life easier with the Herfagy app",
     ),
@@ -155,12 +180,20 @@ class MessageLookup extends MessageLookupByLibrary {
       "Please choose an account type to continue",
     ),
     "plumber": MessageLookupByLibrary.simpleMessage("Plumber"),
-    "profile_crafter": MessageLookupByLibrary.simpleMessage("Profile"),
-    "progressPercent": m3,
+    "priceWithCurrency": m3,
+    "privacySecurity": MessageLookupByLibrary.simpleMessage(
+      "Privacy & Security",
+    ),
+    "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+    "progressPercent": m4,
     "reject": MessageLookupByLibrary.simpleMessage("Reject"),
     "rejected": MessageLookupByLibrary.simpleMessage("Rejected"),
     "rememberPassword": MessageLookupByLibrary.simpleMessage(
       "Remembered your password ?",
+    ),
+    "reviews": MessageLookupByLibrary.simpleMessage("Reviews"),
+    "reviewsAndRatings": MessageLookupByLibrary.simpleMessage(
+      "Reviews & Ratings",
     ),
     "searchForCrafterPlaceholder": MessageLookupByLibrary.simpleMessage(
       "Search for a service or crafter...",
@@ -180,7 +213,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "signUpTitle": MessageLookupByLibrary.simpleMessage("Create a new account"),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
     "status": MessageLookupByLibrary.simpleMessage("Status"),
-    "uncompletedProjects": m4,
+    "takePhoto": MessageLookupByLibrary.simpleMessage("Take a photo"),
+    "uncompletedProjects": m5,
     "updatePasswordDesc": MessageLookupByLibrary.simpleMessage(
       "Please enter your new password.",
     ),

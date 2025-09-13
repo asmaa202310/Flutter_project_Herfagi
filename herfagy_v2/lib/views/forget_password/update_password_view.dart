@@ -8,7 +8,6 @@ import '../../viewmodels/supabase/auth_view_model.dart';
 import '../../utils/auth_handler.dart';
 import 'package:herfagy_v2/views/user/user_view.dart';
 
-import '../login/widgets/custom_login_signup_button.dart';
 import '../login/widgets/custom_text_field.dart';
 import '../login/widgets/image_widget.dart';
 

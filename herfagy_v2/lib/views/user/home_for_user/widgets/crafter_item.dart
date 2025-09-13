@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:herfagy_v2/utils/get_localize_title.dart';
+import 'package:herfagy_v2/utils/localization_extension.dart';
+import '../../../onboarding/widgets/custom_elevated_button.dart';
 import '/models/old/crafter_model.dart';
 
 import '../../../../utils/size_config.dart';
-import 'custom_order_button.dart';
+import 'custom_rating_bar_indicator.dart';
 
 class CrafterItem extends StatelessWidget {
   const CrafterItem({super.key, required this.crafter});
@@ -55,19 +57,13 @@ class CrafterItem extends StatelessWidget {
             crafter.name,
             style: TextStyle(color: Colors.grey.shade600, fontSize: 15),
           ),
-          RatingBarIndicator(
-            rating: crafter.rating,
-            itemBuilder: (context, _) =>
-                const Icon(Icons.star, color: Colors.amber),
-            itemCount: 5,
-            itemSize: 20,
-          ),
+          CustomRatingBarIndicator(rating: crafter.rating),
           const Spacer(),
           SizedBox(
             width: double.infinity,
-            child: CustomDetailsButton(
-              borderRaduis: 12,
-              text: 'احجز الآن',
+            child: CustomElevatedButton(
+              text: context.localization.bookNow,
+              height: 35,
               fontSize: 15,
               onTap: () {},
             ),

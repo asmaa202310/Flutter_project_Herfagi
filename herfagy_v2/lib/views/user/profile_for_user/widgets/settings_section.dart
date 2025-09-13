@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:herfagy_v2/utils/localization_extension.dart';
 import 'switch_item.dart';
 
 class SettingsSection extends StatelessWidget {
@@ -18,12 +18,14 @@ class SettingsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localization = context.localization;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          'الإعدادات العامة',
-          style: TextStyle(
+        Text(
+          localization.generalSettings, 
+          style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
             color: Colors.black87,
@@ -32,7 +34,7 @@ class SettingsSection extends StatelessWidget {
         const SizedBox(height: 15),
         SwitchItem(
           icon: Icons.dark_mode,
-          title: 'الوضع المظلم',
+          title: localization.darkMode, 
           value: darkModeEnabled,
           onChanged: onDarkModeChanged,
         ),
@@ -49,9 +51,9 @@ class SettingsSection extends StatelessWidget {
             ),
             onPressed: onLogout,
             icon: const Icon(Icons.logout, color: Colors.white),
-            label: const Text(
-              'تسجيل الخروج',
-              style: TextStyle(color: Colors.white, fontSize: 16),
+            label: Text(
+              localization.logout, // 🔹 تسجيل الخروج
+              style: const TextStyle(color: Colors.white, fontSize: 16),
             ),
           ),
         ),

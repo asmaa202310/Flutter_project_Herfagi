@@ -6,10 +6,10 @@ import '../../../../models/old/order_model.dart';
 import 'order_details_bottom_sheet_for_crafter.dart';
 import 'order_status_widget.dart';
 
-class OrderCardForCrafter extends StatelessWidget {
+class OrderCard extends StatelessWidget {
   final OrderModel order;
 
-  const OrderCardForCrafter({super.key, required this.order});
+  const OrderCard({super.key, required this.order});
 
   @override
   Widget build(BuildContext context) {

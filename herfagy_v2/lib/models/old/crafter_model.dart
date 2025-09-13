@@ -17,3 +17,23 @@ class CrafterModel {
     required this.color,
   });
 }
+
+class CraftsmanModel {
+  final String name;
+  final String profession;
+  final String location;
+  final String profileImage;
+  final List<String> gallery;
+  final double rating;
+  final int completedProjects;
+
+  CraftsmanModel({
+    required this.name,
+    required this.profession,
+    required this.location,
+    required this.profileImage,
+    required this.gallery,
+    required this.rating,
+    required this.completedProjects,
+  });
+}

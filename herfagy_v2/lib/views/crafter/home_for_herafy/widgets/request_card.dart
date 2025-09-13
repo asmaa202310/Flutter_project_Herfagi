@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:herfagy_v2/utils/size_config.dart';
 import '/utils/get_localize_title.dart';
 import '/utils/localization_extension.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +15,7 @@ class RequestCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return Card(
       elevation: 3.0,
       color: Colors.white,
@@ -31,6 +33,7 @@ class RequestCard extends StatelessWidget {
           "${context.localization.customer}: ${request.customerName}\n${request.date}",
         ),
         trailing: Row(
+          spacing: SizeConfig.width(fraction: 0.03),
           mainAxisSize: MainAxisSize.min,
           children: [
             CustomIconButton(
