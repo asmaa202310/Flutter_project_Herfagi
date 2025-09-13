@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:herfagy_v2/utils/localization_extension.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../../crafter/profile_for_crafter/widgets/photo_viewer.dart';
 import 'avatar_widget.dart';
 
 class ProfileHeader extends StatefulWidget {
@@ -22,13 +23,13 @@ class ProfileHeader extends StatefulWidget {
 }
 
 class _ProfileHeaderState extends State<ProfileHeader> {
-  File? _profileImage;
+  File? profileImage;
   final ImagePicker _picker = ImagePicker();
 
   Future<void> _pickImage(ImageSource source) async {
     final pickedFile = await _picker.pickImage(source: source);
     if (pickedFile != null) {
-      setState(() => _profileImage = File(pickedFile.path));
+      setState(() => profileImage = File(pickedFile.path));
     }
     if (mounted) Navigator.pop(context);
   }
@@ -62,10 +63,27 @@ class _ProfileHeaderState extends State<ProfileHeader> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        AvatarWidget(
-          screenWidth: widget.screenWidth,
-          profileImage: _profileImage,
-          onTap: _showImageSourceSheet,
+        GestureDetector(
+          onTap: () {
+            if (profileImage == null) {
+              ScaffoldMessenger.of(context).hideCurrentSnackBar();
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(context.localization.noPhotosYet)),
+              );
+            } else {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PhotoViewer(imageFile: profileImage!),
+                ),
+              );
+            }
+          },
+          child: AvatarWidget(
+            screenWidth: widget.screenWidth,
+            profileImage: profileImage,
+            onTap: _showImageSourceSheet,
+          ),
         ),
         const SizedBox(height: 20),
         Text(

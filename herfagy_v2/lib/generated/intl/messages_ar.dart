@@ -139,6 +139,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "noNewRequests": MessageLookupByLibrary.simpleMessage(
       "لا توجد طلبات جديدة.",
     ),
+    "noPhotosYet": MessageLookupByLibrary.simpleMessage("لم تتم إضافة صور بعد"),
     "noReviewsYet": MessageLookupByLibrary.simpleMessage("لا توجد تقييمات بعد"),
     "noWorksYet": MessageLookupByLibrary.simpleMessage(
       "لا يوجد أعمال مضافة حتى الآن",

@@ -993,6 +993,16 @@ class S {
       args: [],
     );
   }
+
+  /// `No photo added yet`
+  String get noPhotosYet {
+    return Intl.message(
+      'No photo added yet',
+      name: 'noPhotosYet',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

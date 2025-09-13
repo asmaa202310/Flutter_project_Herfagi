@@ -137,6 +137,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "newRequests": MessageLookupByLibrary.simpleMessage("New Requests"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
     "noNewRequests": MessageLookupByLibrary.simpleMessage("No new requests."),
+    "noPhotosYet": MessageLookupByLibrary.simpleMessage("No photo added yet"),
     "noReviewsYet": MessageLookupByLibrary.simpleMessage("No Reviews Yet"),
     "noWorksYet": MessageLookupByLibrary.simpleMessage("No works added yet"),
     "onboardingDesc1": MessageLookupByLibrary.simpleMessage(

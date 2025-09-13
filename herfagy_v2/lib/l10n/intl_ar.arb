@@ -115,5 +115,6 @@
     "takePhoto": "التقاط صورة بالكاميرا",
     "chooseFromGallery": "اختيار صورة من المعرض",
     "reviewsAndRatings": "التقييمات والمراجعات",
-    "noReviewsYet": "لا توجد تقييمات بعد"
+    "noReviewsYet": "لا توجد تقييمات بعد",
+    "noPhotosYet": "لم تتم إضافة صور بعد"
 }
