@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../viewmodels/home_user_view_model.dart';
+import 'package:herfagy_v2/utils/localization_extension.dart';
 import 'category_items_list_view_builder.dart';
 import 'custom_sliver_app_bar.dart';
 import 'section_header.dart';
@@ -11,48 +11,24 @@ class HomeUserViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
+    final localization = context.localization;
     return CustomScrollView(
       slivers: [
         CustomSilverAppBar(
-          screenHeight: screenHeight,
-          screenWidth: screenWidth,
+          searchHintText: localization.searchForCrafterPlaceholder,
         ),
         SliverToBoxAdapter(
-          child: SectionHeader(screenWidth: screenWidth, title: "الفئات"),
+          child: SectionHeader(title: localization.sectionCategories),
         ),
+        const SliverToBoxAdapter(child: CategoryItemsListViewBuilder()),
         SliverToBoxAdapter(
-          child: CategoryItemsListViewBuilder(
-            screenWidth: screenWidth,
-            screenHeight: screenHeight,
-            categories: HomeUserViewModel.categories,
-          ),
+          child: SectionHeader(title: localization.sectionTopRated),
         ),
+        const SliverToBoxAdapter(child: TopCraftersListViewBuilder()),
         SliverToBoxAdapter(
-          child: SectionHeader(
-            screenWidth: screenWidth,
-            title: "الأعلى تقييماً",
-          ),
+          child: SectionHeader(title: localization.sectionPopularServices),
         ),
-        SliverToBoxAdapter(
-          child: TopCraftersListViewBuilder(
-            screenWidth: screenWidth,
-            screenHeight: screenHeight,
-            crafters: HomeUserViewModel.topCrafters,
-          ),
-        ),
-        SliverToBoxAdapter(
-          child: SectionHeader(
-            screenWidth: screenWidth,
-            title: "الخدمات الشائعة",
-          ),
-        ),
-        ServiceSliverListBuilder(
-          screenWidth: screenWidth,
-          screenHeight: screenHeight,
-        ),
+        const ServiceSliverListBuilder(),
       ],
     );
   }

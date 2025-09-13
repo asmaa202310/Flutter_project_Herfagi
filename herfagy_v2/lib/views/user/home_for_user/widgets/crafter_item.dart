@@ -1,30 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:herfagy_v2/utils/get_localize_title.dart';
+import 'package:herfagy_v2/utils/localization_extension.dart';
+import '../../../onboarding/widgets/custom_elevated_button.dart';
+import '/models/old/crafter_model.dart';
 
-import 'custom_order_button.dart';
+import '../../../../utils/size_config.dart';
+import 'custom_rating_bar_indicator.dart';
 
 class CrafterItem extends StatelessWidget {
-  const CrafterItem({
-    super.key,
-    required this.screenWidth,
-    required this.screenHeight,
-    required this.crafter,
-  });
+  const CrafterItem({super.key, required this.crafter});
 
-  final double screenWidth;
-  final double screenHeight;
-  final dynamic crafter;
+  final CrafterModel crafter;
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return Container(
-      width: screenWidth * 0.45,
-      height: screenHeight * 0.25,
+      width: SizeConfig.width(fraction: 0.45),
+      height: SizeConfig.height(fraction: 0.26),
       margin: EdgeInsets.only(
-        left: screenWidth * 0.04,
-        bottom: screenWidth * 0.04,
+        left: SizeConfig.width(fraction: 0.01),
+        right: SizeConfig.width(fraction: 0.01),
+        bottom: SizeConfig.width(fraction: 0.04),
       ),
-      padding: EdgeInsets.all(screenWidth * 0.04),
+      padding: EdgeInsets.all(SizeConfig.width(fraction: 0.04)),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(18),
@@ -41,12 +41,12 @@ class CrafterItem extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 24,
-            backgroundColor: crafter.color.withOpacity(0.15),
+            backgroundColor: crafter.color.withValues(alpha: 0.15),
             child: Icon(crafter.icon, size: 24, color: crafter.color),
           ),
           const SizedBox(height: 8),
           Text(
-            crafter.service,
+            GetLocalizeTitle.getLocalizedTitle(context, crafter.service),
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 16,
@@ -57,19 +57,13 @@ class CrafterItem extends StatelessWidget {
             crafter.name,
             style: TextStyle(color: Colors.grey.shade600, fontSize: 15),
           ),
-          RatingBarIndicator(
-            rating: crafter.rating,
-            itemBuilder: (context, _) =>
-                const Icon(Icons.star, color: Colors.amber),
-            itemCount: 5,
-            itemSize: 20,
-          ),
+          CustomRatingBarIndicator(rating: crafter.rating),
           const Spacer(),
           SizedBox(
             width: double.infinity,
-            child: CustomUserButton(
-              borderRaduis: 12,
-              text: 'احجز الآن',
+            child: CustomElevatedButton(
+              text: context.localization.bookNow,
+              height: 35,
               fontSize: 15,
               onTap: () {},
             ),

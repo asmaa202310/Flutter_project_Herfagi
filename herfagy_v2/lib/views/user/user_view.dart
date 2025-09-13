@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:herfagy_v2/utils/localization_extension.dart';
 import 'package:herfagy_v2/views/user/orders_for_user/orders_view.dart';
 import 'home_for_user/home_user_view.dart';
 import 'profile_for_user/user_profile_view.dart';
@@ -20,6 +21,7 @@ class _UserViewState extends State<UserView> {
   ];
   @override
   Widget build(BuildContext context) {
+    final localization = context.localization;
     return Scaffold(
       body: IndexedStack(index: _selectedIndex, children: _pages),
       bottomNavigationBar: NavigationBar(
@@ -31,15 +33,18 @@ class _UserViewState extends State<UserView> {
             _selectedIndex = index;
           });
         },
-        destinations: const [
-          NavigationDestination(icon: Icon(Icons.home), label: "الرئيسية"),
+        destinations: [
+          NavigationDestination(
+            icon: Icon(Icons.home),
+            label: localization.home,
+          ),
           NavigationDestination(
             icon: Icon(Icons.calendar_today),
-            label: "الحجوزات",
+            label: localization.bookings,
           ),
           NavigationDestination(
             icon: Icon(Icons.person),
-            label: "الملف الشخصي",
+            label: localization.profile,
           ),
         ],
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:herfagy_v2/views/forget_password/forget_password_view.dart';
+import '/utils/localization_extension.dart';
+import '/views/forget_password/forget_password_view.dart';
 
 class CustomForgetPasswordButton extends StatelessWidget {
   const CustomForgetPasswordButton({super.key});
@@ -17,7 +18,7 @@ class CustomForgetPasswordButton extends StatelessWidget {
             );
           },
           child: Text(
-            "نسيت كلمة المرور؟",
+            context.localization.forgotPassword,
             style: TextStyle(
               color: Colors.blue,
               fontSize: screenWidth * 0.045,

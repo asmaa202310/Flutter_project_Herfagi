@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:herfagy_v2/viewmodels/onboarding_view_model.dart';
+import '/utils/localization_extension.dart';
+import '/viewmodels/language_view_model.dart';
+import '/viewmodels/onboarding_view_model.dart';
 import 'package:provider/provider.dart';
+import '../../../utils/size_config.dart';
 
 class CustomAnimatedSkipButton extends StatelessWidget {
   const CustomAnimatedSkipButton({super.key, required this.onTap});
   final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return Selector<OnboardingViewModel, bool>(
       selector: (context, viewModel) =>
           viewModel.currentPageIndex == viewModel.pages.length - 1,
@@ -14,11 +18,15 @@ class CustomAnimatedSkipButton extends StatelessWidget {
         return AnimatedSwitcher(
           duration: const Duration(milliseconds: 300),
           transitionBuilder: (child, animation) {
+            final beginOffset =
+                context.read<LanguageViewModel>().locale.languageCode == 'ar'
+                ? const Offset(0.0, -30.0) // Start from the left
+                : const Offset(0.0, 0.0); // Start from the right
             return FadeTransition(
               opacity: animation,
               child: SlideTransition(
                 position: Tween<Offset>(
-                  begin: const Offset(0.5, 0),
+                  begin: beginOffset,
                   end: Offset.zero,
                 ).animate(animation),
                 child: child,
@@ -32,10 +40,10 @@ class CustomAnimatedSkipButton extends StatelessWidget {
                   onTap: onTap,
                   child: Row(
                     children: [
-                      const Text(
-                        'تخطى',
+                      Text(
+                        context.localization.skip,
                         style: TextStyle(
-                          fontSize: 22,
+                          fontSize: SizeConfig.screenWidth > 600 ? 30 : 22,
                           fontWeight: FontWeight.w600,
                         ),
                       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:herfagy_v2/utils/localization_extension.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../viewmodels/orders_for_user_view_model.dart';
@@ -14,8 +15,8 @@ class OrdersViewBody extends StatelessWidget {
       builder: (context, viewModel, child) {
         return CustomScrollView(
           slivers: [
-            const CustomOrdersAppBar(text: "الحجوزات"),
-            OrdersSliverListBuilder(orders: viewModel.ordersList),
+            CustomGeneralSliverAppBar(text: context.localization.bookings),
+            OrdersSliverListBuilderForCrafter(orders: viewModel.ordersList),
           ],
         );
       },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/utils/size_config.dart';
 import '../../../viewmodels/onboarding_view_model.dart';
 import '../../onboarding/widgets/custom_dot_indicator.dart';
 import 'package:provider/provider.dart';
@@ -9,8 +10,9 @@ class DotIndicatorsListViewBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final pageCount = context.read<OnboardingViewModel>().pages.length;
+    SizeConfig.init(context);
     return SizedBox(
-      height: 10,
+      height: SizeConfig.width(fraction: 0.03),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,

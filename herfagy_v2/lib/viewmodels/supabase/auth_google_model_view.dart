@@ -9,8 +9,9 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 class AuthGoogleModelView {
   final SupabaseClient supabaseClient = sl<SupabaseClient>();
   final ProfileOperationViewModel _profileOps = sl<ProfileOperationViewModel>();
+   Profile? profile;
 
-  Future<void> signInWithGoogle() async {
+  Future<Profile?> signInWithGoogle() async {
     try {
       const webClientId = AppConfig.webClientId;
       const androidClientId = AppConfig.androidClientId;
@@ -38,13 +39,30 @@ class AuthGoogleModelView {
         email: user.email ?? 'NoEmail',
       );
 
-      await _profileOps.addProfile(profileData);
+      profile = profileData;
 
+      await _profileOps.addProfile(profileData);
       log('Google sign-in successful!');
+      return profileData;
     } catch (e) {
       log('Google Sign-In Error: $e');
       rethrow;
     }
+  }
+
+  Future<void> updateUserRole(String role) async {
+    if (profile == null) return;
+    final updatedProfile = Profile(
+      id: profile!.id,
+      username: profile!.username,
+      email: profile!.email,
+      role: role,
+      serviceId: profile!.serviceId,
+      price: profile!.price,
+    );
+
+    await _profileOps.updateProfile(updatedProfile);
+    log("User role updated to $role");
   }
 
   Future<void> signOut() async {

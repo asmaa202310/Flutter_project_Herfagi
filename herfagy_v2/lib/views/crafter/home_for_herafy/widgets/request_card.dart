@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:herfagy_v2/utils/size_config.dart';
+import '/utils/get_localize_title.dart';
+import '/utils/localization_extension.dart';
 import 'package:provider/provider.dart';
 import '../../../../models/request_model.dart';
 import '../../../../viewmodels/home_crafter_view_model.dart';
@@ -12,6 +15,7 @@ class RequestCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return Card(
       elevation: 3.0,
       color: Colors.white,
@@ -22,11 +26,14 @@ class RequestCard extends StatelessWidget {
       child: ListTile(
         leading: const Icon(Icons.assignment_outlined, color: Colors.blue),
         title: Text(
-          request.service,
+          GetLocalizeTitle.getLocalizedTitle(context, request.serviceKey),
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
-        subtitle: Text("العميل: ${request.customerName}\n${request.date}"),
+        subtitle: Text(
+          "${context.localization.customer}: ${request.customerName}\n${request.date}",
+        ),
         trailing: Row(
+          spacing: SizeConfig.width(fraction: 0.03),
           mainAxisSize: MainAxisSize.min,
           children: [
             CustomIconButton(

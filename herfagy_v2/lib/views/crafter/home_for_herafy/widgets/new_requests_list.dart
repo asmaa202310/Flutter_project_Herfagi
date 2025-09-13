@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/utils/localization_extension.dart';
 import 'package:provider/provider.dart';
 import '../../../../viewmodels/home_crafter_view_model.dart';
 import 'request_card.dart';
@@ -11,11 +12,11 @@ class NewRequestsList extends StatelessWidget {
     return Consumer<RequestsProvider>(
       builder: (context, viewModel, child) {
         if (viewModel.requests.isEmpty) {
-          return const SliverToBoxAdapter(
+          return SliverToBoxAdapter(
             child: Center(
               child: Padding(
-                padding: EdgeInsets.all(32.0),
-                child: Text("لا توجد طلبات جديدة."),
+                padding: const EdgeInsets.all(32.0),
+                child: Text(context.localization.noNewRequests),
               ),
             ),
           );

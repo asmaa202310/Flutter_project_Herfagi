@@ -43,7 +43,7 @@ class _DeepLinkHandlerState extends State<DeepLinkHandler> {
         if (handled) return;
         await prefs.setBool('handled_reset_link', true);
         if (!mounted) return;
-        
+
         debugPrint("User logged in: ${session.user.id}");
       } else {
         debugPrint("No session found after login callback");
@@ -58,7 +58,7 @@ class _DeepLinkHandlerState extends State<DeepLinkHandler> {
         if (handled) return;
         await prefs.setBool('handled_reset_link', true);
         if (!mounted) return;
-        
+
         debugPrint("User logged in with Facebook: ${session.user.id}");
       } else {
         debugPrint("No session found after Facebook login callback");
@@ -70,6 +70,7 @@ class _DeepLinkHandlerState extends State<DeepLinkHandler> {
       final handled = prefs.getBool('handled_reset_link') ?? false;
       if (handled) return;
       await prefs.setBool('handled_reset_link', true);
+
       if (!mounted) return;
       Navigator.push(
         context,

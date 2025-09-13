@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:herfagy_v2/utils/localization_extension.dart';
 import 'home_for_herafy/home_crafter_view.dart';
 import 'orders_for_crafter/orders_crafter_view.dart';
-import 'profile_for_crafter/profile_crafter_view.dart';
+import 'profile_for_crafter/crafter_profile_view.dart';
 
 class CrafterView extends StatefulWidget {
   const CrafterView({super.key});
@@ -16,10 +17,11 @@ class _CrafterViewState extends State<CrafterView> {
   final List<Widget> _pages = [
     const HomeCrafterView(),
     const OrdersCrafterView(),
-    const ProfileCrafterView(),
+    const CrafterProfileView(),
   ];
   @override
   Widget build(BuildContext context) {
+    final localization = context.localization;
     return Scaffold(
       body: IndexedStack(index: _selectedIndex, children: _pages),
       bottomNavigationBar: NavigationBar(
@@ -31,15 +33,18 @@ class _CrafterViewState extends State<CrafterView> {
             _selectedIndex = index;
           });
         },
-        destinations: const [
-          NavigationDestination(icon: Icon(Icons.home), label: "الرئيسية"),
+        destinations: [
           NavigationDestination(
-            icon: Icon(Icons.calendar_today),
-            label: "الحجوزات",
+            icon: const Icon(Icons.home),
+            label: localization.home,
           ),
           NavigationDestination(
-            icon: Icon(Icons.person),
-            label: "الملف الشخصي",
+            icon: const Icon(Icons.calendar_today),
+            label: localization.orders,
+          ),
+          NavigationDestination(
+            icon: const Icon(Icons.person),
+            label: localization.profile,
           ),
         ],
       ),

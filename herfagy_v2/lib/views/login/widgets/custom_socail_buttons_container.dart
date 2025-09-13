@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:herfagy_v2/setup.dart';
 import 'package:herfagy_v2/viewmodels/supabase/auth_facebook_model_view.dart';
 import 'package:herfagy_v2/viewmodels/supabase/auth_google_model_view.dart';
+import 'package:herfagy_v2/views/crafter/crafter_view.dart';
+import 'package:herfagy_v2/views/user/user_view.dart';
+import 'package:herfagy_v2/views/user_type_selection/user_type_selection_view.dart';
 import '/views/login/widgets/custom_social_button.dart';
 
 class CustomSocialButtonsContainer extends StatefulWidget {
@@ -17,7 +20,26 @@ class _CustomSocialButtonsContainerState
   Future<void> _googleSignIn() async {
     try {
       final authService = sl<AuthGoogleModelView>();
-      await authService.signInWithGoogle();
+      final profile = await authService.signInWithGoogle();
+      if (!mounted) return;
+      if (profile == null) return;
+
+      if (profile.role == "User") {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => UserView()),
+        );
+      } else if (profile.role == "Crafter") {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => CrafterView()),
+        );
+      } else {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => UserTypeSelectionView()),
+        );
+      }
     } catch (e) {
       debugPrint("$e");
     }
@@ -26,7 +48,26 @@ class _CustomSocialButtonsContainerState
   Future<void> _facebookSignIn() async {
     try {
       final authService = sl<AuthFacebookModelView>();
-      await authService.signInWithFacebook();
+      final profile = await authService.signInWithFacebook();
+      if (!mounted) return;
+      if (profile == null) return;
+
+      if (profile.role == "User") {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => UserView()),
+        );
+      } else if (profile.role == "Crafter") {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => CrafterView()),
+        );
+      } else {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => UserTypeSelectionView()),
+        );
+      }
     } catch (e) {
       debugPrint("$e");
     }

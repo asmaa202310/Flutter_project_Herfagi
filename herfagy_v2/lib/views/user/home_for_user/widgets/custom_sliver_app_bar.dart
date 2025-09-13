@@ -1,41 +1,30 @@
 import 'package:flutter/material.dart';
+import '/utils/size_config.dart';
 import 'app_bar_background_content.dart';
 import 'custom_search_bar.dart';
 
 class CustomSilverAppBar extends StatelessWidget {
-  const CustomSilverAppBar({
-    super.key,
-    required this.screenHeight,
-    required this.screenWidth,
-  });
-
-  final double screenHeight;
-  final double screenWidth;
-
+  const CustomSilverAppBar({super.key, required this.searchHintText});
+  final String searchHintText;
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return SliverAppBar(
       backgroundColor: Colors.blue,
       pinned: true,
       floating: true,
-      expandedHeight: screenHeight * 0.18,
+      expandedHeight: SizeConfig.height(fraction: 0.18),
       automaticallyImplyLeading: false,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(bottom: Radius.circular(26)),
       ),
       flexibleSpace: FlexibleSpaceBar(
         collapseMode: CollapseMode.parallax,
-        background: AppBarBackgroundContent(
-          screenWidth: screenWidth,
-          screenHeight: screenHeight,
-        ),
+        background: const AppBarBackgroundContent(),
       ),
       bottom: PreferredSize(
-        preferredSize: Size.fromHeight(screenHeight * 0.09),
-        child: CustomSearchBar(
-          screenWidth: screenWidth,
-          screenHeight: screenHeight,
-        ),
+        preferredSize: Size.fromHeight(SizeConfig.height(fraction: 0.11)),
+        child: CustomSearchBar(hintText: searchHintText),
       ),
     );
   }

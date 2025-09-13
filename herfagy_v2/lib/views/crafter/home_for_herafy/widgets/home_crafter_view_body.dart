@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/utils/localization_extension.dart';
 import '../../../user/home_for_user/widgets/custom_sliver_app_bar.dart';
 import '../../../user/home_for_user/widgets/section_header.dart';
 import 'crafter_services_builder.dart';
@@ -10,28 +11,19 @@ class HomeCrafterViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.sizeOf(context).width;
-    final screenHeight = MediaQuery.sizeOf(context).height;
+    final localization = context.localization;
     return CustomScrollView(
       slivers: [
         CustomSilverAppBar(
-          screenHeight: screenHeight,
-          screenWidth: screenWidth,
+          searchHintText: localization.searchForCustomerPlaceholder,
         ),
+        const SliverToBoxAdapter(child: CustomProgressIndicator()),
         SliverToBoxAdapter(
-          child: CustomProgressIndicator(screenWidth: screenWidth),
+          child: SectionHeader(title: localization.myServices),
         ),
+        const SliverToBoxAdapter(child: CrafterServicesBuilder()),
         SliverToBoxAdapter(
-          child: SectionHeader(screenWidth: screenWidth, title: "خدماتى"),
-        ),
-        SliverToBoxAdapter(
-          child: CrafterServicesBuilder(screenWidth: screenWidth),
-        ),
-        SliverToBoxAdapter(
-          child: SectionHeader(
-            screenWidth: screenWidth,
-            title: "الطلبات الجديدة",
-          ),
+          child: SectionHeader(title: localization.newRequests),
         ),
         const NewRequestsList(),
       ],

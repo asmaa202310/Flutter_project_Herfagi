@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:herfagy_v2/utils/localization_extension.dart';
 import 'package:provider/provider.dart';
 
+import '../../../utils/size_config.dart';
 import '../../../utils/validators.dart';
 import '../../../viewmodels/sign_up_view_model.dart';
 import '../../login/widgets/custom_login_signup_button.dart';
@@ -35,129 +38,134 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
-    return SafeArea(
-      child: Form(
-        key: _formKey,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              ImageWidget(screenWidth: screenWidth),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: screenHeight * 0.02),
-                    Text(
-                      'إنشاء حساب جديد',
-                      style: TextStyle(
-                        color: Colors.blue.shade700,
-                        fontSize: screenWidth * 0.085,
-                        fontWeight: FontWeight.bold,
+    SizeConfig.init(context);
+    final localization = context.localization;
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle.dark.copyWith(
+        statusBarColor: Colors.transparent,
+      ),
+      child: SafeArea(
+        child: Form(
+          key: _formKey,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const ImageWidget(),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.width(fraction: 0.05),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: SizeConfig.height(fraction: 0.02)),
+                      Text(
+                        localization.signUpTitle,
+                        style: TextStyle(
+                          color: Colors.blue.shade700,
+                          fontSize: SizeConfig.width(fraction: 0.085),
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: screenHeight * 0.03),
+                      SizedBox(height: SizeConfig.height(fraction: 0.03)),
 
-                    CustomTextField(
-                      label: "الاسم",
-                      hint: "ادخل الاسم بالكامل",
-                      controller: _nameController,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return "Name is required";
-                        }
-                        return null;
-                      },
-                      prefixIcon: Icons.person_outline,
-                    ),
-                    SizedBox(height: screenHeight * 0.025),
+                      CustomTextField(
+                        label: localization.nameLabel,
+                        hint: localization.nameHint,
+                        controller: _nameController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return localization.nameRequired;
+                          }
+                          return null;
+                        },
+                        prefixIcon: Icons.person_outline,
+                      ),
+                      SizedBox(height: SizeConfig.height(fraction: 0.02)),
 
-                    CustomTextField(
-                      label: "البريد الالكترونى",
-                      hint: "ادخل البريد الالكترونى",
-                      controller: _emailController,
-                      validator: (value) => Validators.validateEmail(value),
-                      prefixIcon: Icons.email_outlined,
-                    ),
-                    SizedBox(height: screenHeight * 0.025),
+                      CustomTextField(
+                        label: localization.emailLabel,
+                        hint: localization.emailHint,
+                        controller: _emailController,
+                        validator: (value) => Validators.validateEmail(value),
+                        prefixIcon: Icons.email_outlined,
+                      ),
+                      SizedBox(height: SizeConfig.height(fraction: 0.02)),
 
-                    Consumer<SignUpViewModel>(
-                      builder: (context, viewModel, _) {
-                        return CustomTextField(
-                          obscureText: viewModel.obscurePassword,
-                          label: "كلمة السر",
-                          hint: "ادخل كلمة السر",
-                          controller: _passwordController,
-                          validator: (value) =>
-                              Validators.validatePassword(value),
-                          prefixIcon: Icons.security,
-                          onSuffixIconPressed:
-                              viewModel.togglePasswordVisibility,
-                          suffixIcon: viewModel.obscurePassword
-                              ? Icons.visibility_off
-                              : Icons.visibility,
-                        );
-                      },
-                    ),
+                      Consumer<SignUpViewModel>(
+                        builder: (context, viewModel, _) {
+                          return CustomTextField(
+                            obscureText: viewModel.obscurePassword,
+                            label: localization.passwordLabel,
+                            hint: localization.passwordHint,
+                            controller: _passwordController,
+                            validator: (value) =>
+                                Validators.validatePassword(value),
+                            prefixIcon: Icons.security,
+                            onSuffixIconPressed:
+                                viewModel.togglePasswordVisibility,
+                            suffixIcon: viewModel.obscurePassword
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                          );
+                        },
+                      ),
 
-                    SizedBox(height: screenHeight * 0.025),
+                      SizedBox(height: SizeConfig.height(fraction: 0.02)),
 
-                    Consumer<SignUpViewModel>(
-                      builder: (context, viewModel, _) {
-                        return CustomTextField(
-                          obscureText: viewModel.obscureConfirmPassword,
-                          label: "تأكيد كلمة السر",
-                          hint: "اعد كتابة كلمة السر",
-                          controller: _confirmPasswordController,
-                          validator: (value) {
-                            if (value != _passwordController.text) {
-                              return "Passwords do not match";
-                            }
-                            return null;
-                          },
-                          prefixIcon: Icons.security,
-                          onSuffixIconPressed:
-                              viewModel.toggleConfirmPasswordVisibility,
-                          suffixIcon: viewModel.obscureConfirmPassword
-                              ? Icons.visibility_off
-                              : Icons.visibility,
-                        );
-                      },
-                    ),
+                      Consumer<SignUpViewModel>(
+                        builder: (context, viewModel, _) {
+                          return CustomTextField(
+                            obscureText: viewModel.obscureConfirmPassword,
+                            label: localization.confirmPasswordLabel,
+                            hint: localization.confirmPasswordHint,
+                            controller: _confirmPasswordController,
+                            validator: (value) {
+                              if (value != _passwordController.text) {
+                                return localization.passwordsDoNotMatch;
+                              }
+                              return null;
+                            },
+                            prefixIcon: Icons.security,
+                            onSuffixIconPressed:
+                                viewModel.toggleConfirmPasswordVisibility,
+                            suffixIcon: viewModel.obscureConfirmPassword
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                          );
+                        },
+                      ),
 
-                    SizedBox(height: screenHeight * 0.03),
+                      SizedBox(height: SizeConfig.height(fraction: 0.02)),
 
-                    CustomLoginSignUpButton(
-                      screenWidth: screenWidth,
-                      screenHeight: screenHeight,
-                      text: "إنشاء حساب",
-                      isLogin: false,
-                      isResetPassword: false,
-                      username: _nameController,
-                      password: _passwordController,
-                      email: _emailController,
-                    ),
+                      CustomLoginSignUpButton(
+                        text: localization.createAccountButton,
+                        isLogin: false,
+                        isResetPassword: false,
+                        username: _nameController,
+                        password: _passwordController,
+                        email: _emailController,
+                      ),
 
-                    SizedBox(height: screenHeight * 0.025),
-                    const OrDivider(),
-                    SizedBox(height: screenHeight * 0.025),
+                      SizedBox(height: SizeConfig.height(fraction: 0.02)),
+                      const OrDivider(),
+                      SizedBox(height: SizeConfig.height(fraction: 0.02)),
 
-                    const CustomSocialButtonsContainer(),
+                      const CustomSocialButtonsContainer(),
 
-                    SizedBox(height: screenHeight * 0.025),
+                      SizedBox(height: SizeConfig.height(fraction: 0.02)),
 
-                    RowCheckAccountWidget(
-                      questionText: "هل لديك حساب بالفعل؟",
-                      buttonText: "  تسجيل الدخول",
-                      onTap: () => Navigator.pop(context),
-                    ),
-                  ],
+                      RowCheckAccountWidget(
+                        questionText: localization.alreadyHaveAccount,
+                        buttonText: localization.login,
+                        onTap: () => Navigator.pop(context),
+                      ),
+                      SizedBox(height: SizeConfig.height(fraction: 0.025)),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

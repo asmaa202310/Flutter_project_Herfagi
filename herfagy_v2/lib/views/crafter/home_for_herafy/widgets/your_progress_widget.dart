@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:herfagy_v2/utils/localization_extension.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-
 import '../../../../viewmodels/home_crafter_view_model.dart';
 
 class YourProgressWidget extends StatelessWidget {
@@ -11,9 +12,9 @@ class YourProgressWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text(
-          "تقدمك",
-          style: TextStyle(
+        Text(
+          context.localization.yourProgress,
+          style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -22,8 +23,12 @@ class YourProgressWidget extends StatelessWidget {
         Selector<ProgressProvider, int>(
           selector: (_, vm) => (vm.progress * 100).toInt(),
           builder: (_, percent, __) {
+            final locale = Localizations.localeOf(context).languageCode;
+            final formatted = NumberFormat.decimalPattern(
+              locale,
+            ).format(percent);
             return Text(
-              "$percent%",
+              context.localization.progressPercent(formatted),
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,

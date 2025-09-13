@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../../../utils/localization_extension.dart';
 import '../../../../viewmodels/home_crafter_view_model.dart';
 
 class CompletedUncompletedProjectsWidget extends StatelessWidget {
@@ -14,7 +15,7 @@ class CompletedUncompletedProjectsWidget extends StatelessWidget {
           selector: (_, vm) => vm.completedProjects,
           builder: (_, completed, __) {
             return Text(
-              "مشاريع مكتملة: $completed",
+              context.localization.completedProjects(completed),
               style: const TextStyle(fontSize: 14, color: Colors.white),
             );
           },
@@ -23,7 +24,7 @@ class CompletedUncompletedProjectsWidget extends StatelessWidget {
           selector: (_, vm) => vm.uncompletedProjects,
           builder: (_, uncompleted, __) {
             return Text(
-              "غير مكتملة: $uncompleted",
+              context.localization.uncompletedProjects(uncompleted),
               style: const TextStyle(fontSize: 14, color: Colors.white),
             );
           },

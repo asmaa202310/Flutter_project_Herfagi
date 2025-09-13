@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomUserButton extends StatelessWidget {
-  const CustomUserButton({
+class CustomDetailsButton extends StatelessWidget {
+  const CustomDetailsButton({
     super.key,
     required this.borderRaduis,
     required this.text,

@@ -1,34 +1,26 @@
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
+import '/utils/size_config.dart';
 import '../../../../viewmodels/home_user_view_model.dart';
 import 'crafter_item.dart';
 
 class TopCraftersListViewBuilder extends StatelessWidget {
-  const TopCraftersListViewBuilder({
-    super.key,
-    required this.screenWidth,
-    required this.screenHeight,
-    required this.crafters,
-  });
-
-  final double screenWidth;
-  final double screenHeight;
-  final List crafters;
+  const TopCraftersListViewBuilder({super.key});
   @override
   Widget build(BuildContext context) {
+    final crafters = context.watch<HomeUserViewModel>().topCrafters;
+    SizeConfig.init(context);
     return SizedBox(
-      height: screenHeight * 0.26,
+      height: SizeConfig.height(fraction: 0.27),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.04),
-        itemCount: HomeUserViewModel.topCrafters.length,
+        padding: EdgeInsets.symmetric(
+          horizontal: SizeConfig.height(fraction: 0.012),
+        ),
+        itemCount: crafters.length,
         itemBuilder: (BuildContext context, int index) {
           var crafter = crafters[index];
-          return CrafterItem(
-            screenWidth: screenWidth,
-            screenHeight: screenHeight,
-            crafter: crafter,
-          );
+          return CrafterItem(crafter: crafter);
         },
       ),
     );

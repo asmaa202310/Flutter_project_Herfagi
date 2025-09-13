@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/utils/size_config.dart';
 
 class CustomDotIndicator extends StatelessWidget {
   const CustomDotIndicator({super.key, required this.isActive});
@@ -6,12 +7,16 @@ class CustomDotIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
-      margin: const EdgeInsets.symmetric(horizontal: 4),
-      height: 10,
-      width: isActive ? 24 : 10,
+      margin: EdgeInsets.symmetric(
+        horizontal: SizeConfig.width(fraction: 0.012),
+      ),
+      width: isActive
+          ? SizeConfig.width(fraction: 0.08)
+          : SizeConfig.width(fraction: 0.035),
       decoration: BoxDecoration(
         color: isActive ? Colors.blue : Colors.grey,
         borderRadius: BorderRadius.circular(12),

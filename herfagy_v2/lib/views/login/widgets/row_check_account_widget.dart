@@ -16,7 +16,7 @@ class RowCheckAccountWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(questionText, style: TextStyle(fontSize: screenWidth * 0.04)),
+        Text("$questionText ", style: TextStyle(fontSize: screenWidth * 0.04)),
         GestureDetector(
           onTap: onTap,
           child: Text(

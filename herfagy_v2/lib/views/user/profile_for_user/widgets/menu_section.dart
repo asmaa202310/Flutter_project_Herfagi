@@ -1,40 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:herfagy_v2/utils/get_menu_item_type_extension.dart';
+import '../../../../models/old/menu_items_model.dart';
 import 'menu_item.dart';
 
 class MenuSection extends StatelessWidget {
-  const MenuSection({super.key});
-
+  const MenuSection({super.key, required this.items});
+  final List<MenuItemModel> items;
   @override
   Widget build(BuildContext context) {
-    const items = [
-      (Icons.help_outline, 'المساعدة والدعم', Colors.teal),
-      (Icons.security, 'الخصوصية والأمان', Colors.indigo),
-      (Icons.language, 'اللغة', Colors.brown),
-    ];
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          'حسابي',
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            color: Colors.black87,
-          ),
-        ),
-        const SizedBox(height: 15),
-
-        ListView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: items.length,
-          itemBuilder: (context, index) {
-            final item = items[index];
-            return MenuItem(icon: item.$1, title: item.$2, color: item.$3);
-          },
-        ),
-      ],
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: items.length,
+      itemBuilder: (context, index) {
+        final item = items[index];
+        return MenuItem(
+          icon: item.icon,
+          title: item.type.localizedMenuTitle(context),
+          color: item.color,
+          onTap: item.onTap != null ? () => item.onTap!(context) : null,
+        );
+      },
     );
   }
 }

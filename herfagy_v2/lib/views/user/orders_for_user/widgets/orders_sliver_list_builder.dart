@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
+import '/views/crafter/orders_for_crafter/widgets/order_card_for_crafter.dart';
 import '../../../../models/old/order_model.dart';
-import 'order_card.dart';
 
-class OrdersSliverListBuilder extends StatelessWidget {
-  const OrdersSliverListBuilder({super.key, required this.orders});
+class OrdersSliverListBuilderForCrafter extends StatelessWidget {
+  const OrdersSliverListBuilderForCrafter({super.key, required this.orders});
 
   final List<OrderModel> orders;
 

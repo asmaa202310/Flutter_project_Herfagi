@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 
-class CustomOrdersAppBar extends StatelessWidget {
-  const CustomOrdersAppBar({super.key, required this.text});
+class CustomGeneralSliverAppBar extends StatelessWidget {
+  const CustomGeneralSliverAppBar({
+    super.key,
+    required this.text,
+    this.automaticallyImplyLeading,
+  });
 
   final String text;
-
+  final bool? automaticallyImplyLeading;
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
       pinned: true,
       toolbarHeight: 60,
-      automaticallyImplyLeading: false,
+      foregroundColor: Colors.white,
+      automaticallyImplyLeading: automaticallyImplyLeading ?? false,
       backgroundColor: Colors.transparent,
       flexibleSpace: Container(
         decoration: const BoxDecoration(
