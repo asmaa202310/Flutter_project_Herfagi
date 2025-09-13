@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:herfagy_v2/utils/localization_extension.dart';
 import '../../utils/size_config.dart';
 import '../crafter/profile_for_crafter/widgets/custom_image_widget.dart';
-import '../user/orders_for_user/widgets/custom_orders_app_bar.dart';
+import '../user/orders_for_user/widgets/custom_general_app_bar.dart';
 
 class GalleryView extends StatelessWidget {
   const GalleryView({super.key, required this.images});

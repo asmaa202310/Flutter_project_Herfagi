@@ -33,11 +33,19 @@ class CategoryItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(category.icon, size: 32, color: category.color),
-          const SizedBox(height: 6),
+          Icon(
+            category.icon,
+            size: SizeConfig.width(fraction: 0.07),
+            color: category.color,
+          ),
+          SizedBox(height: SizeConfig.height(fraction: 0.01)),
           Text(
             GetLocalizeTitle.getLocalizedTitle(context, category.key),
-            style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              overflow: TextOverflow.ellipsis,
+              fontSize: SizeConfig.width(fraction: 0.039),
+            ),
           ),
         ],
       ),

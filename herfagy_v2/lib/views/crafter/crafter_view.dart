@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:herfagy_v2/utils/localization_extension.dart';
-import 'home_for_herafy/home_crafter_view.dart';
-import 'orders_for_crafter/orders_crafter_view.dart';
+import 'home_for_crafter/home_crafter_view.dart';
+import 'orders_for_crafter/crafter_orders_view.dart';
 import 'profile_for_crafter/crafter_profile_view.dart';
 
 class CrafterView extends StatefulWidget {
@@ -16,7 +16,7 @@ class _CrafterViewState extends State<CrafterView> {
 
   final List<Widget> _pages = [
     const HomeCrafterView(),
-    const OrdersCrafterView(),
+    const CrafterOrdersView(),
     const CrafterProfileView(),
   ];
   @override

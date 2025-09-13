@@ -3,11 +3,12 @@ import 'package:herfagy_v2/utils/localization_extension.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../viewmodels/orders_for_user_view_model.dart';
-import 'custom_orders_app_bar.dart';
+import 'custom_general_app_bar.dart';
+import 'order_details_bottom_sheet.dart';
 import 'orders_sliver_list_builder.dart';
 
-class OrdersViewBody extends StatelessWidget {
-  const OrdersViewBody({super.key});
+class UserOrdersViewBody extends StatelessWidget {
+  const UserOrdersViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,10 @@ class OrdersViewBody extends StatelessWidget {
         return CustomScrollView(
           slivers: [
             CustomGeneralSliverAppBar(text: context.localization.bookings),
-            OrdersSliverListBuilderForCrafter(orders: viewModel.ordersList),
+            OrdersSliverListBuilder(
+              orders: viewModel.ordersList,
+              viewerType: OrderViewerType.user,
+            ),
           ],
         );
       },

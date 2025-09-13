@@ -11,7 +11,7 @@ class TopCraftersListViewBuilder extends StatelessWidget {
     final crafters = context.watch<HomeUserViewModel>().topCrafters;
     SizeConfig.init(context);
     return SizedBox(
-      height: SizeConfig.height(fraction: 0.27),
+      height: SizeConfig.height(fraction: 0.3),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         padding: EdgeInsets.symmetric(

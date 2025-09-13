@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:herfagy_v2/utils/localization_extension.dart';
+import 'package:herfagy_v2/views/user/home_for_user/widgets/custom_rating_bar_indicator.dart';
 import '../../../../models/old/service_model.dart';
 import '../../../../utils/get_localize_title.dart';
 import '../../../../utils/size_config.dart';
@@ -19,7 +20,10 @@ class ServiceItem extends StatelessWidget {
         horizontal: SizeConfig.width(fraction: 0.05),
         vertical: SizeConfig.height(fraction: 0.01),
       ),
-      padding: EdgeInsets.all(SizeConfig.width(fraction: 0.04)),
+      padding: EdgeInsets.symmetric(
+        horizontal: SizeConfig.width(fraction: 0.04),
+        vertical: SizeConfig.width(fraction: 0.03),
+      ),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(18),
@@ -34,9 +38,13 @@ class ServiceItem extends StatelessWidget {
       child: Row(
         children: [
           CircleAvatar(
-            radius: 28,
+            radius: SizeConfig.width(fraction: 0.07),
             backgroundColor: service.color.withValues(alpha: 0.15),
-            child: Icon(service.icon, size: 28, color: service.color),
+            child: Icon(
+              service.icon,
+              size: SizeConfig.width(fraction: 0.07),
+              color: service.color,
+            ),
           ),
           SizedBox(width: SizeConfig.width(fraction: 0.04)),
           Column(
@@ -45,19 +53,23 @@ class ServiceItem extends StatelessWidget {
               Text(
                 GetLocalizeTitle.getLocalizedTitle(context, service.service),
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: SizeConfig.width(fraction: 0.048),
                   fontWeight: FontWeight.bold,
                   color: Colors.blue.shade800,
                 ),
               ),
-              Text(service.name, style: TextStyle(color: Colors.grey.shade600)),
-              const SizedBox(height: 4),
-              RatingBarIndicator(
+              Text(
+                service.name,
+                style: TextStyle(
+                  color: Colors.grey.shade600,
+                  fontSize: SizeConfig.width(fraction: 0.038),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: SizeConfig.height(fraction: 0.005)),
+              CustomRatingBarIndicator(
                 rating: service.rating,
-                itemBuilder: (context, _) =>
-                    const Icon(Icons.star, color: Colors.amber),
-                itemCount: 5,
-                itemSize: 18,
+                itemSize: SizeConfig.width(fraction: 0.05),
               ),
             ],
           ),
@@ -66,33 +78,37 @@ class ServiceItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Container(
+                width: SizeConfig.width(fraction: 0.22),
                 padding: const EdgeInsets.symmetric(
                   horizontal: 12,
                   vertical: 6,
                 ),
                 decoration: BoxDecoration(
                   color: Colors.blue.shade50,
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(
+                    SizeConfig.width(fraction: 0.035),
+                  ),
                 ),
-                child: Text(
-                  context.localization.priceWithCurrency(service.price),
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.blue,
+                child: FittedBox(
+                  child: Text(
+                    context.localization.priceWithCurrency(service.price),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
+                      fontSize: SizeConfig.width(fraction: 0.038),
+                    ),
                   ),
                 ),
               ),
               const SizedBox(height: 8),
-              SizedBox(
-                height: 32,
-                width: 73,
-                child: CustomElevatedButton(
-                  text: context.localization.bookNow,
-                  borderRaduis: 47,
-                  fontSize: 12,
-                  padding: 0,
-                  onTap: () {},
-                ),
+              CustomElevatedButton(
+                height: SizeConfig.height(fraction: 0.05),
+                width: SizeConfig.width(fraction: 0.23),
+                text: context.localization.bookNow,
+                borderRaduis: SizeConfig.width(fraction: 0.05),
+                fontSize: SizeConfig.width(fraction: 0.035),
+                padding: 0,
+                onTap: () {},
               ),
             ],
           ),

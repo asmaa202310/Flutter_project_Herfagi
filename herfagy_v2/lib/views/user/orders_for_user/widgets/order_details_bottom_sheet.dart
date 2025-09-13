@@ -1,17 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:herfagy_v2/utils/get_localize_title.dart';
 import 'package:herfagy_v2/views/crafter/orders_for_crafter/widgets/custom_text_close_button.dart';
+import '../../../crafter/orders_for_crafter/widgets/order_status_widget.dart';
 import '/models/old/order_model.dart';
 import '/utils/localization_extension.dart';
 
-class OrderDetailsBottomSheetForUser extends StatelessWidget {
-  const OrderDetailsBottomSheetForUser({super.key, required this.order});
+enum OrderViewerType { user, crafter }
+
+class OrderDetailsBottomSheet extends StatelessWidget {
+  const OrderDetailsBottomSheet({
+    super.key,
+    required this.order,
+    required this.viewerType,
+  });
 
   final OrderModel order;
+  final OrderViewerType viewerType;
 
   @override
   Widget build(BuildContext context) {
     final localization = context.localization;
+
+    final String personLabel = viewerType == OrderViewerType.user
+        ? localization.craftsman
+        : localization.customer;
+
     return Padding(
       padding: const EdgeInsets.all(24.0),
       child: Column(
@@ -20,9 +33,10 @@ class OrderDetailsBottomSheetForUser extends StatelessWidget {
         children: [
           Text(
             localization.serviceDetails,
-            style: Theme.of(
-              context,
-            ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
+            style: Theme.of(context)
+                .textTheme
+                .headlineSmall
+                ?.copyWith(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
           Text(
@@ -31,22 +45,25 @@ class OrderDetailsBottomSheetForUser extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            "${localization.customer}: ${order.person}",
+            "$personLabel: ${order.person}",
             style: const TextStyle(fontSize: 16),
           ),
           const SizedBox(height: 8),
           Text(
-            "الحالة: ${order.status}",
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            "${localization.date}: ${order.date}",
+            style: TextStyle(color: Colors.grey[700], fontSize: 16),
           ),
+          const SizedBox(height: 8),
+          OrderStatusWidget(order: order),
           const SizedBox(height: 16),
           const Divider(),
           const SizedBox(height: 16),
           Text(
-            "الوصف:",
-            style: Theme.of(
-              context,
-            ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+            "${localization.description}:",
+            style: Theme.of(context)
+                .textTheme
+                .titleMedium
+                ?.copyWith(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 8),
           Text(

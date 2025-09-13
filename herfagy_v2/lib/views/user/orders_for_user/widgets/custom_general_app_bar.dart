@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:herfagy_v2/utils/size_config.dart';
 
 class CustomGeneralSliverAppBar extends StatelessWidget {
   const CustomGeneralSliverAppBar({
@@ -11,30 +12,35 @@ class CustomGeneralSliverAppBar extends StatelessWidget {
   final bool? automaticallyImplyLeading;
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return SliverAppBar(
       pinned: true,
-      toolbarHeight: 60,
+      toolbarHeight: SizeConfig.height(fraction: 0.07),
       foregroundColor: Colors.white,
       automaticallyImplyLeading: automaticallyImplyLeading ?? false,
       backgroundColor: Colors.transparent,
       flexibleSpace: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
             colors: [Color(0xFF1565C0), Color(0xFF42A5F5)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
-          borderRadius: BorderRadius.vertical(bottom: Radius.circular(26)),
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(SizeConfig.width(fraction: 0.07)),
+          ),
         ),
       ),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(bottom: Radius.circular(26)),
+        borderRadius: BorderRadius.vertical(
+          bottom: Radius.circular(SizeConfig.width(fraction: 0.07)),
+        ),
       ),
       title: Text(
         text,
-        style: const TextStyle(
+        style: TextStyle(
           fontWeight: FontWeight.bold,
-          fontSize: 24,
+          fontSize: SizeConfig.width(fraction: 0.065),
           color: Colors.white,
         ),
       ),

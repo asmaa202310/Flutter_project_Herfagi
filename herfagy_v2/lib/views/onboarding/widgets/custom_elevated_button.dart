@@ -10,11 +10,13 @@ class CustomElevatedButton extends StatelessWidget {
     this.height,
     this.borderRaduis,
     this.padding,
+    this.width,
   });
   final VoidCallback onTap;
   final String text;
   final double fontSize;
   final double? height;
+  final double? width;
   final double? borderRaduis;
   final double? padding;
 
@@ -30,7 +32,7 @@ class CustomElevatedButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(borderRaduis ?? 12),
         ),
-        minimumSize: Size(SizeConfig.screenWidth, height ?? 50),
+        minimumSize: Size(width ?? SizeConfig.screenWidth, height ?? 50),
       ),
       child: Text(
         text,
