@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../models/old/review_model.dart';
 import 'no_reviews_widget.dart';
 import 'review_tile.dart';
@@ -36,23 +35,22 @@ class ReviewsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    if (reviews.isEmpty) {
+      return const SliverToBoxAdapter(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.0),
+          child: NoReviewsWidget(),
+        ),
+      );
+    }
+
+    return SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: Column(
-        children: [
-          reviews.isEmpty
-              ? const NoReviewsWidget()
-              : ListView.separated(
-                  itemCount: reviews.length,
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    return ReviewTile(review: reviews[index]);
-                  },
-                  separatorBuilder: (context, index) =>
-                      const Divider(thickness: 0.7, height: 10),
-                ),
-        ],
+      sliver: SliverList.separated(
+        itemCount: reviews.length,
+        itemBuilder: (context, index) => ReviewTile(review: reviews[index]),
+        separatorBuilder: (context, index) =>
+            const Divider(thickness: 0.7, height: 10),
       ),
     );
   }

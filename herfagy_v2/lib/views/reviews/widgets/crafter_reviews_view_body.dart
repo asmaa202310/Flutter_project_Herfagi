@@ -15,7 +15,7 @@ class CrafterReviewsViewBody extends StatelessWidget {
           text: localization.reviewsAndRatings,
           automaticallyImplyLeading: true,
         ),
-        const SliverToBoxAdapter(child:  ReviewsSection()),
+        const ReviewsSection(),
       ],
     );
   }
