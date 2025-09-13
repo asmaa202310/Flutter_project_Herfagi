@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Herfagy App</string>
+    <string name="facebook_app_id">960703969552757</string>
+    <string name="fb_login_protocol_scheme">fb960703969552757</string>
+    <string name="facebook_client_token">2f1510d5ed6121ef6a9e1f0db0e18abe</string>
+</resources>

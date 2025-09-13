@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:herfagy_v2/utils/auth_handler.dart';
 import 'package:herfagy_v2/viewmodels/supabase/auth_view_model.dart';
+import 'package:herfagy_v2/views/crafter/crafter_view.dart';
 import 'package:herfagy_v2/views/forget_password/forget_password_view.dart';
 import 'package:herfagy_v2/views/user_type_selection.dart';
 import 'package:provider/provider.dart';
@@ -49,7 +50,11 @@ class CustomLoginSignUpButton extends StatelessWidget {
               email!.text,
               "الرجاء إدخال البريد الإلكتروني",
             );
-            _checkFieldAndShow(context, password?.text, "الرجاء إدخال كلمة المرور");
+            _checkFieldAndShow(
+              context,
+              password?.text,
+              "الرجاء إدخال كلمة المرور",
+            );
 
             if (!isLogin) {
               _checkFieldAndShow(
@@ -69,8 +74,19 @@ class CustomLoginSignUpButton extends StatelessWidget {
           if (isLogin) {
             AuthHandler.handleAuth(
               context: context,
-              action: () => authMv.signIn(email: email!.text, password: password!.text),
-              onSuccessScreen: () => UserView(),
+              action: () =>
+                  authMv.signIn(email: email!.text, password: password!.text),
+              onSuccessScreen: () {
+                final role = authMv.profile?.role;
+
+                if (role == "User") {
+                  return const UserView();
+                } else if (role == "Crafter") {
+                  return const CrafterView();
+                } else {
+                  return const UserTypeSelection();
+                }
+              },
             );
           } else if (!isLogin && !isResetPassword) {
             AuthHandler.handleAuth(
@@ -89,7 +105,9 @@ class CustomLoginSignUpButton extends StatelessWidget {
               onSuccessScreen: () => ForgetPasswordView(),
             );
           }
-        } catch (_) {}
+        } catch (e) {
+          debugPrint('$e');
+        }
       },
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.blue,

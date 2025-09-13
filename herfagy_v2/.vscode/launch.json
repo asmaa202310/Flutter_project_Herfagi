@@ -2,11 +2,11 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Flutter",
+      "name": "HerfagyApp",
       "request": "launch",
+      "program": "lib/main.dart",
       "type": "dart",
-      "args": [
-      ]
+      "args": ["--dart-define-from-file", ".env/dev.json"]
     }
   ]
 }

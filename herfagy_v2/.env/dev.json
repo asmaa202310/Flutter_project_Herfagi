@@ -1,0 +1,7 @@
+{
+    "SUPABASE_URL": "https://gsevnwfporzdaazrbwhb.supabase.co",
+    "SUPABASE_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdzZXZud2Zwb3J6ZGFhenJid2hiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcyNjk1MDYsImV4cCI6MjA3Mjg0NTUwNn0.5UpiVS5z_42OnHxzWtSy7tO-_957UfCVKjZB6o2Q-B0",
+    "GCP_WEB_CLIENT_ID": "493979733323-9qcg7boeug2ubf08dhtqtn2jnnals263.apps.googleusercontent.com",
+    "GCP_IOS_CLIENT_ID": "493979733323-imlbg03b7rmithrgckmhdl480p90l1a2.apps.googleusercontent.com",
+    "GCP_ANDROID_CLIENT_ID": "493979733323-32fju0rjvh640e5dum28kdluif3ksv5u.apps.googleusercontent.com"
+}

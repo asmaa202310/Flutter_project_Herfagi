@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:herfagy_v2/models/profile.dart';
+import 'package:herfagy_v2/setup.dart';
+import 'package:herfagy_v2/viewmodels/supabase/modelsOperationsViewModel/profile_operation_view_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class AuthViewModel extends ChangeNotifier {
-  final SupabaseClient _client = Supabase.instance.client;
+  final SupabaseClient _client = sl<SupabaseClient>();
+  final ProfileOperationViewModel _profileOps = sl<ProfileOperationViewModel>();
 
   Profile? _profile;
   Profile? get profile => _profile;
@@ -32,22 +35,16 @@ class AuthViewModel extends ChangeNotifier {
       final newUser = res.user;
       if (newUser == null) return "User creation failed";
 
-      final data = {
-        'id': newUser.id,
-        'username': username,
-        'email': email,
-        'role': role,
-      };
+      final profileData = Profile(
+        id: newUser.id,
+        email: email,
+        username: username,
+        role: role,
+      );
 
-      final insert = await _client
-          .from('profiles')
-          .insert(data)
-          .select()
-          .maybeSingle();
+      await _profileOps.addProfile(profileData);
 
-      if (insert == null) return "Failed to insert user data";
-
-      _profile = Profile.fromMap(insert);
+      _profile = profileData;
       notifyListeners();
       return null;
     } catch (e) {
@@ -87,22 +84,19 @@ class AuthViewModel extends ChangeNotifier {
     await prefs.remove('handled_reset_link');
   }
 
-  Future<Profile?> fetchUserData() async {
-    if (userId == null) return null;
+  Future<void> fetchUserData() async {
+    if (userId == null) return;
 
     _setLoading(true);
     try {
-      final res = await _client
-          .from('profiles')
-          .select()
-          .eq('id', userId!)
-          .maybeSingle();
+      await _profileOps.loadProfiles();
 
-      if (res != null) {
-        _profile = Profile.fromMap(res);
-        notifyListeners();
-      }
-      return _profile;
+      _profile = _profileOps.profiles.firstWhere(
+        (p) => p.id == userId,
+        orElse: () => Profile(id: '', username: '', email: ''),
+      );
+
+      notifyListeners();
     } finally {
       _setLoading(false);
     }
@@ -118,6 +112,7 @@ class AuthViewModel extends ChangeNotifier {
 
       return null;
     } catch (e) {
+      debugPrint('$e');
       return e.toString();
     } finally {
       _setLoading(false);
@@ -139,34 +134,26 @@ class AuthViewModel extends ChangeNotifier {
   }
 
   Future<void> updateUserRole(String role) async {
-    if (userId == null) return;
+    if (_profile == null) return;
 
-    _setLoading(true);
-    try {
-      final res = await _client
-          .from('profiles')
-          .update({'role': role})
-          .eq('id', userId!);
+    _profile = Profile(
+      id: _profile!.id,
+      username: _profile!.username,
+      role: role,
+      serviceId: _profile!.serviceId,
+      price: _profile!.price,
+      email: _profile!.email,
+    );
 
-      if (res == null) {
-        debugPrint('Error updating role');
-        return;
-      }
+    await _profileOps.updateProfile(_profile!);
+    notifyListeners();
+  }
 
-      if (_profile != null) {
-        _profile = Profile(
-          id: _profile!.id,
-          username: _profile!.username,
-          role: role,
-          serviceId: _profile!.serviceId,
-          price: _profile!.price,
-        );
-        notifyListeners();
-      }
-    } catch (e) {
-      debugPrint('Exception updating role: $e');
-    } finally {
-      _setLoading(false);
-    }
+  Future<void> deleteUser() async {
+    if (_profile == null) return;
+
+    await _profileOps.deleteProfile(_profile!);
+    _profile = null;
+    notifyListeners();
   }
 }
