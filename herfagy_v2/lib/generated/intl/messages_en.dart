@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account?",
     ),
+    "appName": MessageLookupByLibrary.simpleMessage("Herfagy"),
     "blacksmith": MessageLookupByLibrary.simpleMessage("Blacksmith"),
     "bookNow": MessageLookupByLibrary.simpleMessage("Book Now"),
     "bookings": MessageLookupByLibrary.simpleMessage("Bookings"),
@@ -214,6 +215,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "signUpTitle": MessageLookupByLibrary.simpleMessage("Create a new account"),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
     "status": MessageLookupByLibrary.simpleMessage("Status"),
+    "tagLine": MessageLookupByLibrary.simpleMessage(
+      "All your home services in one place",
+    ),
     "takePhoto": MessageLookupByLibrary.simpleMessage("Take a photo"),
     "uncompletedProjects": m5,
     "updatePasswordDesc": MessageLookupByLibrary.simpleMessage(

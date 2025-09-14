@@ -116,5 +116,7 @@
     "chooseFromGallery": "اختيار صورة من المعرض",
     "reviewsAndRatings": "التقييمات والمراجعات",
     "noReviewsYet": "لا توجد تقييمات بعد",
-    "noPhotosYet": "لم تتم إضافة صور بعد"
+    "noPhotosYet": "لم تتم إضافة صور بعد",
+    "appName":"حرفجي",
+    "tagLine": "كل خدمات البيت في مكان واحد"
 }

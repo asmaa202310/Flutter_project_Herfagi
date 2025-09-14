@@ -24,7 +24,7 @@ class SettingsSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          localization.generalSettings, 
+          localization.generalSettings,
           style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
@@ -34,7 +34,7 @@ class SettingsSection extends StatelessWidget {
         const SizedBox(height: 15),
         SwitchItem(
           icon: Icons.dark_mode,
-          title: localization.darkMode, 
+          title: localization.darkMode,
           value: darkModeEnabled,
           onChanged: onDarkModeChanged,
         ),
@@ -52,7 +52,7 @@ class SettingsSection extends StatelessWidget {
             onPressed: onLogout,
             icon: const Icon(Icons.logout, color: Colors.white),
             label: Text(
-              localization.logout, // 🔹 تسجيل الخروج
+              localization.logout,
               style: const TextStyle(color: Colors.white, fontSize: 16),
             ),
           ),

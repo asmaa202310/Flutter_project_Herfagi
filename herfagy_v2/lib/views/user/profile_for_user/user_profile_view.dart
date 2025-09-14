@@ -18,6 +18,7 @@ class UserProfileView extends StatelessWidget {
     final localization = context.localization;
     SizeConfig.init(context);
 
+
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -34,9 +35,11 @@ class UserProfileView extends StatelessWidget {
                 MenuSection(items: ProfileUserViewModel.menuItems(context)),
                 const SizedBox(height: 30),
                 SettingsSection(
-                  darkModeEnabled: darkModeEnabled,
+                  darkModeEnabled: true,
                   onNotificationsChanged: (_) {},
-                  onDarkModeChanged: (_) {},
+                  onDarkModeChanged: (value) {
+                   
+                  },
                   onLogout: () => showLogoutDialog(context),
                 ),
               ],

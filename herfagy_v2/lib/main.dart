@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:herfagy_v2/setup.dart';
-import 'package:herfagy_v2/utils/deep_link_handler.dart';
 
 import 'package:herfagy_v2/viewmodels/language_view_model.dart';
 import 'package:herfagy_v2/viewmodels/supabase/auth_view_model.dart';
-import 'package:herfagy_v2/views/crafter/crafter_view.dart';
-import 'package:herfagy_v2/views/onboarding/onboarding_view.dart';
-import 'package:herfagy_v2/views/user/user_view.dart';
-import 'package:herfagy_v2/views/user_type_selection/user_type_selection_view.dart';
-import 'package:herfagy_v2/views/crafter/crafter_view.dart';
-import 'package:herfagy_v2/views/user_type_selection/widgets/user_type_selection_view_body.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '/generated/l10n.dart';
 import '/viewmodels/onboarding_view_model.dart';
 import 'package:provider/provider.dart';
+
+import 'views/splash/splash_view.dart';
+import 'views/user/user_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -56,20 +52,17 @@ class HerfagyApp extends StatelessWidget {
         dialogTheme: DialogThemeData(backgroundColor: Colors.white),
       ),
 
-      home: StreamBuilder<AuthState>(
-            stream: supabaseClient.auth.onAuthStateChange,
-            builder: (context, snapshot) {
-              if (snapshot.data?.session != null) {
-                return Stack(
-                  children: const [OnboardingView(), DeepLinkHandler()],
-                );
-              } else {
-                return Stack(
-                  children: const [OnboardingView(), DeepLinkHandler()],
-                );
-              }
-            },
-          ),
+      home: const SplashView(),
+      // home: StreamBuilder<AuthState>(
+      //   stream: supabaseClient.auth.onAuthStateChange,
+      //   builder: (context, snapshot) {
+      //     if (snapshot.data?.session != null) {
+      //       return Stack(children: const [UserView(), DeepLinkHandler()]);
+      //     } else {
+      //       return Stack(children: const [OnboardingView(), DeepLinkHandler()]);
+      //     }
+      //   },
+      // ),
     );
   }
 }

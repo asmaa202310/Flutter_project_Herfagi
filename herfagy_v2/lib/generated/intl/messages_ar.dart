@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "هل لديك حساب بالفعل؟",
     ),
+    "appName": MessageLookupByLibrary.simpleMessage("حرفجي"),
     "blacksmith": MessageLookupByLibrary.simpleMessage("حدادة"),
     "bookNow": MessageLookupByLibrary.simpleMessage("احجز الآن"),
     "bookings": MessageLookupByLibrary.simpleMessage("الحجوزات"),
@@ -218,6 +219,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "signUpTitle": MessageLookupByLibrary.simpleMessage("إنشاء حساب جديد"),
     "skip": MessageLookupByLibrary.simpleMessage("تخطى"),
     "status": MessageLookupByLibrary.simpleMessage("الحالة"),
+    "tagLine": MessageLookupByLibrary.simpleMessage(
+      "كل خدمات البيت في مكان واحد",
+    ),
     "takePhoto": MessageLookupByLibrary.simpleMessage("التقاط صورة بالكاميرا"),
     "uncompletedProjects": m5,
     "updatePasswordDesc": MessageLookupByLibrary.simpleMessage(

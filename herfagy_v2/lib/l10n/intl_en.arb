@@ -116,5 +116,7 @@
         "chooseFromGallery": "Choose from gallery",
         "reviewsAndRatings": "Reviews & Ratings",
         "noReviewsYet": "No Reviews Yet",
-        "noPhotosYet": "No photo added yet"
+        "noPhotosYet": "No photo added yet",
+        "appName": "Herfagy",
+        "tagLine": "All your home services in one place"
     }

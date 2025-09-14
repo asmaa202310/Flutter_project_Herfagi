@@ -1003,6 +1003,21 @@ class S {
       args: [],
     );
   }
+
+  /// `Herfagy`
+  String get appName {
+    return Intl.message('Herfagy', name: 'appName', desc: '', args: []);
+  }
+
+  /// `All your home services in one place`
+  String get tagLine {
+    return Intl.message(
+      'All your home services in one place',
+      name: 'tagLine',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
