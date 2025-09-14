@@ -25,7 +25,6 @@ class UserTypeSelectionViewBody extends StatelessWidget {
     final localization = context.localization;
 
     Future<void> selectRoleAndNavigate(String role, Widget nextPage) async {
-      await authVM.updateUserRole(role);
       if (authGoogle.profile != null) {
         await authGoogle.updateUserRole(role);
         debugPrint(" Role updated for Google account");
@@ -33,7 +32,7 @@ class UserTypeSelectionViewBody extends StatelessWidget {
         await authFacebook.updateUserRole(role);
         debugPrint(" Role updated for Facebook account");
       } else {
-        debugPrint(" No social login found, only AuthViewModel updated");
+        await authVM.updateUserRole(role);
       }
 
       if (!context.mounted) return;

@@ -24,10 +24,17 @@ class AuthFacebookModelView {
         return null;
       }
 
+      final existingProfile = _profileOps.profiles.firstWhere(
+        (p) => p.id == user.id,
+        orElse: () => Profile(id: user.id, username: '', email: ''),
+      );
+
       final profileData = Profile(
         id: user.id,
+
         username: user.userMetadata?['name'] ?? 'NoName',
-        email: user.email ?? "NoEmail",
+        email: user.email ?? 'NoEmail',
+        role: existingProfile.role,
       );
 
       profile = profileData;

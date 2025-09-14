@@ -9,7 +9,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 class AuthGoogleModelView {
   final SupabaseClient supabaseClient = sl<SupabaseClient>();
   final ProfileOperationViewModel _profileOps = sl<ProfileOperationViewModel>();
-   Profile? profile;
+  Profile? profile;
 
   Future<Profile?> signInWithGoogle() async {
     try {
@@ -32,11 +32,17 @@ class AuthGoogleModelView {
       final user = response.user;
       if (user == null) throw 'Supabase user not found';
 
+      final existingProfile = _profileOps.profiles.firstWhere(
+        (p) => p.id == user.id,
+        orElse: () => Profile(id: user.id, username: '', email: ''),
+      );
+
       final profileData = Profile(
         id: user.id,
         username:
             user.userMetadata?['name'] ?? googleAccount.displayName ?? 'NoName',
         email: user.email ?? 'NoEmail',
+        role: existingProfile.role, 
       );
 
       profile = profileData;

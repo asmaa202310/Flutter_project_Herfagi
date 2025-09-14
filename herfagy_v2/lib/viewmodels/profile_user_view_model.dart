@@ -4,6 +4,9 @@ import '../utils/get_menu_item_type_extension.dart';
 import '../views/change_language/change_language_view.dart';
 
 class ProfileUserViewModel {
+
+
+  
   static List<MenuItemModel> menuItems(BuildContext context) => [
     MenuItemModel(
       icon: Icons.help_outline,

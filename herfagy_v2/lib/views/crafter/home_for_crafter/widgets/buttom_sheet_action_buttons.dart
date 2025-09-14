@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'reject_accept_button.dart';
-import '../../../../models/request_model.dart';
+import '../../../../models/old/request_model.dart';
 import '../../../../viewmodels/home_crafter_view_model.dart';
 import '../../../../utils/localization_extension.dart';
 

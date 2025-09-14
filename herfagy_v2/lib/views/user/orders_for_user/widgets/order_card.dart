@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:herfagy_v2/utils/get_localize_title.dart';
+import 'package:herfagy_v2/models/order.dart';
+import 'package:herfagy_v2/models/service.dart';
 import 'package:herfagy_v2/utils/size_config.dart';
 import '../../../crafter/orders_for_crafter/widgets/order_status_widget.dart';
 import '../../../user/home_for_user/widgets/custom_order_button.dart';
 import '/utils/localization_extension.dart';
-import '../../../../models/old/order_model.dart';
 import 'order_details_bottom_sheet.dart';
 
 class OrderCard extends StatelessWidget {
-  final OrderModel order;
+  final Order order;
   final OrderViewerType viewerType;
 
   const OrderCard({super.key, required this.order, required this.viewerType});
@@ -37,19 +37,38 @@ class OrderCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "${localization.service}: ${GetLocalizeTitle.getLocalizedTitle(context, order.service)}",
-              style: TextStyle(
-                fontSize: SizeConfig.width(fraction: 0.05),
-                fontWeight: FontWeight.bold,
+            // Service Name
+            FutureBuilder<Service>(
+              future: order.getService(),
+              builder: (context, snapshot) {
+                final serviceName = snapshot.hasData
+                    ? snapshot.data!.name
+                    : "...";
+                return Text(
+                  "${localization.service}: $serviceName",
+                  style: TextStyle(
+                    fontSize: SizeConfig.width(fraction: 0.05),
+                    fontWeight: FontWeight.bold,
+                  ),
+                );
+              },
+            ),
+            const SizedBox(height: 8),
+            // Person Name
+            FutureBuilder<String>(
+              future: order.person(
+                viewerType == OrderViewerType.user ? "user" : "crafter",
               ),
+              builder: (context, snapshot) {
+                final personName = snapshot.hasData ? snapshot.data! : "...";
+                return Text(
+                  "$personLabel: $personName",
+                  style: TextStyle(fontSize: SizeConfig.width(fraction: 0.04)),
+                );
+              },
             ),
             const SizedBox(height: 8),
-            Text(
-              "$personLabel: ${order.person}",
-              style: TextStyle(fontSize: SizeConfig.width(fraction: 0.04)),
-            ),
-            const SizedBox(height: 8),
+            // Date
             Text(
               "${localization.date}: ${order.date}",
               style: TextStyle(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import '/utils/localization_extension.dart';
 import '../../../../utils/show_logout_dialogue.dart';
 import '../../../../utils/size_config.dart';

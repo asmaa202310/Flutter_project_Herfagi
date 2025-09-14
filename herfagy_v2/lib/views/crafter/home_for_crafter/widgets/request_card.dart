@@ -3,7 +3,7 @@ import 'package:herfagy_v2/utils/size_config.dart';
 import '/utils/get_localize_title.dart';
 import '/utils/localization_extension.dart';
 import 'package:provider/provider.dart';
-import '../../../../models/request_model.dart';
+import '../../../../models/old/request_model.dart';
 import '../../../../viewmodels/home_crafter_view_model.dart';
 import 'custom_icon_button.dart';
 import 'request_details_bottom_sheet.dart';

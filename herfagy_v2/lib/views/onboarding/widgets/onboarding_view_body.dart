@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:herfagy_v2/utils/localization_extension.dart';
 import 'package:herfagy_v2/views/login/login_view.dart';
 import 'package:herfagy_v2/views/onboarding/widgets/custom_animated_skip_button.dart';
-import 'package:herfagy_v2/views/user_type_selection/user_type_selection_view.dart';
 import 'package:provider/provider.dart';
 import '../../../viewmodels/onboarding_view_model.dart';
 import '../../../views/onboarding/widgets/page_view_builder_widget.dart';

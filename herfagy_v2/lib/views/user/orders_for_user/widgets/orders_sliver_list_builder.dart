@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:herfagy_v2/models/order.dart';
 import 'package:herfagy_v2/views/user/orders_for_user/widgets/order_details_bottom_sheet.dart';
-import '../../../../models/old/order_model.dart';
 import 'order_card.dart';
 
 class OrdersSliverListBuilder extends StatelessWidget {
@@ -10,7 +10,7 @@ class OrdersSliverListBuilder extends StatelessWidget {
     required this.viewerType,
   });
 
-  final List<OrderModel> orders;
+  final List<Order> orders;
   final OrderViewerType viewerType;
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '/utils/localization_extension.dart';
 import '/utils/get_localize_title.dart';
-import '../../../../models/request_model.dart';
+import '../../../../models/old/request_model.dart';
 import 'buttom_sheet_action_buttons.dart';
 
 class RequestDetailsBottomSheet extends StatelessWidget {

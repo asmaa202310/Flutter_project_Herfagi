@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:herfagy_v2/models/order.dart';
+import 'package:herfagy_v2/utils/get_order_status_extension.dart';
 import '../../../../utils/size_config.dart';
-import '/utils/get_order_status_extension.dart';
-import '../../../../models/old/order_model.dart';
 import '/utils/localization_extension.dart';
 
 class OrderStatusWidget extends StatelessWidget {
   const OrderStatusWidget({super.key, required this.order});
-  final OrderModel order;
+  final Order order;
 
   @override
   Widget build(BuildContext context) {

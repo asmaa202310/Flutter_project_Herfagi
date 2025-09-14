@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:herfagy_v2/utils/get_localize_title.dart';
+import 'package:herfagy_v2/models/order.dart';
+import 'package:herfagy_v2/models/service.dart';
 import 'package:herfagy_v2/views/crafter/orders_for_crafter/widgets/custom_text_close_button.dart';
 import '../../../crafter/orders_for_crafter/widgets/order_status_widget.dart';
-import '/models/old/order_model.dart';
 import '/utils/localization_extension.dart';
 
 enum OrderViewerType { user, crafter }
@@ -14,7 +14,7 @@ class OrderDetailsBottomSheet extends StatelessWidget {
     required this.viewerType,
   });
 
-  final OrderModel order;
+  final Order order;
   final OrderViewerType viewerType;
 
   @override
@@ -39,14 +39,28 @@ class OrderDetailsBottomSheet extends StatelessWidget {
                 ?.copyWith(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
-          Text(
-            "${localization.service}: ${GetLocalizeTitle.getLocalizedTitle(context, order.service)}",
-            style: const TextStyle(fontSize: 16),
+          // Service Name
+          FutureBuilder<Service>(
+            future: order.getService(),
+            builder: (context, snapshot) {
+              final serviceName = snapshot.hasData ? snapshot.data!.name : "...";
+              return Text(
+                "${localization.service}: $serviceName",
+                style: const TextStyle(fontSize: 16),
+              );
+            },
           ),
           const SizedBox(height: 8),
-          Text(
-            "$personLabel: ${order.person}",
-            style: const TextStyle(fontSize: 16),
+          // Person Name
+          FutureBuilder<String>(
+            future: order.person(viewerType == OrderViewerType.user ? "user" : "crafter"),
+            builder: (context, snapshot) {
+              final personName = snapshot.hasData ? snapshot.data! : "...";
+              return Text(
+                "$personLabel: $personName",
+                style: const TextStyle(fontSize: 16),
+              );
+            },
           ),
           const SizedBox(height: 8),
           Text(

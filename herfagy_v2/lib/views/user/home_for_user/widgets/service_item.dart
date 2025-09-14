@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:herfagy_v2/utils/localization_extension.dart';
 import 'package:herfagy_v2/views/user/home_for_user/widgets/custom_rating_bar_indicator.dart';
 import '../../../../models/old/service_model.dart';

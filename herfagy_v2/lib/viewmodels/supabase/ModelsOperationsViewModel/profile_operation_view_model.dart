@@ -91,4 +91,24 @@ class ProfileOperationViewModel extends ChangeNotifier {
       throw "$e";
     }
   }
+
+  Future<Profile?> getCurrentUserProfile() async {
+    try {
+      final userId = supabaseClient.auth.currentUser?.id;
+      if (userId == null) return null;
+
+      final result = await supabaseClient
+          .from('profiles')
+          .select()
+          .eq('id', userId)
+          .maybeSingle();
+
+      if (result == null) return null;
+
+      return Profile.fromMap(result);
+    } catch (e) {
+      debugPrint("getCurrentUserProfile error: $e");
+      return null;
+    }
+  }
 }
