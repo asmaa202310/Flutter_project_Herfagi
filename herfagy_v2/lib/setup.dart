@@ -23,7 +23,7 @@ Future<void> setup() async {
   sl.registerSingleton<Supabase>(supabase);
   sl.registerLazySingleton<SupabaseClient>(() => supabase.client);
   sl.registerLazySingleton<AuthGoogleModelView>(() => AuthGoogleModelView());
-  
+
   sl.registerLazySingleton<AuthFacebookModelView>(
     () => AuthFacebookModelView(),
   );

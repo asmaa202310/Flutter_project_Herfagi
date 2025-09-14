@@ -24,6 +24,7 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (_) => AuthViewModel()),
         ChangeNotifierProvider(create: (_) => LanguageViewModel()),
         ChangeNotifierProvider(create: (_) => ProfileOperationViewModel()),
+        ChangeNotifierProvider(create: (_) => ProfileOperationViewModel()),
       ],
       child: const HerfagyApp(),
     ),

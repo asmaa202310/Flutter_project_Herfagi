@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:herfagy_v2/models/profile.dart';
 import 'package:herfagy_v2/setup.dart';
+import 'package:herfagy_v2/utils/get_location.dart';
+import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/profile_operation_view_model.dart';
 import 'package:herfagy_v2/viewmodels/supabase/auth_facebook_model_view.dart';
 import 'package:herfagy_v2/viewmodels/supabase/auth_google_model_view.dart';
 import 'package:herfagy_v2/views/crafter/crafter_view.dart';
@@ -21,6 +24,10 @@ class UserTypeSelectionViewBody extends StatelessWidget {
     final authVM = context.read<AuthViewModel>();
     final authGoogle = sl<AuthGoogleModelView>();
     final authFacebook = sl<AuthFacebookModelView>();
+    final profileOperationViewModel = Provider.of<ProfileOperationViewModel>(
+      context,
+      listen: false,
+    );
     SizeConfig.init(context);
     final localization = context.localization;
 
@@ -33,6 +40,20 @@ class UserTypeSelectionViewBody extends StatelessWidget {
         debugPrint(" Role updated for Facebook account");
       } else {
         await authVM.updateUserRole(role);
+      }
+      Profile? profile = await profileOperationViewModel
+          .getCurrentUserProfile();
+      final location = await GetLocation.getCurrentLocation();
+      if (profile != null) {
+        Profile newProfile = Profile(
+          id: profile.id,
+          username: profile.username,
+          email: profile.email,
+          role: profile.role ?? "User",
+          location: location ?? "unKnown",
+        );
+
+        profileOperationViewModel.updateProfile(newProfile);
       }
 
       if (!context.mounted) return;

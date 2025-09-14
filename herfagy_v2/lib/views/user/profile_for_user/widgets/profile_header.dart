@@ -1,8 +1,12 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:herfagy_v2/models/profile.dart';
 import 'package:herfagy_v2/utils/localization_extension.dart';
+import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/profile_operation_view_model.dart';
 import 'package:image_picker/image_picker.dart';
-
+import 'package:path/path.dart' as path;
+import 'package:path_provider/path_provider.dart';
+import 'package:provider/provider.dart';
 import '../../../crafter/profile_for_crafter/widgets/photo_viewer.dart';
 import 'avatar_widget.dart';
 
@@ -26,11 +30,75 @@ class _ProfileHeaderState extends State<ProfileHeader> {
   File? profileImage;
   final ImagePicker _picker = ImagePicker();
 
+  @override
+  void initState() {
+    super.initState();
+    _loadProfile();
+  }
+
+  Future<void> _loadProfile() async {
+    final profileOperationViewModel = Provider.of<ProfileOperationViewModel>(
+      context,
+      listen: false,
+    );
+
+    Profile? profile = await profileOperationViewModel.getCurrentUserProfile();
+
+    if (profile != null &&
+        profile.imageUrl != null &&
+        profile.imageUrl!.isNotEmpty) {
+      final file = File(profile.imageUrl!);
+      if (await file.exists()) {
+        setState(() {
+          profileImage = file;
+        });
+      }
+    }
+  }
+
   Future<void> _pickImage(ImageSource source) async {
+    final profileOperationViewModel = Provider.of<ProfileOperationViewModel>(
+      context,
+      listen: false,
+    );
+
     final pickedFile = await _picker.pickImage(source: source);
     if (pickedFile != null) {
-      setState(() => profileImage = File(pickedFile.path));
+      Profile? profile = await profileOperationViewModel
+          .getCurrentUserProfile();
+
+      final appDir = await getApplicationDocumentsDirectory();
+
+      final avatarDir = Directory('${appDir.path}/avatarurl');
+      if (!await avatarDir.exists()) {
+        await avatarDir.create(recursive: true);
+      }
+
+      final fileName = path.basename(pickedFile.path);
+      final savedImage = await File(
+        pickedFile.path,
+      ).copy('${avatarDir.path}/$fileName');
+
+      if (!mounted) return;
+
+      setState(() {
+        profileImage = savedImage;
+
+        if (profile != null) {
+          Profile newProfile = Profile(
+            id: profile.id,
+            username: profile.username,
+            email: profile.email,
+            role: profile.role ?? "User",
+            imageUrl: savedImage.path,
+            location: profile.location ?? "",
+          );
+
+          profileOperationViewModel.updateProfile(newProfile);
+        }
+      });
     }
+
     if (mounted) Navigator.pop(context);
   }
 
