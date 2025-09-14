@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:herfagy_v2/utils/localization_extension.dart';
-import 'package:herfagy_v2/views/crafter/home_for_crafter/widgets/custom_icon_button.dart';
 import '../../../../utils/size_config.dart';
 
 class ProfileListTileWidget extends StatelessWidget {
@@ -22,6 +21,8 @@ class ProfileListTileWidget extends StatelessWidget {
       ),
       title: Text(
         localization.greetingMessage('عبدالعزيز'),
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
         style: TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
@@ -37,26 +38,6 @@ class ProfileListTileWidget extends StatelessWidget {
           fontWeight: FontWeight.bold,
           fontSize: SizeConfig.width(fraction: 0.035),
         ),
-      ),
-      trailing: Stack(
-        children: [
-          CustomIconButton(
-            onTap: () {},
-            icon: Icons.notifications,
-            color: Colors.white,
-            iconSize: SizeConfig.width(fraction: 0.1),
-          ),
-          Positioned(
-            top: SizeConfig.screenWidth * 0.009,
-            right: SizeConfig.screenWidth * 0.01,
-            child: CircleAvatar(
-              foregroundColor: Colors.white,
-              backgroundColor: Colors.red,
-              radius: SizeConfig.screenWidth * 0.029,
-              child: Text('1', style: TextStyle(fontSize: 14)),
-            ),
-          ),
-        ],
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:herfagy_v2/utils/get_localize_title.dart';
 import 'package:herfagy_v2/utils/localization_extension.dart';
+import 'package:herfagy_v2/views/book_now/book_now_view.dart';
 import '../../../onboarding/widgets/custom_elevated_button.dart';
 import '/models/old/crafter_model.dart';
 
@@ -68,7 +69,12 @@ class CrafterItem extends StatelessWidget {
             text: context.localization.bookNow,
             height: SizeConfig.height(fraction: 0.05),
             fontSize: SizeConfig.width(fraction: 0.04),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => BookNowView()),
+              );
+            },
           ),
         ],
       ),

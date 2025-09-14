@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:herfagy_v2/setup.dart';
-
 import 'package:herfagy_v2/viewmodels/language_view_model.dart';
 import 'package:herfagy_v2/viewmodels/supabase/auth_view_model.dart';
+import 'package:herfagy_v2/views/user/user_view.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '/generated/l10n.dart';
 import '/viewmodels/onboarding_view_model.dart';
 import 'package:provider/provider.dart';
-
 import 'views/splash/splash_view.dart';
-import 'views/user/user_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -52,7 +50,7 @@ class HerfagyApp extends StatelessWidget {
         dialogTheme: DialogThemeData(backgroundColor: Colors.white),
       ),
 
-      home: const SplashView(),
+      home: const UserView(),
       // home: StreamBuilder<AuthState>(
       //   stream: supabaseClient.auth.onAuthStateChange,
       //   builder: (context, snapshot) {

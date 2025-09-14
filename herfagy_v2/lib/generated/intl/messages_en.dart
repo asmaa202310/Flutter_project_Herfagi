@@ -36,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "accept": MessageLookupByLibrary.simpleMessage("Accept"),
     "addImagesNow": MessageLookupByLibrary.simpleMessage("Add images now"),
+    "address": MessageLookupByLibrary.simpleMessage("Address"),
     "airConditioning": MessageLookupByLibrary.simpleMessage("Air Conditioning"),
     "allWorks": MessageLookupByLibrary.simpleMessage("All Works"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
@@ -44,6 +45,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "appName": MessageLookupByLibrary.simpleMessage("Herfagy"),
     "blacksmith": MessageLookupByLibrary.simpleMessage("Blacksmith"),
     "bookNow": MessageLookupByLibrary.simpleMessage("Book Now"),
+    "bookYourAppointment": MessageLookupByLibrary.simpleMessage(
+      "Book Your Appointment",
+    ),
     "bookings": MessageLookupByLibrary.simpleMessage("Bookings"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "carpenter": MessageLookupByLibrary.simpleMessage("Carpenter"),
@@ -58,6 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "completed": MessageLookupByLibrary.simpleMessage("Completed"),
     "completedProjects": m0,
     "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
+    "confirmBooking": MessageLookupByLibrary.simpleMessage("Confirm Booking"),
     "confirmButton": MessageLookupByLibrary.simpleMessage("Confirm"),
     "confirmPasswordHint": MessageLookupByLibrary.simpleMessage(
       "Re-enter your password",
@@ -86,11 +91,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailHint": MessageLookupByLibrary.simpleMessage("Enter your email"),
     "emailLabel": MessageLookupByLibrary.simpleMessage("Email"),
     "emailRequired": MessageLookupByLibrary.simpleMessage("Email is required"),
+    "enterAddress": MessageLookupByLibrary.simpleMessage(
+      "Please enter the address",
+    ),
     "enterEmail": MessageLookupByLibrary.simpleMessage(
       "Please enter your email",
     ),
     "enterPassword": MessageLookupByLibrary.simpleMessage(
       "Please enter your password",
+    ),
+    "enterPhoneNumber": MessageLookupByLibrary.simpleMessage(
+      "Please enter the phone number",
+    ),
+    "enterServiceDetails": MessageLookupByLibrary.simpleMessage(
+      "Please enter the service details",
     ),
     "enterUsername": MessageLookupByLibrary.simpleMessage(
       "Please enter your username",
@@ -141,6 +155,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "noPhotosYet": MessageLookupByLibrary.simpleMessage("No photo added yet"),
     "noReviewsYet": MessageLookupByLibrary.simpleMessage("No Reviews Yet"),
     "noWorksYet": MessageLookupByLibrary.simpleMessage("No works added yet"),
+    "notSelected": MessageLookupByLibrary.simpleMessage("Not Selected"),
     "onboardingDesc1": MessageLookupByLibrary.simpleMessage(
       "Make your life easier with the Herfagy app",
     ),
@@ -178,6 +193,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordsDoNotMatch": MessageLookupByLibrary.simpleMessage(
       "Passwords do not match",
     ),
+    "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
     "pleaseChooseAccountType": MessageLookupByLibrary.simpleMessage(
       "Please choose an account type to continue",
     ),
@@ -192,6 +208,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "rejected": MessageLookupByLibrary.simpleMessage("Rejected"),
     "rememberPassword": MessageLookupByLibrary.simpleMessage(
       "Remembered your password ?",
+    ),
+    "requiredField": MessageLookupByLibrary.simpleMessage(
+      "This field is required",
     ),
     "reviews": MessageLookupByLibrary.simpleMessage("Reviews"),
     "reviewsAndRatings": MessageLookupByLibrary.simpleMessage(
@@ -208,9 +227,17 @@ class MessageLookup extends MessageLookupByLibrary {
       "Popular Services",
     ),
     "sectionTopRated": MessageLookupByLibrary.simpleMessage("Top Rated"),
+    "selectDate": MessageLookupByLibrary.simpleMessage("Select Date"),
+    "selectTime": MessageLookupByLibrary.simpleMessage("Select Time"),
+    "selectedDate": MessageLookupByLibrary.simpleMessage("Selected Date"),
+    "selectedService": MessageLookupByLibrary.simpleMessage(
+      "Selected Service:",
+    ),
+    "selectedTime": MessageLookupByLibrary.simpleMessage("Selected Time"),
     "sendResetLinkButton": MessageLookupByLibrary.simpleMessage("Send Link"),
     "service": MessageLookupByLibrary.simpleMessage("Service"),
     "serviceDetails": MessageLookupByLibrary.simpleMessage("Service Details"),
+    "serviceType": MessageLookupByLibrary.simpleMessage("Service Type"),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "signUpTitle": MessageLookupByLibrary.simpleMessage("Create a new account"),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),

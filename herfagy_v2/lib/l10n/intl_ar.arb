@@ -117,6 +117,21 @@
     "reviewsAndRatings": "التقييمات والمراجعات",
     "noReviewsYet": "لا توجد تقييمات بعد",
     "noPhotosYet": "لم تتم إضافة صور بعد",
-    "appName":"حرفجي",
-    "tagLine": "كل خدمات البيت في مكان واحد"
+    "appName": "حرفجي",
+    "tagLine": "كل خدمات البيت في مكان واحد",
+    "bookYourAppointment": "احجز موعدك",
+    "address": "العنوان",
+    "serviceType": "نوع الخدمة",
+    "selectDate": "اختر التاريخ",
+    "selectTime": "اختر الساعة",
+    "confirmBooking": "تأكيد الحجز",
+    "selectedDate": "التاريخ المختار",
+    "selectedTime": "الساعة المختارة",
+    "selectedService": "الخدمة المختارة",
+    "notSelected": "لم يتم الاختيار",
+    "requiredField": "هذا الحقل مطلوب",
+    "enterServiceDetails": "من فضلك أدخل تفاصيل الخدمة",
+    "enterAddress": "من فضلك أدخل العنوان",
+    "enterPhoneNumber": "من فضلك أدخل رقم الموبايل",
+    "phoneNumber": "رقم الموبايل"
 }
