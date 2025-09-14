@@ -2,10 +2,12 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:herfagy_v2/setup.dart';
+import 'package:herfagy_v2/start_page_loader.dart';
 import 'package:herfagy_v2/utils/deep_link_handler.dart';
 import 'package:herfagy_v2/viewmodels/language_view_model.dart';
 import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/profile_operation_view_model.dart';
 import 'package:herfagy_v2/viewmodels/supabase/auth_view_model.dart';
+import 'package:herfagy_v2/viewmodels/theme_view_model.dart';
 import 'package:herfagy_v2/views/crafter/crafter_view.dart';
 import 'package:herfagy_v2/views/onboarding/onboarding_view.dart';
 import 'package:herfagy_v2/views/user/user_view.dart';
@@ -24,7 +26,7 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (_) => AuthViewModel()),
         ChangeNotifierProvider(create: (_) => LanguageViewModel()),
         ChangeNotifierProvider(create: (_) => ProfileOperationViewModel()),
-        ChangeNotifierProvider(create: (_) => ProfileOperationViewModel()),
+        ChangeNotifierProvider(create: (_) => ThemeViewModel()),
       ],
       child: const HerfagyApp(),
     ),
@@ -37,6 +39,7 @@ class HerfagyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final languageProvider = Provider.of<LanguageViewModel>(context);
+    final themeProvider = Provider.of<ThemeViewModel>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'حرفجى',
@@ -49,61 +52,20 @@ class HerfagyApp extends StatelessWidget {
       supportedLocales: S.delegate.supportedLocales,
       locale: languageProvider.locale,
 
+      themeMode: themeProvider.isDarkMode ? ThemeMode.dark : ThemeMode.light,
       theme: ThemeData(
+        brightness: Brightness.light,
         fontFamily: 'NotoSansArabic_Condensed-Regular',
         scaffoldBackgroundColor: Colors.white,
-        dialogTheme: DialogThemeData(backgroundColor: Colors.white),
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        fontFamily: 'NotoSansArabic_Condensed-Regular',
+        scaffoldBackgroundColor: Colors.black,
       ),
 
-      home: FutureBuilder<Widget>(
-        future: _determineStartPage(context),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Scaffold(
-              body: Center(child: CircularProgressIndicator()),
-            );
-          } else if (snapshot.hasData) {
-            return Stack(children: [snapshot.data!, const DeepLinkHandler()]);
-          } else {
-            return const Scaffold(body: Center(child: Text('حدث خطأ')));
-          }
-        },
-      ),
+      home: const StartPageLoader(),
     );
-  }
-
-  Future<Widget> _determineStartPage(BuildContext context) async {
-    try {
-      Provider.of<AuthViewModel>(context, listen: false);
-      final profileOps = Provider.of<ProfileOperationViewModel>(
-        context,
-        listen: false,
-      );
-      final SupabaseClient supabaseClient = sl<SupabaseClient>();
-      final session = supabaseClient.auth.currentSession;
-
-      if (session == null) {
-        return const OnboardingView();
-      }
-
-      await profileOps.loadProfiles();
-
-      final profile = profileOps.profiles.firstWhereOrNull(
-        (p) => p.id == session.user.id,
-      );
-
-      if (profile == null) {
-        return const OnboardingView();
-      } else if (profile.role?.toLowerCase() == 'crafter') {
-        return const CrafterView();
-      } else {
-        return const UserView();
-      }
-    } catch (e, st) {
-      debugPrint('Error in _determineStartPage: $e');
-      debugPrint('$st');
-      return const Scaffold(body: Center(child: Text('حدث خطأ')));
-    }
   }
 }
 

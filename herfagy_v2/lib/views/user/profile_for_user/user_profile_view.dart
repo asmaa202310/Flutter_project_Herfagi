@@ -54,12 +54,7 @@ class UserProfileView extends StatelessWidget {
                     ),
                     MenuSection(items: ProfileUserViewModel.menuItems(context)),
                     const SizedBox(height: 30),
-                    SettingsSection(
-                      darkModeEnabled: darkModeEnabled,
-                      onNotificationsChanged: (_) {},
-                      onDarkModeChanged: (_) {},
-                      onLogout: () => showLogoutDialog(context),
-                    ),
+                    SettingsSection(onLogout: () => showLogoutDialog(context)),
                   ],
                 ),
               ),
