@@ -53,6 +53,7 @@ dependencies:
   cached_network_image: ^3.4.1
   image_picker: ^1.2.0
   photo_view: ^0.15.0
+  flutter_launcher_icons: ^0.14.4
 
 dev_dependencies:
   flutter_test:
@@ -65,6 +66,12 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/app_logo/app_logo.png"
+  adaptive_icon_background: "assets/app_logo/background.png"
+  adaptive_icon_foreground: "assets/app_logo/app_logo.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
