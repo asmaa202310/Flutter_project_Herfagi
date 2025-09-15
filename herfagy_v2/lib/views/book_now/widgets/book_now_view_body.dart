@@ -67,7 +67,7 @@ class BookNowViewBody extends StatelessWidget {
                     label: localization.nameLabel,
                     hint: localization.nameHint,
                     controller: provider.nameController,
-                    prefixIcon: Icons.phone,
+                    prefixIcon: Icons.person,
                     validator: (value) => value == null || value.isEmpty
                         ? localization.requiredField
                         : null,
