@@ -133,5 +133,11 @@
         "enterServiceDetails": "Please enter the service details",
         "enterAddress": "Please enter the address",
         "enterPhoneNumber": "Please enter the phone number",
-        "phoneNumber": "Phone Number"
+        "phoneNumber": "Phone Number",
+        "uploadIdCard": "Upload your ID card",
+        "completeInfo": "Complete Your Information",
+        "selectService": "Select your service",
+        "uploadIdCardTitle": "Identity Card",
+        "infoCompleted": "Information completed successfully",
+        "completeInfoNote": "Please complete your information to continue. These details will be reviewed."
     }

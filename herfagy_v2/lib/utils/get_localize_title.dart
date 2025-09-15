@@ -29,7 +29,7 @@ class GetLocalizeTitle {
     }
   }
 
-  List<String> getServices(BuildContext context) {
+  static List<String> getServices(BuildContext context) {
     return ServiceKey.values.map((key) {
       return GetLocalizeTitle.getLocalizedTitle(context, key);
     }).toList();

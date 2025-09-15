@@ -47,7 +47,7 @@ class BookNowViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = context.read<BookNowViewModel>();
     final localization = context.localization;
-    final List<String> services = GetLocalizeTitle().getServices(context);
+    final List<String> services = GetLocalizeTitle.getServices(context);
 
     return CustomScrollView(
       slivers: [

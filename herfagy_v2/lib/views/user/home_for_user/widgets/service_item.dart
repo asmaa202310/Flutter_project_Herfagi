@@ -73,43 +73,14 @@ class ServiceItem extends StatelessWidget {
             ],
           ),
           const Spacer(),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Container(
-                width: SizeConfig.width(fraction: 0.22),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 6,
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.blue.shade50,
-                  borderRadius: BorderRadius.circular(
-                    SizeConfig.width(fraction: 0.035),
-                  ),
-                ),
-                child: FittedBox(
-                  child: Text(
-                    context.localization.priceWithCurrency(service.price),
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blue,
-                      fontSize: SizeConfig.width(fraction: 0.038),
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 8),
-              CustomElevatedButton(
-                height: SizeConfig.height(fraction: 0.05),
-                width: SizeConfig.width(fraction: 0.23),
-                text: context.localization.bookNow,
-                borderRaduis: SizeConfig.width(fraction: 0.05),
-                fontSize: SizeConfig.width(fraction: 0.035),
-                padding: 0,
-                onTap: () {},
-              ),
-            ],
+          CustomElevatedButton(
+            height: SizeConfig.height(fraction: 0.05),
+            width: SizeConfig.width(fraction: 0.23),
+            text: context.localization.bookNow,
+            borderRaduis: SizeConfig.width(fraction: 0.05),
+            fontSize: SizeConfig.width(fraction: 0.035),
+            padding: 0,
+            onTap: () {},
           ),
         ],
       ),

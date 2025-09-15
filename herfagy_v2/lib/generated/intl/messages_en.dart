@@ -59,6 +59,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Choose from gallery",
     ),
     "close": MessageLookupByLibrary.simpleMessage("Close"),
+    "completeInfo": MessageLookupByLibrary.simpleMessage(
+      "Complete Your Information",
+    ),
+    "completeInfoNote": MessageLookupByLibrary.simpleMessage(
+      "Please complete your information to continue. These details will be reviewed.",
+    ),
     "completed": MessageLookupByLibrary.simpleMessage("Completed"),
     "completedProjects": m0,
     "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
@@ -125,6 +131,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "helpSupport": MessageLookupByLibrary.simpleMessage("Help & Support"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
     "inProgress": MessageLookupByLibrary.simpleMessage("In Progress"),
+    "infoCompleted": MessageLookupByLibrary.simpleMessage(
+      "Information completed successfully",
+    ),
     "invalidEmailFormat": MessageLookupByLibrary.simpleMessage(
       "Invalid email format",
     ),
@@ -228,6 +237,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "sectionTopRated": MessageLookupByLibrary.simpleMessage("Top Rated"),
     "selectDate": MessageLookupByLibrary.simpleMessage("Select Date"),
+    "selectService": MessageLookupByLibrary.simpleMessage(
+      "Select your service",
+    ),
     "selectTime": MessageLookupByLibrary.simpleMessage("Select Time"),
     "selectedDate": MessageLookupByLibrary.simpleMessage("Selected Date"),
     "selectedService": MessageLookupByLibrary.simpleMessage(
@@ -253,6 +265,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "updatePasswordTitle": MessageLookupByLibrary.simpleMessage(
       "Update Password",
     ),
+    "uploadIdCard": MessageLookupByLibrary.simpleMessage("Upload your ID card"),
+    "uploadIdCardTitle": MessageLookupByLibrary.simpleMessage("Identity Card"),
     "userAccount": MessageLookupByLibrary.simpleMessage(
       "Regular User / Customer",
     ),

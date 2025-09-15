@@ -7,9 +7,13 @@ import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/profile
 import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/service_operation_view_model.dart';
 import 'package:herfagy_v2/viewmodels/supabase/auth_view_model.dart';
 import 'package:herfagy_v2/viewmodels/theme_view_model.dart';
+import 'package:herfagy_v2/views/user/user_view.dart';
 import '/generated/l10n.dart';
 import '/viewmodels/onboarding_view_model.dart';
 import 'package:provider/provider.dart';
+
+import 'views/category_details/category_details_view.dart';
+import 'views/complete_information/complete_info_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -60,7 +64,7 @@ class HerfagyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.black,
       ),
 
-      home: const StartPageLoader(),
+      home: const CompleteInfoView(),
     );
   }
 }

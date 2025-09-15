@@ -57,6 +57,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "اختيار صورة من المعرض",
     ),
     "close": MessageLookupByLibrary.simpleMessage("إغلاق"),
+    "completeInfo": MessageLookupByLibrary.simpleMessage("استكمال البيانات"),
+    "completeInfoNote": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إكمال البيانات للمتابعة، علماً بأنه سيتم مراجعة هذه البيانات.",
+    ),
     "completed": MessageLookupByLibrary.simpleMessage("مكتمل"),
     "completedProjects": m0,
     "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
@@ -121,6 +125,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "helpSupport": MessageLookupByLibrary.simpleMessage("المساعدة والدعم"),
     "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "inProgress": MessageLookupByLibrary.simpleMessage("قيد التنفيذ"),
+    "infoCompleted": MessageLookupByLibrary.simpleMessage(
+      "تم استكمال البيانات بنجاح",
+    ),
     "invalidEmailFormat": MessageLookupByLibrary.simpleMessage(
       "صيغة البريد الإلكتروني غير صحيحة",
     ),
@@ -228,6 +235,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "sectionTopRated": MessageLookupByLibrary.simpleMessage("الأعلى تقييماً"),
     "selectDate": MessageLookupByLibrary.simpleMessage("اختر التاريخ"),
+    "selectService": MessageLookupByLibrary.simpleMessage("اختر الخدمة"),
     "selectTime": MessageLookupByLibrary.simpleMessage("اختر الساعة"),
     "selectedDate": MessageLookupByLibrary.simpleMessage("التاريخ المختار"),
     "selectedService": MessageLookupByLibrary.simpleMessage("الخدمة المختارة"),
@@ -251,6 +259,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "updatePasswordTitle": MessageLookupByLibrary.simpleMessage(
       "تغيير كلمة السر",
     ),
+    "uploadIdCard": MessageLookupByLibrary.simpleMessage(
+      "قم برفع بطاقة الهوية",
+    ),
+    "uploadIdCardTitle": MessageLookupByLibrary.simpleMessage("بطاقة الهوية"),
     "userAccount": MessageLookupByLibrary.simpleMessage("مستخدم عادي / زبون"),
     "userAccountDescription": MessageLookupByLibrary.simpleMessage(
       "للعملاء الذين يبحثون عن الخدمات",

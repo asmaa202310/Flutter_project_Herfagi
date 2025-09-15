@@ -1153,6 +1153,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Upload your ID card`
+  String get uploadIdCard {
+    return Intl.message(
+      'Upload your ID card',
+      name: 'uploadIdCard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Complete Your Information`
+  String get completeInfo {
+    return Intl.message(
+      'Complete Your Information',
+      name: 'completeInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select your service`
+  String get selectService {
+    return Intl.message(
+      'Select your service',
+      name: 'selectService',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Identity Card`
+  String get uploadIdCardTitle {
+    return Intl.message(
+      'Identity Card',
+      name: 'uploadIdCardTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Information completed successfully`
+  String get infoCompleted {
+    return Intl.message(
+      'Information completed successfully',
+      name: 'infoCompleted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please complete your information to continue. These details will be reviewed.`
+  String get completeInfoNote {
+    return Intl.message(
+      'Please complete your information to continue. These details will be reviewed.',
+      name: 'completeInfoNote',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -133,5 +133,11 @@
     "enterServiceDetails": "من فضلك أدخل تفاصيل الخدمة",
     "enterAddress": "من فضلك أدخل العنوان",
     "enterPhoneNumber": "من فضلك أدخل رقم الموبايل",
-    "phoneNumber": "رقم الموبايل"
+    "phoneNumber": "رقم الموبايل",
+    "uploadIdCard": "قم برفع بطاقة الهوية",
+    "completeInfo": "استكمال البيانات",
+    "selectService": "اختر الخدمة",
+    "uploadIdCardTitle": "بطاقة الهوية",
+    "infoCompleted": "تم استكمال البيانات بنجاح",
+    "completeInfoNote": "الرجاء إكمال البيانات للمتابعة، علماً بأنه سيتم مراجعة هذه البيانات."
 }
