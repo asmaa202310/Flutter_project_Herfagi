@@ -53,7 +53,7 @@ class AccountCard extends StatelessWidget {
               height: SizeConfig.width(fraction: 0.15),
               decoration: BoxDecoration(
                 color: bgColor,
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(20),
               ),
               child: Icon(
                 icon,

@@ -13,11 +13,9 @@ class OrDivider extends StatelessWidget {
         Expanded(child: CustomDivider(screenWidth: screenWidth)),
         Text(
           context.localization.orSignInWith,
-          style: TextStyle(
-            fontSize: screenWidth * 0.045,
-            // fontWeight: FontWeight.w500,
-            color: Colors.blueGrey,
-          ),
+          style: Theme.of(
+            context,
+          ).textTheme.bodyMedium?.copyWith(fontSize: screenWidth * 0.045),
         ),
         Expanded(child: CustomDivider(screenWidth: screenWidth)),
       ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:herfagy_v2/constants/app_colors.dart';
 import 'package:herfagy_v2/utils/size_config.dart';
 import 'package:provider/provider.dart';
 import 'package:herfagy_v2/utils/localization_extension.dart';
@@ -25,7 +26,7 @@ class CompleteInfoViewBody extends StatelessWidget {
             Text(
               localization.completeInfo,
               style: TextStyle(
-                color: Colors.blue,
+                color: AppColors.kPrimaryColorLight,
                 fontSize: SizeConfig.width(fraction: 0.095),
                 fontWeight: FontWeight.bold,
               ),
@@ -48,7 +49,10 @@ class CompleteInfoViewBody extends StatelessWidget {
               initialValue: provider.selectedService,
               decoration: InputDecoration(
                 hintText: localization.selectService,
-                prefixIcon: const Icon(Icons.build, color: Colors.blue),
+                prefixIcon: const Icon(
+                  Icons.build,
+                  color: AppColors.kPrimaryColorLight,
+                ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -85,7 +89,7 @@ class CompleteInfoViewBody extends StatelessWidget {
                           const Icon(
                             Icons.upload_file,
                             size: 50,
-                            color: Colors.blue,
+                            color: AppColors.kPrimaryColorLight,
                           ),
                           const SizedBox(height: 10),
                           Text(localization.uploadIdCard),

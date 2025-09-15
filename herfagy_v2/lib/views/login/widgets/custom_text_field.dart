@@ -34,12 +34,7 @@ class CustomTextField extends StatelessWidget {
       keyboardType: keyboardType,
       decoration: InputDecoration(
         labelText: label,
-        labelStyle: TextStyle(
-          color: Colors.blue.shade900,
-          fontSize: screenWidth * 0.045,
-        ),
         hintText: hint,
-        hintStyle: const TextStyle(color: Colors.blueGrey),
         prefixIcon: Icon(prefixIcon, color: Colors.blue.shade400),
         suffixIcon: suffixIcon != null
             ? IconButton(

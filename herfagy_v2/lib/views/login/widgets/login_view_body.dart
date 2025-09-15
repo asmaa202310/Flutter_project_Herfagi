@@ -37,114 +37,109 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   Widget build(BuildContext context) {
     SizeConfig.init(context);
     final localization = context.localization;
-    return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle.dark.copyWith(
-        statusBarColor: Colors.transparent,
-      ),
-      child: SafeArea(
-        child: Form(
-          key: _formKey,
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                const ImageWidget(),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: SizeConfig.width(fraction: 0.05),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(height: SizeConfig.height(fraction: 0.02)),
-                      Text(
-                        localization.welcome,
-                        style: TextStyle(
-                          color: Colors.blue,
-                          fontSize: SizeConfig.width(fraction: 0.08),
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-
-                      Text(
-                        localization.login,
-                        style: TextStyle(
-                          color: Colors.blue.shade700,
-                          fontSize: SizeConfig.width(fraction: 0.085),
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-
-                      SizedBox(height: SizeConfig.height(fraction: 0.03)),
-
-                      CustomTextField(
-                        label: localization.emailLabel,
-                        hint: localization.emailHint,
-                        controller: _emailController,
-                        validator: (value) => Validators.validateEmail(value),
-                        prefixIcon: Icons.email_outlined,
-                      ),
-
-                      SizedBox(height: SizeConfig.height(fraction: 0.025)),
-
-                      Consumer<LoginViewModel>(
-                        builder: (context, viewModel, _) {
-                          return CustomTextField(
-                            obscureText: viewModel.obscurePassword,
-                            label: localization.passwordLabel,
-                            hint: localization.passwordHint,
-                            controller: _passwordController,
-                            validator: (value) =>
-                                Validators.validatePassword(value),
-                            prefixIcon: Icons.security,
-                            onSuffixIconPressed:
-                                viewModel.togglePasswordVisibility,
-                            suffixIcon: viewModel.obscurePassword
-                                ? Icons.visibility_off
-                                : Icons.visibility,
-                          );
-                        },
-                      ),
-
-                      SizedBox(height: SizeConfig.height(fraction: 0.005)),
-
-                      const CustomForgetPasswordButton(),
-
-                      SizedBox(height: SizeConfig.height(fraction: 0.001)),
-
-                      CustomLoginSignUpButton(
-                        text: localization.login,
-                        isLogin: true,
-                        isResetPassword: false,
-                        email: _emailController,
-                        password: _passwordController,
-                      ),
-                      SizedBox(height: SizeConfig.height(fraction: 0.025)),
-
-                      const OrDivider(),
-
-                      SizedBox(height: SizeConfig.height(fraction: 0.025)),
-
-                      const CustomSocialButtonsContainer(),
-
-                      SizedBox(height: SizeConfig.height(fraction: 0.025)),
-
-                      RowCheckAccountWidget(
-                        questionText: localization.dontHaveAccount,
-                        buttonText: localization.signUp,
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const SignUpView(),
-                            ),
-                          );
-                        },
-                      ),
-                    ],
-                  ),
+    return SafeArea(
+      child: Form(
+        key: _formKey,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const ImageWidget(),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: SizeConfig.width(fraction: 0.05),
                 ),
-              ],
-            ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: SizeConfig.height(fraction: 0.02)),
+                    Text(
+                      localization.welcome,
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: SizeConfig.width(fraction: 0.08),
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+
+                    Text(
+                      localization.login,
+                      style: TextStyle(
+                        color: Colors.blue.shade700,
+                        fontSize: SizeConfig.width(fraction: 0.085),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+
+                    SizedBox(height: SizeConfig.height(fraction: 0.03)),
+
+                    CustomTextField(
+                      label: localization.emailLabel,
+                      hint: localization.emailHint,
+                      controller: _emailController,
+                      validator: (value) => Validators.validateEmail(value),
+                      prefixIcon: Icons.email_outlined,
+                    ),
+
+                    SizedBox(height: SizeConfig.height(fraction: 0.025)),
+
+                    Consumer<LoginViewModel>(
+                      builder: (context, viewModel, _) {
+                        return CustomTextField(
+                          obscureText: viewModel.obscurePassword,
+                          label: localization.passwordLabel,
+                          hint: localization.passwordHint,
+                          controller: _passwordController,
+                          validator: (value) =>
+                              Validators.validatePassword(value),
+                          prefixIcon: Icons.security,
+                          onSuffixIconPressed:
+                              viewModel.togglePasswordVisibility,
+                          suffixIcon: viewModel.obscurePassword
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                        );
+                      },
+                    ),
+
+                    SizedBox(height: SizeConfig.height(fraction: 0.005)),
+
+                    const CustomForgetPasswordButton(),
+
+                    SizedBox(height: SizeConfig.height(fraction: 0.001)),
+
+                    CustomLoginSignUpButton(
+                      text: localization.login,
+                      isLogin: true,
+                      isResetPassword: false,
+                      email: _emailController,
+                      password: _passwordController,
+                    ),
+                    SizedBox(height: SizeConfig.height(fraction: 0.025)),
+
+                    const OrDivider(),
+
+                    SizedBox(height: SizeConfig.height(fraction: 0.025)),
+
+                    const CustomSocialButtonsContainer(),
+
+                    SizedBox(height: SizeConfig.height(fraction: 0.025)),
+
+                    RowCheckAccountWidget(
+                      questionText: localization.dontHaveAccount,
+                      buttonText: localization.signUp,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SignUpView(),
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ),

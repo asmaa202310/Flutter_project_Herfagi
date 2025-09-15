@@ -7,13 +7,6 @@ class UserTypeSelectionView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle.dark.copyWith(
-          statusBarColor: Colors.transparent,
-        ),
-        child: const UserTypeSelectionViewBody(),
-      ),
-    );
+    return Scaffold(body: const UserTypeSelectionViewBody());
   }
 }

@@ -5,7 +5,7 @@ class ThemeViewModel extends ChangeNotifier {
   static const String _darkModeKey = "darkModeEnabled";
 
   bool _isDarkMode = false;
-  bool get isDarkMode => _isDarkMode;
+  bool get isDarkMode => !_isDarkMode;
 
   ThemeViewModel() {
     _loadTheme();

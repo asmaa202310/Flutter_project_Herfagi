@@ -10,7 +10,6 @@ class CustomSilverAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig.init(context);
     return SliverAppBar(
-      backgroundColor: Colors.blue,
       pinned: true,
       floating: true,
       expandedHeight: SizeConfig.height(fraction: 0.18),

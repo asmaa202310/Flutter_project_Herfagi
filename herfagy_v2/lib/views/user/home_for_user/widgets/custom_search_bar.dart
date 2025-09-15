@@ -28,7 +28,7 @@ class CustomSearchBar extends StatelessWidget {
             contentPadding: EdgeInsets.zero,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(
-                SizeConfig.width(fraction: 0.05),
+                SizeConfig.width(fraction: 0.04),
               ),
               borderSide: BorderSide.none,
             ),

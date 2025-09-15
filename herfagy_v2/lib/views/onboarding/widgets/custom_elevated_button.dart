@@ -34,7 +34,7 @@ class CustomElevatedButton extends StatelessWidget {
       onPressed: onTap,
       style: ElevatedButton.styleFrom(
         padding: padding == null ? null : EdgeInsets.all(padding!),
-        backgroundColor: backgroundColor ?? Colors.blue,
+        backgroundColor: backgroundColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(borderRaduis ?? 12),
         ),
@@ -44,7 +44,7 @@ class CustomElevatedButton extends StatelessWidget {
         text,
         style: TextStyle(
           fontSize: fontSize,
-          color: textColor ?? Colors.white,
+          color: textColor,
           fontWeight: fontWeight,
         ),
       ),

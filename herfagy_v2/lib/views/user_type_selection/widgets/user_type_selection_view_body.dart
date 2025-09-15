@@ -5,6 +5,7 @@ import 'package:herfagy_v2/utils/get_location.dart';
 import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/profile_operation_view_model.dart';
 import 'package:herfagy_v2/viewmodels/supabase/auth_facebook_model_view.dart';
 import 'package:herfagy_v2/viewmodels/supabase/auth_google_model_view.dart';
+import 'package:herfagy_v2/viewmodels/theme_view_model.dart';
 import 'package:herfagy_v2/views/crafter/crafter_view.dart';
 import 'package:herfagy_v2/views/user/user_view.dart';
 import '/utils/localization_extension.dart';
@@ -22,6 +23,7 @@ class UserTypeSelectionViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final authVM = context.read<AuthViewModel>();
+    final themeProvider = context.read<ThemeViewModel>();
     final authGoogle = sl<AuthGoogleModelView>();
     final authFacebook = sl<AuthFacebookModelView>();
     final profileOperationViewModel = Provider.of<ProfileOperationViewModel>(
@@ -88,8 +90,8 @@ class UserTypeSelectionViewBody extends StatelessWidget {
             Text(
               localization.pleaseChooseAccountType,
               textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.black,
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: themeProvider.isDarkMode ? Colors.grey : Colors.blueGrey,
                 fontSize: SizeConfig.width(fraction: 0.045),
                 height: 1.5,
               ),
@@ -112,7 +114,7 @@ class UserTypeSelectionViewBody extends StatelessWidget {
               icon: Icons.person_outline,
               bgColor: Colors.white,
               iconColor: Colors.blue,
-              borderColor: Colors.grey.shade300,
+              borderColor: Colors.grey.shade200,
               onTap: () => selectRoleAndNavigate('User', const UserView()),
             ),
             SizedBox(height: SizeConfig.height(fraction: 0.06)),

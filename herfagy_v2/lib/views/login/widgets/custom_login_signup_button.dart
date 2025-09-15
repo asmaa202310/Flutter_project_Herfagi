@@ -97,7 +97,8 @@ class CustomLoginSignUpButton extends StatelessWidget {
           } else if (isResetPassword) {
             AuthHandler.handleAuth(
               context: context,
-              action: () => context.read<AuthViewModel>().resetPassword(email!.text),
+              action: () =>
+                  context.read<AuthViewModel>().resetPassword(email!.text),
               onSuccessScreen: () => const ForgetPasswordView(),
             );
           }
@@ -106,7 +107,6 @@ class CustomLoginSignUpButton extends StatelessWidget {
         }
       },
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.blue,
         minimumSize: Size(
           SizeConfig.screenWidth,
           SizeConfig.height(fraction: 0.06),
@@ -116,17 +116,11 @@ class CustomLoginSignUpButton extends StatelessWidget {
           ? const SizedBox(
               width: 24,
               height: 24,
-              child: CircularProgressIndicator(
-                color: Colors.white,
-                strokeWidth: 2,
-              ),
+              child: CircularProgressIndicator(strokeWidth: 2),
             )
           : Text(
               text,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: SizeConfig.width(fraction: 0.06),
-              ),
+              style: TextStyle(fontSize: SizeConfig.width(fraction: 0.06)),
             ),
     );
   }
