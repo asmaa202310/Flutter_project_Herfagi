@@ -176,6 +176,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "orSignInWith": MessageLookupByLibrary.simpleMessage("Or sign in with"),
     "orders": MessageLookupByLibrary.simpleMessage("Orders"),
+    "overview": MessageLookupByLibrary.simpleMessage("overview"),
     "painter": MessageLookupByLibrary.simpleMessage("Painter"),
     "passwordChangedSuccess": MessageLookupByLibrary.simpleMessage(
       "Password changed successfully",

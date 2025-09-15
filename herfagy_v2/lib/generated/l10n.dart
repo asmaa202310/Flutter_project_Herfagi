@@ -1213,6 +1213,11 @@ class S {
       args: [],
     );
   }
+
+  /// `overview`
+  String get overview {
+    return Intl.message('overview', name: 'overview', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

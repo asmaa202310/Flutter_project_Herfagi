@@ -139,5 +139,6 @@
         "selectService": "Select your service",
         "uploadIdCardTitle": "Identity Card",
         "infoCompleted": "Information completed successfully",
-        "completeInfoNote": "Please complete your information to continue. These details will be reviewed."
+        "completeInfoNote": "Please complete your information to continue. These details will be reviewed.",
+        "overview": "overview"
     }

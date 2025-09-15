@@ -7,6 +7,7 @@ import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/profile
 import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/service_operation_view_model.dart';
 import 'package:herfagy_v2/viewmodels/supabase/auth_view_model.dart';
 import 'package:herfagy_v2/viewmodels/theme_view_model.dart';
+import 'package:herfagy_v2/views/profile_overview/profile_overview_view.dart';
 import 'package:herfagy_v2/views/user/user_view.dart';
 import '/generated/l10n.dart';
 import '/viewmodels/onboarding_view_model.dart';
@@ -64,7 +65,7 @@ class HerfagyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.black,
       ),
 
-      home: const CompleteInfoView(),
+      home: const ProfileOverviewView(),
     );
   }
 }

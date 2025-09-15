@@ -35,7 +35,7 @@ class MenuItem extends StatelessWidget {
             color: color.withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(10),
           ),
-          child: Icon(icon, color: color, size: 22),
+          child: Icon(icon, color: color),
         ),
         title: Text(
           title,

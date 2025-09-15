@@ -176,6 +176,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "orSignInWith": MessageLookupByLibrary.simpleMessage("أو سجل من خلال"),
     "orders": MessageLookupByLibrary.simpleMessage("الطلبات"),
+    "overview": MessageLookupByLibrary.simpleMessage("نظرة عامة"),
     "painter": MessageLookupByLibrary.simpleMessage("دهانات"),
     "passwordChangedSuccess": MessageLookupByLibrary.simpleMessage(
       "تم تغيير كلمة السر بنجاح",

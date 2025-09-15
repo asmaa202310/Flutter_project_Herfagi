@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:herfagy_v2/utils/localization_extension.dart';
+import 'package:herfagy_v2/utils/size_config.dart';
 import '../../../gallery/gallery_view.dart';
 import 'custom_image_widget.dart';
 import 'no_images_widget.dart';
@@ -18,6 +19,7 @@ class CrafterGallerySection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final localization = context.localization;
+    SizeConfig.init(context);
 
     return Container(
       padding: const EdgeInsets.all(12),
@@ -37,7 +39,10 @@ class CrafterGallerySection extends StatelessWidget {
         children: [
           Text(
             localization.galleryTitle,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontSize: SizeConfig.width(fraction: 0.05),
+              fontWeight: FontWeight.bold,
+            ),
           ),
           const SizedBox(height: 10),
           workImages.isEmpty
