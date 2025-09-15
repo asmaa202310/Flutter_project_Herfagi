@@ -4,7 +4,6 @@ import 'package:herfagy_v2/utils/size_config.dart';
 import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/profile_operation_view_model.dart';
 import 'package:herfagy_v2/views/user/orders_for_user/widgets/custom_general_app_bar.dart';
 import 'package:provider/provider.dart';
-
 import '../../../models/profile.dart';
 import '../../../utils/show_logout_dialogue.dart';
 import '../../../viewmodels/profile_user_view_model.dart';

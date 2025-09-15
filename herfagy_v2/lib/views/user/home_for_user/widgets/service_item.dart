@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:herfagy_v2/utils/localization_extension.dart';
+import 'package:herfagy_v2/views/book_now/book_now_view.dart';
 import 'package:herfagy_v2/views/user/home_for_user/widgets/custom_rating_bar_indicator.dart';
+import '../../../../constants/app_colors.dart';
 import '../../../../models/old/service_model.dart';
 import '../../../../utils/get_localize_title.dart';
 import '../../../../utils/size_config.dart';
@@ -24,11 +26,15 @@ class ServiceItem extends StatelessWidget {
         vertical: SizeConfig.width(fraction: 0.03),
       ),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).brightness == Brightness.dark
+            ? AppColors.kAppBarHome2Dark
+            : AppColors.kButtonsForegroundColorLight,
         borderRadius: BorderRadius.circular(18),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.shade300,
+            color: Theme.of(context).brightness == Brightness.dark
+                ? AppColors.kAppBarHome1Dark
+                : Colors.grey.shade300,
             blurRadius: 6,
             offset: const Offset(0, 3),
           ),
@@ -54,13 +60,19 @@ class ServiceItem extends StatelessWidget {
                 style: TextStyle(
                   fontSize: SizeConfig.width(fraction: 0.048),
                   fontWeight: FontWeight.bold,
-                  color: Colors.blue.shade800,
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? AppColors.kButtonsForegroundColorLight
+                      : AppColors.kPrimaryColorLight.shade800,
                 ),
               ),
               Text(
                 service.name,
                 style: TextStyle(
-                  color: Colors.grey.shade600,
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? AppColors.kButtonsForegroundColorLight.withValues(
+                          alpha: 0.7,
+                        )
+                      : Colors.grey.shade600,
                   fontSize: SizeConfig.width(fraction: 0.038),
                   fontWeight: FontWeight.bold,
                 ),
@@ -80,7 +92,10 @@ class ServiceItem extends StatelessWidget {
             borderRaduis: SizeConfig.width(fraction: 0.05),
             fontSize: SizeConfig.width(fraction: 0.035),
             padding: 0,
-            onTap: () {},
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => BookNowView()),
+            ),
           ),
         ],
       ),

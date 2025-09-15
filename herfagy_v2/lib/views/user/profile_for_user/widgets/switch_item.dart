@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../constants/app_colors.dart';
+
 class SwitchItem extends StatelessWidget {
   final IconData icon;
   final String title;
@@ -19,7 +21,9 @@ class SwitchItem extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).brightness == Brightness.dark
+            ? AppColors.kPrimarColorDark.shade500
+            : AppColors.kButtonsForegroundColorLight,
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
@@ -52,7 +56,9 @@ class SwitchItem extends StatelessWidget {
         trailing: Switch(
           value: value,
           onChanged: onChanged,
-          activeThumbColor: const Color(0xFF4285F4),
+          activeThumbColor: Theme.of(context).brightness == Brightness.dark
+              ? AppColors.kPrimaryColorLight.shade700
+              : AppColors.kPrimarColorDark,
         ),
       ),
     );

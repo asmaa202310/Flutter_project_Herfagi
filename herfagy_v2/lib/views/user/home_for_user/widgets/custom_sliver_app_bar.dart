@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../constants/app_colors.dart';
 import '/utils/size_config.dart';
 import 'app_bar_background_content.dart';
 import 'custom_search_bar.dart';
@@ -10,6 +11,9 @@ class CustomSilverAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig.init(context);
     return SliverAppBar(
+      backgroundColor: Theme.of(context).brightness == Brightness.light
+          ? AppColors.kAppBarHome1Light
+          : AppColors.kAppBarHome1Dark,
       pinned: true,
       floating: true,
       expandedHeight: SizeConfig.height(fraction: 0.18),

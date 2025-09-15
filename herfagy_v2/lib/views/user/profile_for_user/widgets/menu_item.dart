@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../constants/app_colors.dart';
+
 class MenuItem extends StatelessWidget {
   final IconData icon;
   final String title;
@@ -18,7 +20,9 @@ class MenuItem extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).brightness == Brightness.dark
+            ? AppColors.kPrimarColorDark.shade500
+            : AppColors.kButtonsForegroundColorLight,
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
@@ -48,7 +52,9 @@ class MenuItem extends StatelessWidget {
         trailing: Icon(
           Icons.arrow_forward_ios,
           size: 16,
-          color: Colors.grey[400],
+          color: Theme.of(context).brightness == Brightness.dark
+              ? AppColors.kButtonsForegroundColorLight
+              : Colors.grey[400],
         ),
         onTap: onTap,
       ),

@@ -66,7 +66,7 @@ class HerfagyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
 
-      home: const StartPageLoader(),
+      home: const CompleteInfoView(),
     );
   }
 }

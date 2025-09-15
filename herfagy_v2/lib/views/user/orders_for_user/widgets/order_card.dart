@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:herfagy_v2/models/order.dart';
 import 'package:herfagy_v2/models/service.dart';
 import 'package:herfagy_v2/utils/size_config.dart';
+import '../../../../constants/app_colors.dart';
 import '../../../crafter/orders_for_crafter/widgets/order_status_widget.dart';
 import '../../../user/home_for_user/widgets/custom_order_button.dart';
 import '/utils/localization_extension.dart';
@@ -23,7 +24,9 @@ class OrderCard extends StatelessWidget {
         : localization.customer;
 
     return Card(
-      color: Colors.white.withValues(alpha: 0.89),
+      color: Theme.of(context).brightness == Brightness.dark
+          ? AppColors.kPrimarColorDark
+          : AppColors.kButtonsForegroundColorLight.withValues(alpha: 0.89),
       margin: EdgeInsets.symmetric(
         vertical: SizeConfig.height(fraction: 0.01),
         horizontal: SizeConfig.width(fraction: 0.035),

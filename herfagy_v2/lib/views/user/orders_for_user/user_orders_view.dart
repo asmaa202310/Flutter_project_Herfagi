@@ -10,10 +10,7 @@ class UserOrdersView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (BuildContext context) => OrderOperationViewModel()..loadOrders(),
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: const UserOrdersViewBody(),
-      ),
+      child: Scaffold(body: const UserOrdersViewBody()),
     );
   }
 }

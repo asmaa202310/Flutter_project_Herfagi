@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:herfagy_v2/utils/size_config.dart';
 
+import '../../../../constants/app_colors.dart';
+
 class CustomGeneralSliverAppBar extends StatelessWidget {
   const CustomGeneralSliverAppBar({
     super.key,
@@ -21,8 +23,10 @@ class CustomGeneralSliverAppBar extends StatelessWidget {
       backgroundColor: Colors.transparent,
       flexibleSpace: Container(
         decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            colors: [Color(0xFF1565C0), Color(0xFF42A5F5)],
+          gradient: LinearGradient(
+            colors: Theme.of(context).brightness == Brightness.light
+                ? [AppColors.kAppBarHome1Light, AppColors.kAppBarHome2Light]
+                : [AppColors.kAppBarHome1Dark, AppColors.kAppBarHome2Dark],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),

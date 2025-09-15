@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:herfagy_v2/utils/get_localize_title.dart';
 import 'package:herfagy_v2/utils/localization_extension.dart';
 import 'package:herfagy_v2/views/book_now/book_now_view.dart';
+import '../../../../constants/app_colors.dart';
 import '../../../onboarding/widgets/custom_elevated_button.dart';
 import '/models/old/crafter_model.dart';
 
@@ -25,11 +26,15 @@ class CrafterItem extends StatelessWidget {
       ),
       padding: EdgeInsets.all(SizeConfig.width(fraction: 0.04)),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).brightness == Brightness.dark
+            ? AppColors.kAppBarHome2Dark
+            : AppColors.kButtonsForegroundColorLight,
         borderRadius: BorderRadius.circular(18),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.shade300,
+            color: Theme.of(context).brightness == Brightness.dark
+                ? AppColors.kAppBarHome1Dark
+                : Colors.grey.shade300,
             blurRadius: 6,
             offset: const Offset(0, 3),
           ),
@@ -53,13 +58,19 @@ class CrafterItem extends StatelessWidget {
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: SizeConfig.width(fraction: 0.046),
-              color: Colors.blue.shade800,
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? AppColors.kButtonsForegroundColorLight
+                  : AppColors.kPrimaryColorLight.shade800,
             ),
           ),
           Text(
             crafter.name,
             style: TextStyle(
-              color: Colors.grey.shade600,
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? AppColors.kButtonsForegroundColorLight.withValues(
+                      alpha: 0.7,
+                    )
+                  : Colors.grey.shade600,
               fontSize: SizeConfig.width(fraction: 0.04),
             ),
           ),

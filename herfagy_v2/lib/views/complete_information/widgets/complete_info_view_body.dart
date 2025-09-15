@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:herfagy_v2/constants/app_colors.dart';
 import 'package:herfagy_v2/utils/size_config.dart';
+import 'package:herfagy_v2/views/onboarding/widgets/custom_elevated_button.dart';
 import 'package:provider/provider.dart';
 import 'package:herfagy_v2/utils/localization_extension.dart';
 import '../../../utils/get_localize_title.dart';
@@ -104,6 +105,12 @@ class CompleteInfoViewBody extends StatelessWidget {
                         ),
                       ),
               ),
+            ),
+            const Spacer(),
+            CustomElevatedButton(
+              onTap: () {},
+              text: context.localization.next,
+              fontSize: 18,
             ),
           ],
         ),

@@ -2,11 +2,13 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:herfagy_v2/models/profile.dart';
 import 'package:herfagy_v2/utils/localization_extension.dart';
+import 'package:herfagy_v2/utils/size_config.dart';
 import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/profile_operation_view_model.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
+import '../../../../constants/app_colors.dart';
 import '../../../crafter/profile_for_crafter/widgets/photo_viewer.dart';
 import 'avatar_widget.dart';
 
@@ -156,10 +158,12 @@ class _ProfileHeaderState extends State<ProfileHeader> {
         const SizedBox(height: 20),
         Text(
           widget.userName,
-          style: const TextStyle(
-            fontSize: 24,
+          style: TextStyle(
+            fontSize: SizeConfig.width(fraction: 0.07),
             fontWeight: FontWeight.bold,
-            color: Colors.black87,
+            color: Theme.of(context).brightness == Brightness.dark
+                ? AppColors.kButtonsForegroundColorLight
+                : AppColors.kButtonsForegroundColorDark,
           ),
         ),
         const SizedBox(height: 15),
@@ -170,7 +174,12 @@ class _ProfileHeaderState extends State<ProfileHeader> {
             const SizedBox(width: 5),
             Text(
               widget.location,
-              style: TextStyle(color: Colors.grey[600], fontSize: 18),
+              style: TextStyle(
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? AppColors.kButtonsForegroundColorLight
+                    : AppColors.kTextFieldLabelDark.shade900,
+                fontSize: SizeConfig.width(fraction: 0.05),
+              ),
             ),
           ],
         ),

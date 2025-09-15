@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:herfagy_v2/constants/app_colors.dart';
 import '/utils/size_config.dart';
 
 class SectionHeader extends StatelessWidget {
@@ -25,7 +26,9 @@ class SectionHeader extends StatelessWidget {
             style: TextStyle(
               fontSize: SizeConfig.width(fraction: 0.055),
               fontWeight: FontWeight.bold,
-              color: Colors.blue.shade900,
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? AppColors.kButtonsForegroundColorLight
+                  : AppColors.kPrimaryColorLight.shade900,
             ),
           ),
           if (actionText != null)
@@ -34,7 +37,9 @@ class SectionHeader extends StatelessWidget {
               child: Text(
                 actionText!,
                 style: TextStyle(
-                  color: Colors.blue,
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? AppColors.kAppBarHome1Light
+                      : AppColors.kPrimaryColorLight.shade900,
                   fontSize: SizeConfig.width(fraction: 0.055),
                   fontWeight: FontWeight.bold,
                 ),
