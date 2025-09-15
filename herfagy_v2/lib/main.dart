@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:herfagy_v2/constants/app_colors.dart';
-import 'package:herfagy_v2/setup.dart';
-import 'package:herfagy_v2/start_page_loader.dart';
+import 'package:herfagy_v2/services/setup.dart';
+import 'package:herfagy_v2/services/start_page_loader.dart';
 import 'package:herfagy_v2/viewmodels/language_view_model.dart';
 import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/profile_operation_view_model.dart';
 import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/service_operation_view_model.dart';

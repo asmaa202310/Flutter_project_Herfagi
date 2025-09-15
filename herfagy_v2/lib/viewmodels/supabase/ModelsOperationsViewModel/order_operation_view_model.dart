@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:herfagy_v2/models/order.dart';
 import 'package:herfagy_v2/models/profile.dart';
 import 'package:herfagy_v2/models/service.dart';
-import 'package:herfagy_v2/setup.dart';
+import 'package:herfagy_v2/services/setup.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class OrderOperationViewModel extends ChangeNotifier {

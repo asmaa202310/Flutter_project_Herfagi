@@ -1,8 +1,8 @@
 import 'dart:developer';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:herfagy_v2/app_config.dart';
 import 'package:herfagy_v2/models/profile.dart';
-import 'package:herfagy_v2/setup.dart';
+import 'package:herfagy_v2/services/app_config.dart';
+import 'package:herfagy_v2/services/setup.dart';
 import 'package:herfagy_v2/viewmodels/supabase/modelsOperationsViewModel/profile_operation_view_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
