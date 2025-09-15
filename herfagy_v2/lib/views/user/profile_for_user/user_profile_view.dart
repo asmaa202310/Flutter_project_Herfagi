@@ -49,7 +49,7 @@ class UserProfileView extends StatelessWidget {
                   children: [
                     ProfileHeader(
                       userName: profile.username,
-                      location: profile.location ?? "",
+                      location: profile.location ?? "Unknown",
                       screenWidth: SizeConfig.screenWidth,
                     ),
                     MenuSection(items: ProfileUserViewModel.menuItems(context)),

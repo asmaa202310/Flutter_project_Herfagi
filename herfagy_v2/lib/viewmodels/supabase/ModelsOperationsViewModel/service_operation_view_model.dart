@@ -70,4 +70,21 @@ class ServiceOperationViewModel extends ChangeNotifier {
       throw "$e";
     }
   }
+
+  Future<Service?> getServiceById(int id) async {
+    try {
+      final result = await supabaseClient
+          .from('services')
+          .select()
+          .eq('id', id)
+          .maybeSingle();
+
+      if (result == null) return null;
+
+      return Service.fromMap(result);
+    } catch (e) {
+      debugPrint("Get Service by ID error: $e");
+      return null;
+    }
+  }
 }

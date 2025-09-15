@@ -62,6 +62,7 @@ class AuthFacebookModelView {
       role: role,
       serviceId: profile!.serviceId,
       price: profile!.price,
+      location: profile?.location ?? "UnKnown",
     );
 
     await _profileOps.updateProfile(updatedProfile);

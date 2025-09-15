@@ -1,19 +1,89 @@
 import 'package:flutter/material.dart';
+import 'package:herfagy_v2/models/profile.dart';
 import 'package:herfagy_v2/utils/localization_extension.dart';
+import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/rating_operation_view_model.dart';
 import 'package:herfagy_v2/views/user/home_for_user/widgets/custom_rating_bar_indicator.dart';
-import '../../../../models/old/service_model.dart';
+import 'package:herfagy_v2/models/service.dart';
+import 'package:provider/provider.dart';
 import '../../../../utils/get_localize_title.dart';
 import '../../../../utils/size_config.dart';
 import '../../../onboarding/widgets/custom_elevated_button.dart';
 
 class ServiceItem extends StatelessWidget {
-  const ServiceItem({super.key, required this.service});
+  const ServiceItem({
+    super.key,
+    required this.service,
+    required this.profilesCrafter,
+    required this.profilesUsers,
+  });
 
-  final ServiceModel service;
+  final Service service;
+  final Profile profilesCrafter;
+  final List<Profile> profilesUsers;
+
+  static final List<Color> _colors = [
+    Colors.blue,
+    Colors.lightBlueAccent,
+    Colors.indigo,
+    Colors.blueGrey,
+    Colors.cyan,
+  ];
+
+  static final Map<String, IconData> _iconsMap = {
+    "airConditioning": Icons.ac_unit,
+    "painter": Icons.format_paint,
+    "plumber": Icons.water_damage,
+    "electrician": Icons.flash_on,
+    "carpenter": Icons.handyman,
+    "cleaning": Icons.cleaning_services,
+    "gardener": Icons.park,
+    "mechanic": Icons.build,
+    "teacher": Icons.school,
+    "doctor": Icons.local_hospital,
+  };
+
+  static final Map<String, ServiceKey> _serviceKeyMap = {
+    "electrician": ServiceKey.electrician,
+    "carpenter": ServiceKey.carpenter,
+    "plumber": ServiceKey.plumber,
+    "painter": ServiceKey.painter,
+    "blacksmith": ServiceKey.blacksmith,
+    "airConditioning": ServiceKey.airConditioning,
+  };
+
+  IconData _getIconData(String iconName) {
+    return _iconsMap[iconName] ?? Icons.category;
+  }
+
+  Future<double> _calculateAverageRating(
+    BuildContext context,
+    List<Profile> profilesUsers,
+    Profile profilesCrafter,
+  ) async {
+    final ratingVM = context.read<RatingOperationViewModel>();
+    double sumRating = 0;
+    int count = 0;
+
+    for (var profile in profilesUsers) {
+      final rate = await ratingVM.getRatingByCustomerAndCrafter(
+        profile.id,
+        profilesCrafter.id,
+      );
+
+      if (rate != null && rate > 0) {
+        sumRating += rate;
+        count++;
+      }
+    }
+
+    return count > 0 ? sumRating / count : 0.0;
+  }
 
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
+    final color = _colors[service.id % _colors.length];
+
     return Container(
       margin: EdgeInsets.symmetric(
         horizontal: SizeConfig.width(fraction: 0.05),
@@ -38,19 +108,24 @@ class ServiceItem extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: SizeConfig.width(fraction: 0.07),
-            backgroundColor: service.color.withValues(alpha: 0.15),
+            backgroundColor: color.withValues(alpha: 0.15),
             child: Icon(
-              service.icon,
+              _getIconData(service.name),
               size: SizeConfig.width(fraction: 0.07),
-              color: service.color,
+              color: color,
             ),
           ),
+
           SizedBox(width: SizeConfig.width(fraction: 0.04)),
+
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                GetLocalizeTitle.getLocalizedTitle(context, service.service),
+                GetLocalizeTitle.getLocalizedTitle(
+                  context,
+                  _serviceKeyMap[service.name] ?? ServiceKey.electrician,
+                ),
                 style: TextStyle(
                   fontSize: SizeConfig.width(fraction: 0.048),
                   fontWeight: FontWeight.bold,
@@ -58,7 +133,7 @@ class ServiceItem extends StatelessWidget {
                 ),
               ),
               Text(
-                service.name,
+                profilesCrafter.username,
                 style: TextStyle(
                   color: Colors.grey.shade600,
                   fontSize: SizeConfig.width(fraction: 0.038),
@@ -66,9 +141,29 @@ class ServiceItem extends StatelessWidget {
                 ),
               ),
               SizedBox(height: SizeConfig.height(fraction: 0.005)),
-              CustomRatingBarIndicator(
-                rating: service.rating,
-                itemSize: SizeConfig.width(fraction: 0.05),
+              FutureBuilder<double>(
+                future: _calculateAverageRating(
+                  context,
+                  profilesUsers,
+                  profilesCrafter,
+                ),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const SizedBox(
+                      height: 20,
+                      width: 20,
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    );
+                  }
+                  if (snapshot.hasError) {
+                    return Text("Error", style: TextStyle(color: Colors.red));
+                  }
+                  final averageRating = snapshot.data ?? 0.0;
+                  return CustomRatingBarIndicator(
+                    rating: averageRating,
+                    itemSize: SizeConfig.width(fraction: 0.05),
+                  );
+                },
               ),
             ],
           ),

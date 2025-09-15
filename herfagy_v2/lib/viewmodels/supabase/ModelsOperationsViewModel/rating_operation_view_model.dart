@@ -56,9 +56,11 @@ class RatingOperationViewModel extends ChangeNotifier {
           .single();
 
       final updatedRating = Rating.fromMap(result);
-      final index = _ratings.indexWhere((r) =>
-          r.customerId == updatedRating.customerId &&
-          r.crafterId == updatedRating.crafterId);
+      final index = _ratings.indexWhere(
+        (r) =>
+            r.customerId == updatedRating.customerId &&
+            r.crafterId == updatedRating.crafterId,
+      );
 
       if (index != -1) {
         _ratings[index] = updatedRating;
@@ -78,14 +80,54 @@ class RatingOperationViewModel extends ChangeNotifier {
           .eq('customer_id', rating.customerId)
           .eq('crafter_id', rating.crafterId);
 
-      _ratings.removeWhere((r) =>
-          r.customerId == rating.customerId &&
-          r.crafterId == rating.crafterId);
+      _ratings.removeWhere(
+        (r) =>
+            r.customerId == rating.customerId &&
+            r.crafterId == rating.crafterId,
+      );
 
       notifyListeners();
     } catch (e) {
       debugPrint("Delete Rating error: $e");
       throw "$e";
+    }
+  }
+
+  Future<int?> getRatingByCustomerAndCrafter(
+    String customerId,
+    String crafterId,
+  ) async {
+    try {
+      final result = await supabaseClient
+          .from('ratings')
+          .select('rate')
+          .eq('customer_id', customerId)
+          .eq('crafter_id', crafterId)
+          .maybeSingle();
+
+      if (result == null) return null;
+      return result['rate'] as int;
+    } catch (e) {
+      debugPrint("Get Rating error: $e");
+      return null;
+    }
+  }
+
+  Future<int?> getHighestRatingByCrafter(String crafterId) async {
+    try {
+      final result = await supabaseClient
+          .from('ratings')
+          .select('rate')
+          .eq('crafter_id', crafterId)
+          .order('rate', ascending: false)
+          .limit(1)
+          .maybeSingle();
+
+      if (result == null) return null;
+      return result['rate'] as int;
+    } catch (e) {
+      debugPrint("Get Highest Rating error: $e");
+      return null;
     }
   }
 }

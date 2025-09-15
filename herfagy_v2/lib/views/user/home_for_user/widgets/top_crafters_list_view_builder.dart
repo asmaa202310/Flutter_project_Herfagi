@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:herfagy_v2/models/profile.dart';
 import '/utils/size_config.dart';
-import '../../../../viewmodels/home_user_view_model.dart';
 import 'crafter_item.dart';
 
 class TopCraftersListViewBuilder extends StatelessWidget {
-  const TopCraftersListViewBuilder({super.key});
+  const TopCraftersListViewBuilder({
+    super.key,
+    required this.profilesCrafters,
+    required this.rating,
+  });
+  final List<Profile> profilesCrafters;
+  final List<int?> rating;
+
   @override
   Widget build(BuildContext context) {
-    final crafters = context.watch<HomeUserViewModel>().topCrafters;
     SizeConfig.init(context);
     return SizedBox(
       height: SizeConfig.height(fraction: 0.3),
@@ -17,10 +22,11 @@ class TopCraftersListViewBuilder extends StatelessWidget {
         padding: EdgeInsets.symmetric(
           horizontal: SizeConfig.height(fraction: 0.012),
         ),
-        itemCount: crafters.length,
+        itemCount: profilesCrafters.length,
         itemBuilder: (BuildContext context, int index) {
-          var crafter = crafters[index];
-          return CrafterItem(crafter: crafter);
+          var crafter = profilesCrafters[index];
+          var rate = (index < rating.length) ? rating[index] : null;
+          return CrafterItem(crafter: crafter, rate: rate);
         },
       ),
     );
