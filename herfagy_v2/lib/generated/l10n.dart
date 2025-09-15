@@ -1003,6 +1003,156 @@ class S {
       args: [],
     );
   }
+
+  /// `Herfagy`
+  String get appName {
+    return Intl.message('Herfagy', name: 'appName', desc: '', args: []);
+  }
+
+  /// `All your home services in one place`
+  String get tagLine {
+    return Intl.message(
+      'All your home services in one place',
+      name: 'tagLine',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Book Your Appointment`
+  String get bookYourAppointment {
+    return Intl.message(
+      'Book Your Appointment',
+      name: 'bookYourAppointment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Address`
+  String get address {
+    return Intl.message('Address', name: 'address', desc: '', args: []);
+  }
+
+  /// `Service Type`
+  String get serviceType {
+    return Intl.message(
+      'Service Type',
+      name: 'serviceType',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Date`
+  String get selectDate {
+    return Intl.message('Select Date', name: 'selectDate', desc: '', args: []);
+  }
+
+  /// `Select Time`
+  String get selectTime {
+    return Intl.message('Select Time', name: 'selectTime', desc: '', args: []);
+  }
+
+  /// `Confirm Booking`
+  String get confirmBooking {
+    return Intl.message(
+      'Confirm Booking',
+      name: 'confirmBooking',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Selected Date`
+  String get selectedDate {
+    return Intl.message(
+      'Selected Date',
+      name: 'selectedDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Selected Time`
+  String get selectedTime {
+    return Intl.message(
+      'Selected Time',
+      name: 'selectedTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Selected Service:`
+  String get selectedService {
+    return Intl.message(
+      'Selected Service:',
+      name: 'selectedService',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Not Selected`
+  String get notSelected {
+    return Intl.message(
+      'Not Selected',
+      name: 'notSelected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This field is required`
+  String get requiredField {
+    return Intl.message(
+      'This field is required',
+      name: 'requiredField',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter the service details`
+  String get enterServiceDetails {
+    return Intl.message(
+      'Please enter the service details',
+      name: 'enterServiceDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter the address`
+  String get enterAddress {
+    return Intl.message(
+      'Please enter the address',
+      name: 'enterAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter the phone number`
+  String get enterPhoneNumber {
+    return Intl.message(
+      'Please enter the phone number',
+      name: 'enterPhoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get phoneNumber {
+    return Intl.message(
+      'Phone Number',
+      name: 'phoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -28,4 +28,10 @@ class GetLocalizeTitle {
         return localization.airConditioning;
     }
   }
+
+  List<String> getServices(BuildContext context) {
+    return ServiceKey.values.map((key) {
+      return GetLocalizeTitle.getLocalizedTitle(context, key);
+    }).toList();
+  }
 }

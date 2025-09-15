@@ -116,5 +116,22 @@
         "chooseFromGallery": "Choose from gallery",
         "reviewsAndRatings": "Reviews & Ratings",
         "noReviewsYet": "No Reviews Yet",
-        "noPhotosYet": "No photo added yet"
+        "noPhotosYet": "No photo added yet",
+        "appName": "Herfagy",
+        "tagLine": "All your home services in one place",
+        "bookYourAppointment": "Book Your Appointment",
+        "address": "Address",
+        "serviceType": "Service Type",
+        "selectDate": "Select Date",
+        "selectTime": "Select Time",
+        "confirmBooking": "Confirm Booking",
+        "selectedDate": "Selected Date",
+        "selectedTime": "Selected Time",
+        "selectedService": "Selected Service:",
+        "notSelected": "Not Selected",
+        "requiredField": "This field is required",
+        "enterServiceDetails": "Please enter the service details",
+        "enterAddress": "Please enter the address",
+        "enterPhoneNumber": "Please enter the phone number",
+        "phoneNumber": "Phone Number"
     }

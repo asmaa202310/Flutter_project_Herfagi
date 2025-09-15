@@ -36,13 +36,16 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "accept": MessageLookupByLibrary.simpleMessage("قبول"),
     "addImagesNow": MessageLookupByLibrary.simpleMessage("اضف صور الآن"),
+    "address": MessageLookupByLibrary.simpleMessage("العنوان"),
     "airConditioning": MessageLookupByLibrary.simpleMessage("تكييف وتبريد"),
     "allWorks": MessageLookupByLibrary.simpleMessage("جميع الأعمال"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "هل لديك حساب بالفعل؟",
     ),
+    "appName": MessageLookupByLibrary.simpleMessage("حرفجي"),
     "blacksmith": MessageLookupByLibrary.simpleMessage("حدادة"),
     "bookNow": MessageLookupByLibrary.simpleMessage("احجز الآن"),
+    "bookYourAppointment": MessageLookupByLibrary.simpleMessage("احجز موعدك"),
     "bookings": MessageLookupByLibrary.simpleMessage("الحجوزات"),
     "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
     "carpenter": MessageLookupByLibrary.simpleMessage("نجارة"),
@@ -57,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "completed": MessageLookupByLibrary.simpleMessage("مكتمل"),
     "completedProjects": m0,
     "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
+    "confirmBooking": MessageLookupByLibrary.simpleMessage("تأكيد الحجز"),
     "confirmButton": MessageLookupByLibrary.simpleMessage("تأكيد"),
     "confirmPasswordHint": MessageLookupByLibrary.simpleMessage(
       "اعد كتابة كلمة السر",
@@ -83,11 +87,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailRequired": MessageLookupByLibrary.simpleMessage(
       "الرجاء إدخال البريد الإلكتروني",
     ),
+    "enterAddress": MessageLookupByLibrary.simpleMessage(
+      "من فضلك أدخل العنوان",
+    ),
     "enterEmail": MessageLookupByLibrary.simpleMessage(
       "الرجاء إدخال البريد الإلكتروني",
     ),
     "enterPassword": MessageLookupByLibrary.simpleMessage(
       "الرجاء إدخال كلمة المرور",
+    ),
+    "enterPhoneNumber": MessageLookupByLibrary.simpleMessage(
+      "من فضلك أدخل رقم الموبايل",
+    ),
+    "enterServiceDetails": MessageLookupByLibrary.simpleMessage(
+      "من فضلك أدخل تفاصيل الخدمة",
     ),
     "enterUsername": MessageLookupByLibrary.simpleMessage(
       "الرجاء إدخال اسم المستخدم",
@@ -144,6 +157,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "noWorksYet": MessageLookupByLibrary.simpleMessage(
       "لا يوجد أعمال مضافة حتى الآن",
     ),
+    "notSelected": MessageLookupByLibrary.simpleMessage("لم يتم الاختيار"),
     "onboardingDesc1": MessageLookupByLibrary.simpleMessage(
       "ابن دخلك أو خلى حياتك أسهل مع تطبيق حرفجى",
     ),
@@ -183,6 +197,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordsDoNotMatch": MessageLookupByLibrary.simpleMessage(
       "كلمات المرور غير متطابقة",
     ),
+    "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الموبايل"),
     "pleaseChooseAccountType": MessageLookupByLibrary.simpleMessage(
       "يرجى اختيار نوع الحساب للمتابعة",
     ),
@@ -196,6 +211,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "rememberPassword": MessageLookupByLibrary.simpleMessage(
       "تذكرت كلمة المرور ؟",
     ),
+    "requiredField": MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
     "reviews": MessageLookupByLibrary.simpleMessage("التقييمات"),
     "reviewsAndRatings": MessageLookupByLibrary.simpleMessage(
       "التقييمات والمراجعات",
@@ -211,13 +227,22 @@ class MessageLookup extends MessageLookupByLibrary {
       "الخدمات الشائعة",
     ),
     "sectionTopRated": MessageLookupByLibrary.simpleMessage("الأعلى تقييماً"),
+    "selectDate": MessageLookupByLibrary.simpleMessage("اختر التاريخ"),
+    "selectTime": MessageLookupByLibrary.simpleMessage("اختر الساعة"),
+    "selectedDate": MessageLookupByLibrary.simpleMessage("التاريخ المختار"),
+    "selectedService": MessageLookupByLibrary.simpleMessage("الخدمة المختارة"),
+    "selectedTime": MessageLookupByLibrary.simpleMessage("الساعة المختارة"),
     "sendResetLinkButton": MessageLookupByLibrary.simpleMessage("إرسال الرابط"),
     "service": MessageLookupByLibrary.simpleMessage("الخدمة"),
     "serviceDetails": MessageLookupByLibrary.simpleMessage("تفاصيل الخدمة"),
+    "serviceType": MessageLookupByLibrary.simpleMessage("نوع الخدمة"),
     "signUp": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "signUpTitle": MessageLookupByLibrary.simpleMessage("إنشاء حساب جديد"),
     "skip": MessageLookupByLibrary.simpleMessage("تخطى"),
     "status": MessageLookupByLibrary.simpleMessage("الحالة"),
+    "tagLine": MessageLookupByLibrary.simpleMessage(
+      "كل خدمات البيت في مكان واحد",
+    ),
     "takePhoto": MessageLookupByLibrary.simpleMessage("التقاط صورة بالكاميرا"),
     "uncompletedProjects": m5,
     "updatePasswordDesc": MessageLookupByLibrary.simpleMessage(
