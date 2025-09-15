@@ -1,17 +1,12 @@
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:herfagy_v2/setup.dart';
 import 'package:herfagy_v2/start_page_loader.dart';
-import 'package:herfagy_v2/utils/deep_link_handler.dart';
 import 'package:herfagy_v2/viewmodels/language_view_model.dart';
 import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/profile_operation_view_model.dart';
+import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/service_operation_view_model.dart';
 import 'package:herfagy_v2/viewmodels/supabase/auth_view_model.dart';
 import 'package:herfagy_v2/viewmodels/theme_view_model.dart';
-import 'package:herfagy_v2/views/crafter/crafter_view.dart';
-import 'package:herfagy_v2/views/onboarding/onboarding_view.dart';
-import 'package:herfagy_v2/views/user/user_view.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 import '/generated/l10n.dart';
 import '/viewmodels/onboarding_view_model.dart';
 import 'package:provider/provider.dart';
@@ -27,6 +22,7 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (_) => LanguageViewModel()),
         ChangeNotifierProvider(create: (_) => ProfileOperationViewModel()),
         ChangeNotifierProvider(create: (_) => ThemeViewModel()),
+        ChangeNotifierProvider(create: (_) => ServiceOperationViewModel()),
       ],
       child: const HerfagyApp(),
     ),
@@ -68,6 +64,8 @@ class HerfagyApp extends StatelessWidget {
     );
   }
 }
+
+//ProfileListTileWidget
 
 // theme: ThemeData(
 //         fontFamily: 'NotoSansArabic_Condensed-Regular',

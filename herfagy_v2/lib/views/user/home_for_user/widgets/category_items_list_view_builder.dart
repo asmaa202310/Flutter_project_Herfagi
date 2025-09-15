@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/service_operation_view_model.dart';
 import 'package:provider/provider.dart';
-import '../../../../viewmodels/home_user_view_model.dart';
 import '/utils/size_config.dart';
 import 'category_item.dart';
 
@@ -9,7 +9,10 @@ class CategoryItemsListViewBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final categories = context.watch<HomeUserViewModel>().categories;
+    final ServiceOperationViewModel serviceOperationViewModel =
+        Provider.of<ServiceOperationViewModel>(context);
+    final categories = serviceOperationViewModel.services;
+
     SizeConfig.init(context);
     return SizedBox(
       height: SizeConfig.height(fraction: 0.12),

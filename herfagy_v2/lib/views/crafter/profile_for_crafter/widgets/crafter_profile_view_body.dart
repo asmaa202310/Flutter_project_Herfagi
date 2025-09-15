@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/profile_operation_view_model.dart';
-import 'package:herfagy_v2/viewmodels/theme_view_model.dart';
 import 'package:provider/provider.dart';
 import '/utils/localization_extension.dart';
 import '../../../../utils/show_logout_dialogue.dart';
@@ -25,7 +24,6 @@ class CrafterProfileViewBody extends StatelessWidget {
       context,
       listen: false,
     );
-    final themeViewModel = Provider.of<ThemeViewModel>(context);
 
     return FutureBuilder<Profile?>(
       future: profileCrafterViewModel.getCurrentUserProfile(),

@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:herfagy_v2/utils/get_order_status_extension.dart';
 import 'package:provider/provider.dart';
-import 'reject_accept_button.dart';
-import '../../../../models/old/request_model.dart';
-import '../../../../viewmodels/home_crafter_view_model.dart';
+import '../../../../models/order.dart';
 import '../../../../utils/localization_extension.dart';
+import '../../../../viewmodels/supabase/ModelsOperationsViewModel/order_operation_view_model.dart';
+import 'reject_accept_button.dart';
 
 class BottomSheetActionButtons extends StatelessWidget {
-  const BottomSheetActionButtons({super.key, required this.request});
+  const BottomSheetActionButtons({super.key, required this.order});
 
-  final RequestModel request;
+  final Order order;
 
   @override
   Widget build(BuildContext context) {
+    final ordersVM = context.read<OrderOperationViewModel>();
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
@@ -19,8 +22,17 @@ class BottomSheetActionButtons extends StatelessWidget {
           buttonColor: Colors.green,
           text: context.localization.accept,
           icon: Icons.check,
-          onTap: () {
-            context.read<RequestsProvider>().acceptRequest(request);
+          onTap: () async {
+            final updatedOrder = Order(
+              serviceId: order.serviceId,
+              customerId: order.customerId,
+              crafterId: order.crafterId,
+              date: order.date,
+              details: order.details,
+              status: OrderStatus.inProgress,
+            );
+            await ordersVM.updateOrder(updatedOrder);
+            if (!context.mounted) return;
             Navigator.pop(context);
           },
         ),
@@ -29,8 +41,17 @@ class BottomSheetActionButtons extends StatelessWidget {
           buttonColor: Colors.red,
           text: context.localization.reject,
           icon: Icons.close,
-          onTap: () {
-            context.read<RequestsProvider>().rejectRequest(request);
+          onTap: () async {
+            final updatedOrder = Order(
+              serviceId: order.serviceId,
+              customerId: order.customerId,
+              crafterId: order.crafterId,
+              date: order.date,
+              details: order.details,
+              status: OrderStatus.rejected,
+            );
+            await ordersVM.updateOrder(updatedOrder);
+            if (!context.mounted) return;
             Navigator.pop(context);
           },
         ),

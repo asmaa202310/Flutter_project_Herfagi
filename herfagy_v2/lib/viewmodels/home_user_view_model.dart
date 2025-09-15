@@ -1,37 +1,36 @@
 import 'package:flutter/material.dart';
-import '../models/old/categoty_model.dart';
 import '../models/old/crafter_model.dart';
 import '../models/old/service_model.dart';
 import '../utils/get_localize_title.dart';
 
 class HomeUserViewModel extends ChangeNotifier {
-  final List<CategoryModel> categories = [
-    CategoryModel(
-      key: ServiceKey.electrician,
-      icon: Icons.flash_on,
-      color: Colors.yellow,
-    ),
-    CategoryModel(
-      key: ServiceKey.carpenter,
-      icon: Icons.handyman,
-      color: Colors.orange,
-    ),
-    CategoryModel(
-      key: ServiceKey.plumber,
-      icon: Icons.water_damage,
-      color: Colors.blue,
-    ),
-    CategoryModel(
-      key: ServiceKey.painter,
-      icon: Icons.format_paint,
-      color: Colors.purple,
-    ),
-    CategoryModel(
-      key: ServiceKey.blacksmith,
-      icon: Icons.build,
-      color: Colors.green,
-    ),
-  ];
+  // final List<CategoryModel> categories = [
+  //   CategoryModel(
+  //     key: ServiceKey.electrician,
+  //     icon: Icons.flash_on,
+  //     color: Colors.yellow,
+  //   ),
+  //   CategoryModel(
+  //     key: ServiceKey.carpenter,
+  //     icon: Icons.handyman,
+  //     color: Colors.orange,
+  //   ),
+  //   CategoryModel(
+  //     key: ServiceKey.plumber,
+  //     icon: Icons.water_damage,
+  //     color: Colors.blue,
+  //   ),
+  //   CategoryModel(
+  //     key: ServiceKey.painter,
+  //     icon: Icons.format_paint,
+  //     color: Colors.purple,
+  //   ),
+  //   CategoryModel(
+  //     key: ServiceKey.blacksmith,
+  //     icon: Icons.build,
+  //     color: Colors.green,
+  //   ),
+  // ];
 
   final List<CrafterModel> topCrafters = [
     CrafterModel(
