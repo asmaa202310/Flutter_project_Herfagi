@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'widgets/user_type_selection_view_body.dart';
 
 class UserTypeSelectionView extends StatelessWidget {

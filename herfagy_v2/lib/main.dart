@@ -8,21 +8,9 @@ import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/profile
 import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/service_operation_view_model.dart';
 import 'package:herfagy_v2/viewmodels/supabase/auth_view_model.dart';
 import 'package:herfagy_v2/viewmodels/theme_view_model.dart';
-import 'package:herfagy_v2/views/book_now/book_now_view.dart';
-import 'package:herfagy_v2/views/forget_password/forget_password_view.dart';
-import 'package:herfagy_v2/views/login/login_view.dart';
-import 'package:herfagy_v2/views/onboarding/onboarding_view.dart';
-import 'package:herfagy_v2/views/profile_overview/profile_overview_view.dart';
-import 'package:herfagy_v2/views/user/home_for_user/home_user_view.dart';
-import 'package:herfagy_v2/views/user/user_view.dart';
-import 'package:herfagy_v2/views/user_type_selection/user_type_selection_view.dart';
 import '/generated/l10n.dart';
 import '/viewmodels/onboarding_view_model.dart';
 import 'package:provider/provider.dart';
-
-import 'views/category_details/category_details_view.dart';
-import 'views/complete_information/complete_info_view.dart';
-import 'views/forget_password/update_password_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -46,7 +46,7 @@ class CrafterProfileViewBody extends StatelessWidget {
                 children: [
                   ProfileHeader(
                     userName: profile.username,
-                    location: profile.location ?? "",
+                    location: profile.location ?? "UnKnown",
                     screenWidth: SizeConfig.screenWidth,
                   ),
                   MenuSection(

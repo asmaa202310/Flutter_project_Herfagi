@@ -26,8 +26,8 @@ class CategoryItem extends StatelessWidget {
   static final Map<String, IconData> _iconsMap = {
     "airConditioning": Icons.ac_unit,
     "painter": Icons.format_paint,
-    "plumber": Icons.plumbing,
-    "electrician": Icons.electrical_services,
+    "plumber": Icons.water_damage,
+    "electrician": Icons.flash_on,
     "carpenter": Icons.handyman,
     "cleaning": Icons.cleaning_services,
     "gardener": Icons.park,
@@ -69,7 +69,7 @@ class CategoryItem extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(
-            _getIconData(category.iconName),
+            _getIconData(category.name),
             size: SizeConfig.width(fraction: 0.07),
             color: color,
           ),
