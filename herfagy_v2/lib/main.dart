@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:herfagy_v2/constants/app_colors.dart';
 import 'package:herfagy_v2/setup.dart';
 import 'package:herfagy_v2/start_page_loader.dart';
 import 'package:herfagy_v2/viewmodels/language_view_model.dart';
@@ -11,6 +10,8 @@ import 'package:herfagy_v2/viewmodels/theme_view_model.dart';
 import '/generated/l10n.dart';
 import '/viewmodels/onboarding_view_model.dart';
 import 'package:provider/provider.dart';
+
+import 'constants/app_theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -54,14 +55,7 @@ class HerfagyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
 
-      home: const CompleteInfoView(),
+      home: const StartPageLoader(),
     );
   }
 }
-
-//ProfileListTileWidget
-
-// theme: ThemeData(
-//         fontFamily: 'NotoSansArabic_Condensed-Regular',
-//         scaffoldBackgroundColor: Colors.white,
-//       ),

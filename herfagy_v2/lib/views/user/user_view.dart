@@ -35,7 +35,7 @@ class _UserViewState extends State<UserView> {
         //     ? AppColors.kButtonsForegroundColorLight
         //     : ,
         indicatorColor: isDark
-            ? AppColors.kButtonsForegroundColorLight.withValues(alpha: 0.7)
+            ? AppColors.kButtonsForegroundColorLight.withValues(alpha: 0.3)
             : Colors.blue.shade300,
         selectedIndex: _selectedIndex,
         onDestinationSelected: (int index) {
