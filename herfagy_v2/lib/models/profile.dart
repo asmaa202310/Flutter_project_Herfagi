@@ -7,6 +7,7 @@ class Profile {
   final double? price;
   final String? imageUrl;
   final String? location;
+  final String? phone;
 
   Profile({
     required this.id,
@@ -17,6 +18,7 @@ class Profile {
     this.price,
     this.imageUrl,
     this.location,
+    this.phone,
   });
 
   factory Profile.fromMap(Map<String, dynamic> map) {
@@ -29,6 +31,7 @@ class Profile {
       price: map['price']?.toDouble(),
       imageUrl: map['imageUrl'],
       location: map['location'],
+      phone: map['phone'],
     );
   }
 
@@ -42,6 +45,7 @@ class Profile {
       'price': price,
       'imageUrl': imageUrl,
       'location': location,
+      'phone': phone,
     };
   }
 }

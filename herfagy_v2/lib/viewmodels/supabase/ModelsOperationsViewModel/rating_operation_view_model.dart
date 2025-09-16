@@ -9,6 +9,8 @@ class RatingOperationViewModel extends ChangeNotifier {
 
   final SupabaseClient supabaseClient = sl<SupabaseClient>();
 
+  
+
   Future<void> loadRatings() async {
     try {
       final result = await supabaseClient

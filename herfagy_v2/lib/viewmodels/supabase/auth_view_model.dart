@@ -144,6 +144,7 @@ class AuthViewModel extends ChangeNotifier {
       price: _profile!.price,
       email: _profile!.email,
       location: profile?.location ?? "UnKnown",
+      phone: profile?.phone ?? "UnKnown",
     );
 
     await _profileOps.updateProfile(_profile!);

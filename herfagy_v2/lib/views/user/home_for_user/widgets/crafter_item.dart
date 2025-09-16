@@ -5,6 +5,7 @@ import 'package:herfagy_v2/utils/get_localize_title.dart';
 import 'package:herfagy_v2/utils/localization_extension.dart';
 import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/service_operation_view_model.dart';
 import 'package:herfagy_v2/views/book_now/book_now_view.dart';
+import 'package:provider/provider.dart';
 import '../../../onboarding/widgets/custom_elevated_button.dart';
 
 import '../../../../utils/size_config.dart';
@@ -55,9 +56,10 @@ class CrafterItem extends StatelessWidget {
     SizeConfig.init(context);
 
     return FutureBuilder(
-      future: context.watch<ServiceOperationViewModel>().getServiceById(
-        crafter.serviceId!,
-      ),
+      future: Provider.of<ServiceOperationViewModel>(
+        context,
+        listen: false,
+      ).getServiceById(crafter.serviceId!),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
           return const Center(child: CircularProgressIndicator());
@@ -125,7 +127,9 @@ class CrafterItem extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => BookNowView()),
+                    MaterialPageRoute(
+                      builder: (context) => BookNowView(crafter: crafter),
+                    ),
                   );
                 },
               ),

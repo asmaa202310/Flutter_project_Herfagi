@@ -13,9 +13,6 @@ class HomeCrafterView extends StatelessWidget {
       body: MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) => ProgressProvider()),
-          ChangeNotifierProvider(
-            create: (_) => OrderOperationViewModel()..loadOrders(),
-          ),
         ],
         child: const HomeCrafterViewBody(),
       ),

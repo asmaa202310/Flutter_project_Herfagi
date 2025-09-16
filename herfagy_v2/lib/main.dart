@@ -3,8 +3,11 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:herfagy_v2/constants/app_colors.dart';
 import 'package:herfagy_v2/services/setup.dart';
 import 'package:herfagy_v2/services/start_page_loader.dart';
+import 'package:herfagy_v2/viewmodels/book_now_view_model.dart';
 import 'package:herfagy_v2/viewmodels/language_view_model.dart';
+import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/order_operation_view_model.dart';
 import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/profile_operation_view_model.dart';
+import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/rating_operation_view_model.dart';
 import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/service_operation_view_model.dart';
 import 'package:herfagy_v2/viewmodels/supabase/auth_view_model.dart';
 import 'package:herfagy_v2/viewmodels/theme_view_model.dart';
@@ -21,9 +24,12 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (_) => OnboardingViewModel()),
         ChangeNotifierProvider(create: (_) => AuthViewModel()),
         ChangeNotifierProvider(create: (_) => LanguageViewModel()),
-        ChangeNotifierProvider(create: (_) => ProfileOperationViewModel()),
+        ChangeNotifierProvider(create: (_) => ProfileOperationViewModel()..loadProfiles()),
         ChangeNotifierProvider(create: (_) => ThemeViewModel()),
-        ChangeNotifierProvider(create: (_) => ServiceOperationViewModel()),
+        ChangeNotifierProvider(create: (_) => ServiceOperationViewModel()..loadServices()),
+        ChangeNotifierProvider(create: (_) => OrderOperationViewModel()..loadOrders()),
+        ChangeNotifierProvider(create:  (_) => RatingOperationViewModel()..loadRatings()),
+        ChangeNotifierProvider(create:  (_) => BookNowViewModel()),
       ],
       child: const HerfagyApp(),
     ),

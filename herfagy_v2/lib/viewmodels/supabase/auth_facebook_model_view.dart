@@ -35,6 +35,7 @@ class AuthFacebookModelView {
         username: user.userMetadata?['name'] ?? 'NoName',
         email: user.email ?? 'NoEmail',
         role: existingProfile.role,
+        phone: user.phone ?? "UnKnown",
       );
 
       profile = profileData;
@@ -63,6 +64,7 @@ class AuthFacebookModelView {
       serviceId: profile!.serviceId,
       price: profile!.price,
       location: profile?.location ?? "UnKnown",
+      phone: profile?.phone ?? "UnKnown",
     );
 
     await _profileOps.updateProfile(updatedProfile);

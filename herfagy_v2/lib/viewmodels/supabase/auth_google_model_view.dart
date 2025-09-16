@@ -42,7 +42,8 @@ class AuthGoogleModelView {
         username:
             user.userMetadata?['name'] ?? googleAccount.displayName ?? 'NoName',
         email: user.email ?? 'NoEmail',
-        role: existingProfile.role, 
+        role: existingProfile.role,
+        phone: user.phone ?? "UnKnown",
       );
 
       profile = profileData;
@@ -66,6 +67,7 @@ class AuthGoogleModelView {
       serviceId: profile!.serviceId,
       price: profile!.price,
       location: profile?.location ?? "UnKnown",
+      phone: profile?.phone ?? "UnKnown",
     );
 
     await _profileOps.updateProfile(updatedProfile);

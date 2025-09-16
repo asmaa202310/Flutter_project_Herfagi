@@ -4,9 +4,10 @@ class CustomTextField extends StatelessWidget {
   final String label;
   final String hint;
   final TextEditingController controller;
-  final String? Function(String?) validator;
+  final String? Function(String?)? validator;
   final IconData prefixIcon;
   final bool obscureText;
+  final bool? enabled;
   final IconData? suffixIcon;
   final VoidCallback? onSuffixIconPressed;
   final TextInputType? keyboardType;
@@ -15,11 +16,12 @@ class CustomTextField extends StatelessWidget {
     required this.label,
     required this.hint,
     required this.controller,
-    required this.validator,
+    this.validator,
     required this.prefixIcon,
     this.obscureText = false,
     this.suffixIcon,
     this.keyboardType,
+    this.enabled,
     super.key,
     this.onSuffixIconPressed,
   });
@@ -33,6 +35,7 @@ class CustomTextField extends StatelessWidget {
       obscureText: obscureText,
       keyboardType: keyboardType,
       decoration: InputDecoration(
+        enabled: enabled ?? true,
         labelText: label,
         hintText: hint,
         prefixIcon: Icon(prefixIcon, color: Colors.blue.shade400),

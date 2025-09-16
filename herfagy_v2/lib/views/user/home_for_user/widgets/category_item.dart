@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:herfagy_v2/models/service.dart';
+import 'package:herfagy_v2/views/category_details/category_details_view.dart';
 import '/utils/size_config.dart';
 import '../../../../utils/get_localize_title.dart';
 
@@ -55,7 +56,6 @@ class CategoryItem extends StatelessWidget {
     final color = _colors[category.id % _colors.length];
     return Container(
       width: SizeConfig.width(fraction: 0.27),
-      padding: EdgeInsets.all(paddingAll ?? SizeConfig.width(fraction: 0.03)),
       margin: EdgeInsets.only(
         right: marginRight ?? SizeConfig.width(fraction: 0.04),
       ),
@@ -64,28 +64,42 @@ class CategoryItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(18),
         border: Border.all(color: Colors.black.withValues(alpha: 0.3)),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            _getIconData(category.name),
-            size: SizeConfig.width(fraction: 0.07),
-            color: color,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(18),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => CategoryDetailsView(category:category)),
+          );
+        },
+        child: Padding(
+          padding: EdgeInsets.all(
+            paddingAll ?? SizeConfig.width(fraction: 0.03),
           ),
-          SizedBox(height: SizeConfig.height(fraction: 0.01)),
-          Text(
-            GetLocalizeTitle.getLocalizedTitle(
-              context,
-              _serviceKeyMap[category.name] ?? ServiceKey.electrician,
-            ),
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              overflow: TextOverflow.ellipsis,
-              fontSize: SizeConfig.width(fraction: 0.039),
-            ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                _getIconData(category.name),
+                size: SizeConfig.width(fraction: 0.07),
+                color: color,
+              ),
+              SizedBox(height: SizeConfig.height(fraction: 0.01)),
+              Text(
+                GetLocalizeTitle.getLocalizedTitle(
+                  context,
+                  _serviceKeyMap[category.name] ?? ServiceKey.electrician,
+                ),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  overflow: TextOverflow.ellipsis,
+                  fontSize: SizeConfig.width(fraction: 0.039),
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

@@ -10,7 +10,7 @@ class ChangeLanguageViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<LanguageViewModel>(context);
+    final provider = Provider.of<LanguageViewModel>(context, listen: false);
     return CustomScrollView(
       slivers: [
         CustomGeneralSliverAppBar(

@@ -13,7 +13,7 @@ class BottomSheetActionButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ordersVM = context.read<OrderOperationViewModel>();
+    final ordersVM = Provider.of<OrderOperationViewModel>(context, listen: false);
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
