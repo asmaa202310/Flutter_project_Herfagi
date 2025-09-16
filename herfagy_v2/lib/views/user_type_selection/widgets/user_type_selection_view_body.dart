@@ -66,68 +66,72 @@ class UserTypeSelectionViewBody extends StatelessWidget {
       );
     }
 
-    return SingleChildScrollView(
-      child: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: SizeConfig.width(fraction: 0.05),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(height: SizeConfig.height(fraction: 0.05)),
-            const LogoWidget(),
-            SizedBox(height: SizeConfig.height(fraction: 0.03)),
-            Text(
-              localization.chooseAccountType,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.blue,
-                fontSize: SizeConfig.width(fraction: 0.09),
-                fontWeight: FontWeight.bold,
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: SizeConfig.width(fraction: 0.05),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(height: SizeConfig.height(fraction: 0.05)),
+              const LogoWidget(),
+              SizedBox(height: SizeConfig.height(fraction: 0.03)),
+              Text(
+                localization.chooseAccountType,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: SizeConfig.width(fraction: 0.09),
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            SizedBox(height: SizeConfig.height(fraction: 0.02)),
-            Text(
-              localization.pleaseChooseAccountType,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: themeProvider.isDarkMode ? Colors.grey : Colors.blueGrey,
-                fontSize: SizeConfig.width(fraction: 0.045),
-                height: 1.5,
+              SizedBox(height: SizeConfig.height(fraction: 0.02)),
+              Text(
+                localization.pleaseChooseAccountType,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: themeProvider.isDarkMode
+                      ? Colors.grey
+                      : Colors.blueGrey,
+                  fontSize: SizeConfig.width(fraction: 0.045),
+                  height: 1.5,
+                ),
               ),
-            ),
-            SizedBox(height: SizeConfig.height(fraction: 0.05)),
-            AccountCard(
-              title: localization.crafterAccount,
-              description: localization.crafterAccountDescription,
-              icon: Icons.work_outline,
-              bgColor: Colors.blue,
-              iconColor: Colors.white,
-              borderColor: Colors.blue.shade700,
-              onTap: () =>
-                  selectRoleAndNavigate('Crafter', const CrafterView()),
-            ),
-            SizedBox(height: SizeConfig.height(fraction: 0.03)),
-            AccountCard(
-              title: localization.userAccount,
-              description: localization.userAccountDescription,
-              icon: Icons.person_outline,
-              bgColor: Colors.white,
-              iconColor: Colors.blue,
-              borderColor: Colors.grey.shade200,
-              onTap: () => selectRoleAndNavigate('User', const UserView()),
-            ),
-            SizedBox(height: SizeConfig.height(fraction: 0.06)),
-            RowCheckAccountWidget(
-              questionText: localization.alreadyHaveAccount,
-              buttonText: localization.login,
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => const LoginView()),
+              SizedBox(height: SizeConfig.height(fraction: 0.05)),
+              AccountCard(
+                title: localization.crafterAccount,
+                description: localization.crafterAccountDescription,
+                icon: Icons.work_outline,
+                bgColor: Colors.blue,
+                iconColor: Colors.white,
+                borderColor: Colors.blue.shade700,
+                onTap: () =>
+                    selectRoleAndNavigate('Crafter', const CrafterView()),
               ),
-            ),
-            SizedBox(height: SizeConfig.height(fraction: 0.03)),
-          ],
+              SizedBox(height: SizeConfig.height(fraction: 0.03)),
+              AccountCard(
+                title: localization.userAccount,
+                description: localization.userAccountDescription,
+                icon: Icons.person_outline,
+                bgColor: Colors.white,
+                iconColor: Colors.blue,
+                borderColor: Colors.grey.shade200,
+                onTap: () => selectRoleAndNavigate('User', const UserView()),
+              ),
+              SizedBox(height: SizeConfig.height(fraction: 0.06)),
+              RowCheckAccountWidget(
+                questionText: localization.alreadyHaveAccount,
+                buttonText: localization.login,
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const LoginView()),
+                ),
+              ),
+              SizedBox(height: SizeConfig.height(fraction: 0.03)),
+            ],
+          ),
         ),
       ),
     );
