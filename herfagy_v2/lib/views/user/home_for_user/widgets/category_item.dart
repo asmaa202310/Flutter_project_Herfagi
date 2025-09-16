@@ -69,7 +69,9 @@ class CategoryItem extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (_) => CategoryDetailsView(category:category)),
+            MaterialPageRoute(
+              builder: (_) => CategoryDetailsView(category: category),
+            ),
           );
         },
         child: Padding(
@@ -89,7 +91,7 @@ class CategoryItem extends StatelessWidget {
               Text(
                 GetLocalizeTitle.getLocalizedTitle(
                   context,
-                  _serviceKeyMap[category.name] ?? ServiceKey.electrician,
+                  _serviceKeyMap[category.name] ?? ServiceKey.painter,
                 ),
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
