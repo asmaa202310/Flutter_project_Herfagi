@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:herfagy_v2/models/profile.dart';
-import 'package:herfagy_v2/setup.dart';
+import 'package:herfagy_v2/services/setup.dart';
 import 'package:herfagy_v2/viewmodels/supabase/modelsOperationsViewModel/profile_operation_view_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -144,6 +144,7 @@ class AuthViewModel extends ChangeNotifier {
       price: _profile!.price,
       email: _profile!.email,
       location: profile?.location ?? "UnKnown",
+      phone: profile?.phone ?? "UnKnown",
     );
 
     await _profileOps.updateProfile(_profile!);

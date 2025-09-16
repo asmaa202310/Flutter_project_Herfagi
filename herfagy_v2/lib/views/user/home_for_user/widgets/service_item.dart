@@ -7,6 +7,7 @@ import 'package:herfagy_v2/views/user/home_for_user/widgets/custom_rating_bar_in
 import '../../../../constants/app_colors.dart';
 import '../../../../models/old/service_model.dart';
 import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/rating_operation_view_model.dart';
+import 'package:herfagy_v2/views/book_now/book_now_view.dart';
 import 'package:herfagy_v2/views/user/home_for_user/widgets/custom_rating_bar_indicator.dart';
 import 'package:herfagy_v2/models/service.dart';
 import 'package:provider/provider.dart';
@@ -65,7 +66,10 @@ class ServiceItem extends StatelessWidget {
     List<Profile> profilesUsers,
     Profile profilesCrafter,
   ) async {
-    final ratingVM = context.read<RatingOperationViewModel>();
+    final ratingVM = Provider.of<RatingOperationViewModel>(
+      context,
+      listen: false,
+    );
     double sumRating = 0;
     int count = 0;
 
@@ -190,10 +194,16 @@ class ServiceItem extends StatelessWidget {
             borderRaduis: SizeConfig.width(fraction: 0.05),
             fontSize: SizeConfig.width(fraction: 0.035),
             padding: 0,
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => BookNowView()),
-            ),
+
+           
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => BookNowView(crafter: profilesCrafter),
+                ),
+              );
+            },
           ),
         ],
       ),

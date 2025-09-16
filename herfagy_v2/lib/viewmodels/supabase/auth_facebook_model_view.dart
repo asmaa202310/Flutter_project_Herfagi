@@ -1,6 +1,6 @@
 import 'dart:developer';
 import 'package:herfagy_v2/models/profile.dart';
-import 'package:herfagy_v2/setup.dart';
+import 'package:herfagy_v2/services/setup.dart';
 import 'package:herfagy_v2/viewmodels/supabase/modelsOperationsViewModel/profile_operation_view_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -35,6 +35,7 @@ class AuthFacebookModelView {
         username: user.userMetadata?['name'] ?? 'NoName',
         email: user.email ?? 'NoEmail',
         role: existingProfile.role,
+        phone: user.phone ?? "UnKnown",
       );
 
       profile = profileData;
@@ -63,6 +64,7 @@ class AuthFacebookModelView {
       serviceId: profile!.serviceId,
       price: profile!.price,
       location: profile?.location ?? "UnKnown",
+      phone: profile?.phone ?? "UnKnown",
     );
 
     await _profileOps.updateProfile(updatedProfile);

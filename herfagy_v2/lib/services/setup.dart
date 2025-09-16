@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:herfagy_v2/app_config.dart';
+import 'package:herfagy_v2/services/app_config.dart';
 import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/order_operation_view_model.dart';
 import 'package:herfagy_v2/viewmodels/supabase/auth_facebook_model_view.dart';
 import 'package:herfagy_v2/viewmodels/supabase/auth_google_model_view.dart';

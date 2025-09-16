@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:herfagy_v2/models/order.dart';
 import 'package:herfagy_v2/models/profile.dart';
 import 'package:herfagy_v2/models/service.dart';
-import 'package:herfagy_v2/setup.dart';
+import 'package:herfagy_v2/services/setup.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class OrderOperationViewModel extends ChangeNotifier {
@@ -143,5 +143,21 @@ class OrderOperationViewModel extends ChangeNotifier {
         .eq('id', profileId)
         .single();
     return Profile.fromMap(response);
+  }
+
+  Future<List<Order>> getNewOrdersForCrafter(String crafterId) async {
+    try {
+      final result = await _supabaseClient
+          .from('orders')
+          .select()
+          .eq('crafter_id', crafterId)
+          .eq('status', 'new')
+          .order('date', ascending: true);
+
+      return (result as List).map((item) => Order.fromMap(item)).toList();
+    } catch (e) {
+      debugPrint("Get New Orders For Crafter error: $e");
+      return [];
+    }
   }
 }

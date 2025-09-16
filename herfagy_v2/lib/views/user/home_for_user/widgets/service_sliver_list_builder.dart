@@ -44,14 +44,18 @@ class _ServiceSliverListBuilderState extends State<ServiceSliverListBuilder> {
 
   @override
   Widget build(BuildContext context) {
-    final profiles = context.watch<ProfileOperationViewModel>().profiles;
+    final profiles = Provider.of<ProfileOperationViewModel>(context, listen: false).profiles;
     _matchProfilesWithServices(profiles);
 
     return SliverList(
       delegate: SliverChildBuilderDelegate((context, index) {
         var service = servicesW[index];
         var profilesCrafter = profilesCrafters[index];
-        return ServiceItem(service: service, profilesCrafter: profilesCrafter, profilesUsers: profilesUsers);
+        return ServiceItem(
+          service: service,
+          profilesCrafter: profilesCrafter,
+          profilesUsers: profilesUsers,
+        );
       }, childCount: servicesW.length),
     );
   }

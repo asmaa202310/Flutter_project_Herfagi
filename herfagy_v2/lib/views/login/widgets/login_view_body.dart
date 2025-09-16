@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import '../../../utils/size_config.dart';
 import '/utils/localization_extension.dart';
 import '../../sign_up/sign_up_view.dart';

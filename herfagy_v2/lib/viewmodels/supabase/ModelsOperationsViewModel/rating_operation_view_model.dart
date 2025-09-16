@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:herfagy_v2/models/rating.dart';
-import 'package:herfagy_v2/setup.dart';
+import 'package:herfagy_v2/services/setup.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class RatingOperationViewModel extends ChangeNotifier {
@@ -8,6 +8,8 @@ class RatingOperationViewModel extends ChangeNotifier {
   List<Rating> get ratings => _ratings;
 
   final SupabaseClient supabaseClient = sl<SupabaseClient>();
+
+  
 
   Future<void> loadRatings() async {
     try {

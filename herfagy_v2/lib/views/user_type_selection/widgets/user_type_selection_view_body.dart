@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:herfagy_v2/models/profile.dart';
-import 'package:herfagy_v2/setup.dart';
+import 'package:herfagy_v2/services/setup.dart';
 import 'package:herfagy_v2/utils/get_location.dart';
 import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/profile_operation_view_model.dart';
 import 'package:herfagy_v2/viewmodels/supabase/auth_facebook_model_view.dart';

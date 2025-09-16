@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/order_operation_view_model.dart';
 import 'package:provider/provider.dart';
+import '../../../viewmodels/supabase/ModelsOperationsViewModel/order_operation_view_model.dart';
 import 'widgets/orders_view_body.dart';
 
 class UserOrdersView extends StatelessWidget {

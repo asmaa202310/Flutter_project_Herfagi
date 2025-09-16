@@ -1,5 +1,5 @@
 import 'package:herfagy_v2/models/service.dart';
-import 'package:herfagy_v2/setup.dart';
+import 'package:herfagy_v2/services/setup.dart';
 import 'package:herfagy_v2/utils/get_order_status_extension.dart';
 import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/order_operation_view_model.dart';
 
