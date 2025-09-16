@@ -144,4 +144,20 @@ class OrderOperationViewModel extends ChangeNotifier {
         .single();
     return Profile.fromMap(response);
   }
+
+  Future<List<Order>> getNewOrdersForCrafter(String crafterId) async {
+    try {
+      final result = await _supabaseClient
+          .from('orders')
+          .select()
+          .eq('crafter_id', crafterId)
+          .eq('status', 'new')
+          .order('date', ascending: true);
+
+      return (result as List).map((item) => Order.fromMap(item)).toList();
+    } catch (e) {
+      debugPrint("Get New Orders For Crafter error: $e");
+      return [];
+    }
+  }
 }

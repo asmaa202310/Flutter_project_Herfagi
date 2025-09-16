@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:herfagy_v2/models/profile.dart';
 import 'package:herfagy_v2/utils/get_localize_title.dart';
 import 'package:herfagy_v2/utils/localization_extension.dart';

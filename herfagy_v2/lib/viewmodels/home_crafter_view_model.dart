@@ -1,117 +1,32 @@
-
 import 'package:flutter/material.dart';
-
+import 'package:herfagy_v2/utils/get_order_status_extension.dart';
+import '../../../../models/order.dart';
 
 class ProgressProvider extends ChangeNotifier {
-  double _progress = 0.75;
-  int _completedProjects = 15;
-  int _uncompletedProjects = 5;
+  int _completedProjects = 0;
+  int _inProgressProjects = 0;
+  int _totalProjects = 0;
 
-  double get progress => _progress;
+  double get progress => _totalProjects == 0
+      ? 0
+      : (_completedProjects + _inProgressProjects) / _totalProjects;
+
   int get completedProjects => _completedProjects;
-  int get uncompletedProjects => _uncompletedProjects;
+  int get uncompletedProjects => _inProgressProjects;
 
-  void updateProgress(double value) {
-    _progress = value;
-    notifyListeners();
-  }
+  void updateOrders(List<Order> orders, String crafterId) {
+    final crafterOrders = orders
+        .where((o) => o.crafterId == crafterId)
+        .toList();
 
-  void updateCompletedProjects(int value) {
-    _completedProjects = value;
-    notifyListeners();
-  }
+    _completedProjects = crafterOrders
+        .where((o) => o.status == OrderStatus.completed)
+        .length;
+    _inProgressProjects = crafterOrders
+        .where((o) => o.status == OrderStatus.inProgress)
+        .length;
+    _totalProjects = crafterOrders.length;
 
-  void updateUncompletedProjects(int value) {
-    _uncompletedProjects = value;
     notifyListeners();
   }
 }
-
-// class CrafterServicesProvider extends ChangeNotifier {
-//   final List<CategoryModel> _services = [
-//     CategoryModel(
-//       key: ServiceKey.electrician,
-//       icon: Icons.flash_on,
-//       color: Colors.yellow,
-//     ),
-//     CategoryModel(
-//       key: ServiceKey.carpenter,
-//       icon: Icons.handyman,
-//       color: Colors.orange,
-//     ),
-//     CategoryModel(
-//       key: ServiceKey.plumber,
-//       icon: Icons.water_damage,
-//       color: Colors.blue,
-//     ),
-//   ];
-
-//   List<CategoryModel> get services => List.unmodifiable(_services);
-
-//   void addService(CategoryModel service) {
-//     _services.add(service);
-//     notifyListeners();
-//   }
-
-//   void removeService(CategoryModel service) {
-//     _services.remove(service);
-//     notifyListeners();
-//   }
-
-//   void clearServices() {
-//     _services.clear();
-//     notifyListeners();
-//   }
-// }
-
-// class RequestsProvider extends ChangeNotifier {
-//   final List<RequestModel> _requests = [
-//     RequestModel(
-//       customerName: "فاطمة الزهراء",
-//       serviceKey: ServiceKey.plumber,
-//       date: "2025-09-12",
-//       details: "يوجد تسريب مياه أسفل حوض المطبخ، يتطلب فحص وإصلاح فوري.",
-//     ),
-//     RequestModel(
-//       customerName: "خالد المصري",
-//       serviceKey: ServiceKey.painter,
-//       date: "2025-09-11",
-//       details: "دهان جدران غرفة المعيشة بالكامل باللون الأبيض.",
-//     ),
-//     RequestModel(
-//       customerName: "مريم عبد الرحمن",
-//       serviceKey: ServiceKey.airConditioning,
-//       date: "2025-09-11",
-//       details: "صيانة دورية لوحدة التكييف وتنظيف الفلاتر قبل دخول الشتاء.",
-//     ),
-//     RequestModel(
-//       customerName: "يوسف حمدي",
-//       serviceKey: ServiceKey.electrician,
-//       date: "2025-09-10",
-//       details: "تركيب 3 نقاط كهرباء جديدة في الغرفة.",
-//     ),
-//     RequestModel(
-//       customerName: "طارق شوقي",
-//       serviceKey: ServiceKey.carpenter,
-//       date: "2025-09-10",
-//       details: "إصلاح باب شرفة مكسور لا يغلق بإحكام.",
-//     ),
-//   ];
-//   List<RequestModel> get requests => _requests;
-
-//   void addNewRequest(RequestModel newRequest) {
-//     _requests.add(newRequest);
-//     notifyListeners();
-//   }
-
-//   void acceptRequest(RequestModel newRequest) {
-//     newRequest.isAccepted = true;
-//     _requests.remove(newRequest);
-//     notifyListeners();
-//   }
-
-//   void rejectRequest(RequestModel newRequest) {
-//     _requests.remove(newRequest);
-//     notifyListeners();
-//   }
-// }

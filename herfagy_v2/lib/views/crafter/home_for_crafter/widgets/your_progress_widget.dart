@@ -22,7 +22,7 @@ class YourProgressWidget extends StatelessWidget {
         ),
         Selector<ProgressProvider, int>(
           selector: (_, vm) => (vm.progress * 100).toInt(),
-          builder: (_, percent, __) {
+          builder: (_, percent, _) {
             final locale = Localizations.localeOf(context).languageCode;
             final formatted = NumberFormat.decimalPattern(
               locale,
