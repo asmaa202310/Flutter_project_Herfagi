@@ -6,6 +6,7 @@ import 'package:herfagy_v2/viewmodels/supabase/ModelsOperationsViewModel/profile
 import 'package:herfagy_v2/viewmodels/supabase/auth_facebook_model_view.dart';
 import 'package:herfagy_v2/viewmodels/supabase/auth_google_model_view.dart';
 import 'package:herfagy_v2/viewmodels/theme_view_model.dart';
+import 'package:herfagy_v2/views/complete_information/complete_info_view.dart';
 import 'package:herfagy_v2/views/crafter/crafter_view.dart';
 import 'package:herfagy_v2/views/user/user_view.dart';
 import '/utils/localization_extension.dart';
@@ -60,10 +61,17 @@ class UserTypeSelectionViewBody extends StatelessWidget {
 
       if (!context.mounted) return;
 
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (_) => nextPage),
-      );
+      if (role == 'Crafter') {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => const CompleteInfoView()),
+        );
+      } else {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => const UserView()),
+        );
+      }
     }
 
     return Scaffold(

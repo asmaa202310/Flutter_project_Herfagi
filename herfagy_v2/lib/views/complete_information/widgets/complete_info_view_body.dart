@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:herfagy_v2/constants/app_colors.dart';
 import 'package:herfagy_v2/utils/size_config.dart';
+import 'package:herfagy_v2/views/crafter/crafter_view.dart';
 import 'package:herfagy_v2/views/onboarding/widgets/custom_elevated_button.dart';
 import 'package:provider/provider.dart';
 import 'package:herfagy_v2/utils/localization_extension.dart';
@@ -47,7 +48,8 @@ class CompleteInfoViewBody extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             DropdownButtonFormField<String>(
-              initialValue: provider.selectedService,
+              initialValue: provider.selectedServiceName,
+
               decoration: InputDecoration(
                 hintText: localization.selectService,
                 prefixIcon: const Icon(
@@ -64,7 +66,11 @@ class CompleteInfoViewBody extends StatelessWidget {
                   child: Text(service),
                 );
               }).toList(),
-              onChanged: provider.setService,
+              onChanged: (value) {
+                if (value != null) {
+                  provider.setService(value, context); // value هنا بالعربي
+                }
+              },
               validator: (value) =>
                   value == null ? localization.requiredField : null,
             ),
@@ -75,7 +81,7 @@ class CompleteInfoViewBody extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             InkWell(
-              onTap: provider.pickIdCardImage,
+              onTap: () => provider.showImageSourceSheet(context),
               child: Container(
                 height: SizeConfig.height(fraction: 0.22),
                 width: double.infinity,
@@ -106,9 +112,15 @@ class CompleteInfoViewBody extends StatelessWidget {
                       ),
               ),
             ),
+
             const Spacer(),
             CustomElevatedButton(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (_) => const CrafterView()),
+                );
+              },
               text: context.localization.next,
               fontSize: 18,
             ),

@@ -40,14 +40,13 @@ dependencies:
   provider: ^6.1.5+1
   lottie: ^3.3.2
   flutter_rating_bar: ^4.0.1
-  supabase_flutter: ^2.10.0
+  supabase_flutter: ^2.10.1
   app_links: ^6.4.1
   flutter_web_auth_2: ^4.1.0
   percent_indicator: ^4.2.5
   shared_preferences: ^2.5.3
-  google_sign_in: ^7.1.1
-  flutter_bloc: ^9.1.1
-  google_sign_in_android: ^7.0.5
+  google_sign_in: ^7.2.0
+  google_sign_in_android: ^7.1.0
   get_it: ^8.2.0
   flutter_facebook_auth: ^7.1.2
   cached_network_image: ^3.4.1
