@@ -140,4 +140,4 @@ Below is the ER diagram / structure of the main tables used in Supabase:
 ## 🔧 How to Run
 1. Clone the repository:  
    ```bash
-   git clone <repo-url>
+   git clone https://github.com/asmaa202310/Flutter_project_Herfagi.git
